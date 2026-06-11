@@ -1,0 +1,144 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\newcommand{\SummonsPdf}{Reference/h.-Summons-Form-AO-440.pdf}
+
+% Court and case caption.
+\newcommand{\SummonsDistrictPartOne}{\FilingDistrictPartOne}
+\newcommand{\SummonsDistrictPartTwo}{\FilingDistrictPartTwo}
+\newcommand{\SummonsPlaintiff}{\FilingPlaintiffName}
+\newcommand{\SummonsCaseNumber}{\FilingCivilActionNumber}
+
+% Plaintiff service/contact block for the answer or Rule 12 motion.
+\newcommand{\SummonsPlaintiffServiceLineOne}{\FilingPlaintiffName}
+\newcommand{\SummonsPlaintiffServiceLineTwo}{\FilingPlaintiffMailingLineOne}
+\newcommand{\SummonsPlaintiffServiceLineThree}{\FilingPlaintiffMailingLineTwo}
+\newcommand{\SummonsPlaintiffServiceLineFour}{\FilingPlaintiffMailingCityStateZip}
+
+% Proposed defendant service-address blocks.
+\newcommand{\SummonsUtAustinAddrLineOne}{Office of the President}
+\newcommand{\SummonsUtAustinAddrLineTwo}{110 Inner Campus Drive, Stop G3400}
+\newcommand{\SummonsUtAustinAddrLineThree}{Austin, Texas 78712-3400}
+
+\newcommand{\SummonsSdsAddrLineOne}{Department of Statistics and Data Sciences}
+\newcommand{\SummonsSdsAddrLineTwo}{Welch 5.216, 105 E 24th St D9800}
+\newcommand{\SummonsSdsAddrLineThree}{Austin, Texas 78705}
+
+\newcommand{\SummonsDaAddrLineOne}{Disability and Access}
+\newcommand{\SummonsDaAddrLineTwo}{100 West Dean Keeton Street, SSB 3.200G}
+\newcommand{\SummonsDaAddrLineThree}{Austin, Texas 78712-0175}
+
+\newcommand{\SummonsComplianceAddrLineOne}{University Compliance Services}
+\newcommand{\SummonsComplianceAddrLineTwo}{1616 Guadalupe St., UTA 2.206}
+\newcommand{\SummonsComplianceAddrLineThree}{Austin, Texas 78701-1204}
+
+\newcommand{\SummonsText}[4]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{#3}{#3}\selectfont #4}};%
+}
+\newcommand{\SummonsBlock}[6]{%
+  \node[anchor=north west, align=left, text width=#3, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{#4}{#5}\selectfont #6}};%
+}
+\newcommand{\SummonsOptionalText}[4]{%
+  \if\relax\detokenize{#4}\relax\else\SummonsText{#1}{#2}{#3}{#4}\fi%
+}
+
+\newcommand{\SummonsPageOneOverlay}[6]{%
+  \thispagestyle{empty}%
+  \phantomsection\pdfbookmark[1]{Summons - #1}{summons.#2}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \SummonsText{234}{169}{10.5}{\SummonsDistrictPartOne}
+    \SummonsText{340}{169}{10.5}{\SummonsDistrictPartTwo}
+
+    \SummonsText{73}{219}{10.5}{\SummonsPlaintiff}
+    \SummonsText{73}{270}{10.5}{#1}
+    \SummonsOptionalText{414}{243}{10.5}{\SummonsCaseNumber}
+
+    \SummonsBlock{80}{350}{420pt}{11}{13}{%
+      #3\\
+      #4\\
+      #5\\
+      #6}
+
+    \SummonsBlock{80}{520}{385pt}{10.5}{12.5}{%
+      \SummonsPlaintiffServiceLineOne\\
+      \SummonsPlaintiffServiceLineTwo\\
+      \SummonsPlaintiffServiceLineThree\\
+      \SummonsPlaintiffServiceLineFour}
+  \end{tikzpicture}%
+}
+
+\newcommand{\RenderSummons}[6]{%
+  \includepdf[pages=1,pagecommand={\SummonsPageOneOverlay{#1}{#2}{#3}{#4}{#5}{#6}}]{\SummonsPdf}%
+  \includepdf[pages=2,pagecommand={\thispagestyle{empty}}]{\SummonsPdf}%
+}
+
+\begin{document}
+
+\RenderSummons
+  {\FilingDefendantUniversity}
+  {ut-austin}
+  {\FilingDefendantUniversity}
+  {\SummonsUtAustinAddrLineOne}
+  {\SummonsUtAustinAddrLineTwo}
+  {\SummonsUtAustinAddrLineThree}
+
+\RenderSummons
+  {\FilingDefendantHsiao}
+  {emily-hsiao}
+  {\FilingDefendantHsiao}
+  {\SummonsSdsAddrLineOne}
+  {\SummonsSdsAddrLineTwo}
+  {\SummonsSdsAddrLineThree}
+
+\RenderSummons
+  {\FilingDefendantScott}
+  {james-scott}
+  {\FilingDefendantScott}
+  {\SummonsSdsAddrLineOne}
+  {\SummonsSdsAddrLineTwo}
+  {\SummonsSdsAddrLineThree}
+
+\RenderSummons
+  {\FilingDefendantRagsdale}
+  {sally-ragsdale}
+  {\FilingDefendantRagsdale}
+  {\SummonsSdsAddrLineOne}
+  {\SummonsSdsAddrLineTwo}
+  {\SummonsSdsAddrLineThree}
+
+\RenderSummons
+  {\FilingDefendantBartroff}
+  {jay-bartroff}
+  {\FilingDefendantBartroff}
+  {\SummonsSdsAddrLineOne}
+  {\SummonsSdsAddrLineTwo}
+  {\SummonsSdsAddrLineThree}
+
+\RenderSummons
+  {\FilingDefendantBradley}
+  {kelli-bradley}
+  {\FilingDefendantBradley}
+  {\SummonsDaAddrLineOne}
+  {\SummonsDaAddrLineTwo}
+  {\SummonsDaAddrLineThree}
+
+\RenderSummons
+  {\FilingDefendantGraves}
+  {jeff-graves}
+  {\FilingDefendantGraves}
+  {\SummonsComplianceAddrLineOne}
+  {\SummonsComplianceAddrLineTwo}
+  {\SummonsComplianceAddrLineThree}
+
+\end{document}

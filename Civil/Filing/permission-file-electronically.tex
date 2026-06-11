@@ -1,0 +1,82 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=0in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{\input{../../signatures.tex}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+\newcommand{\PermissionPdf}{Reference/m.-Permission-to-File-Electronically.pdf}
+
+% Applicant contact information.
+\newcommand{\PermissionName}{\FilingPlaintiffName}
+\newcommand{\PermissionAddressLineOne}{\FilingPlaintiffMailingLineOne}
+\newcommand{\PermissionAddressLineTwo}{\FilingPlaintiffMailingLineTwo}
+\newcommand{\PermissionAddressLineThree}{\FilingPlaintiffMailingCityStateZip}
+\newcommand{\PermissionPhone}{\FilingPlaintiffTelephone}
+\newcommand{\PermissionEmail}{\FilingPlaintiffEmail}
+
+% Case caption.
+\newcommand{\PermissionPlaintiff}{\FilingPlaintiffName}
+\newcommand{\PermissionDefendantsLineOne}{\FilingDefendantsPermissionLineOne}
+\newcommand{\PermissionDefendantsLineTwo}{\FilingDefendantsPermissionLineTwo}
+\newcommand{\PermissionDefendantsLineThree}{\FilingDefendantsPermissionLineThree}
+\newcommand{\PermissionCaseNumber}{\FilingCivilActionNumber}
+
+\newcommand{\PermissionDate}{\FilingDate}
+\newcommand{\PermissionSignature}{\SignatureFourOnLine[width=1.5in]}
+
+\newcommand{\PermissionText}[4]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{#3}{#3}\selectfont #4}};%
+}
+\newcommand{\PermissionOptionalText}[4]{%
+  \if\relax\detokenize{#4}\relax\else\PermissionText{#1}{#2}{#3}{#4}\fi%
+}
+\newcommand{\PermissionBlock}[6]{%
+  \node[anchor=north west, align=left, text width=#3pt, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{#4}{#5}\selectfont #6}};%
+}
+\newcommand{\PermissionCheckmark}[2]{%
+  \node[anchor=center, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{11}\selectfont\bfseries X}};%
+}
+
+\newcommand{\PermissionOverlay}{%
+  \thispagestyle{empty}%
+  \phantomsection\pdfbookmark[1]{Application for Permission to File Electronically}{permission-file-electronically}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \PermissionText{82}{38.5}{11}{\PermissionName}
+    \PermissionText{82}{58.5}{11}{\PermissionAddressLineOne}
+    \PermissionText{82}{70.0}{11}{\PermissionAddressLineTwo}
+    \PermissionText{82}{81.5}{11}{\PermissionAddressLineThree}
+    \PermissionText{116}{104.5}{11}{\PermissionPhone}
+    \PermissionText{116}{126.5}{11}{\PermissionEmail}
+
+    \PermissionOptionalText{327}{193}{10.5}{\PermissionCaseNumber}
+    \PermissionText{66}{225.5}{10.5}{\PermissionPlaintiff}
+    \PermissionBlock{66}{257}{240}{9}{10.5}{%
+      \PermissionDefendantsLineOne\\
+      \PermissionDefendantsLineTwo\\
+      \PermissionDefendantsLineThree}
+
+    \PermissionCheckmark{86.5}{312.0}
+    \PermissionCheckmark{67.3}{529.8}
+    \PermissionCheckmark{67.3}{559.0}
+    \PermissionCheckmark{67.3}{601.5}
+    \PermissionCheckmark{67.3}{659.5}
+    \PermissionCheckmark{67.3}{688.9}
+
+    \PermissionOptionalText{72}{744.2}{11}{\PermissionDate}
+    \PermissionOptionalText{340}{744.2}{11}{\PermissionSignature}
+  \end{tikzpicture}%
+}
+
+\begin{document}
+\includepdf[pages=1,pagecommand={\PermissionOverlay}]{\PermissionPdf}
+\end{document}
