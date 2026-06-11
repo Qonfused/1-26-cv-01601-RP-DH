@@ -1,0 +1,60 @@
+{
+  "files.exclude": {
+    "__pycache__": true,
+    "**/*.aux": true,
+    "**/*.fdb_*": true,
+    "**/*.fls": true,
+    "**/*.log": true,
+    "**/*.out": true,
+    "**/*.synctex.*": true
+  },
+  "latex-workshop.latex.tools": [
+    {
+      "name": "workspace-root latexmk",
+      "command": "python3",
+      "args": [
+        "%WORKSPACE_FOLDER%/_latex-workshop-build.py",
+        "%RELATIVE_DOC%"
+      ],
+      "cwd": "%WORKSPACE_FOLDER%"
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk (with exhibit extraction)",
+      "tools": ["workspace-root latexmk"]
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "latexmk (with exhibit extraction)",
+  "latex-workshop.latex.autoClean.run": "never",
+  "latex-workshop.latex.clean.method": "glob",
+  "latex-workshop.latex.clean.subfolder.enabled": true,
+  "latex-workshop.latex.clean.fileTypes": [
+    "*.aux",
+    "*.bbl",
+    "*.blg",
+    "*.fdb_*",
+    "*.fdb_latexmk",
+    "*.fls",
+    "*.idx",
+    "*.ind",
+    "*.log",
+    "*.lof",
+    "*.lot",
+    "*.out",
+    "*.synctex",
+    "*.synctex.*",
+    "*.synctex.gz",
+    "*.synctex(busy)",
+    "*.synctex.gz(busy)",
+    "*.toc",
+    "*.acn",
+    "*.acr",
+    "*.alg",
+    "*.glg",
+    "*.glo",
+    "*.gls",
+    "*.ist",
+    "exhibit-manifest.txt"
+  ]
+}

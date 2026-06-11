@@ -1,0 +1,302 @@
+% Shared helpers for extracted exhibit packets and PDF attachment previews.
+%
+% The Python side reads \ExhibitManifestFile and writes generated PDFs under
+% \ExhibitGeneratedDir. The manifest is opened lazily so documents can use the
+% preview helpers without also invoking the extraction workflow.
+
+\RequirePackage{expl3}
+\RequirePackage{xparse}
+\RequirePackage{xcolor}
+\RequirePackage{graphicx}
+\RequirePackage{tikz}
+\RequirePackage{fancyhdr}
+\RequirePackage{longtable}
+\RequirePackage{refcount}
+\usetikzlibrary{decorations.pathmorphing,positioning}
+
+\tikzset{
+  subexhibit solid/.style={line width=0.4pt},
+  subexhibit cont/.style={
+    decorate,
+    decoration={zigzag, segment length=8pt, amplitude=2pt},
+    line width=0.4pt
+  },
+  exhibit solid/.style={subexhibit solid},
+  exhibit cont/.style={subexhibit cont},
+  ifp solid/.style={subexhibit solid},
+  ifp cont/.style={subexhibit cont},
+}
+
+\fancypagestyle{exhibit}{
+  \fancyhf{}
+  \fancyfoot[C]{\raisebox{0.25in}[0pt][0pt]{\thepage}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\fancypagestyle{ifpattachment}{
+  \fancyhf{}
+  \fancyfoot[C]{\thepage}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
+
+\newcommand{\ApplySubExhibitPreviewGeometry}{%
+  \newgeometry{
+    left=0.35in,
+    right=0.35in,
+    top=0.45in,
+    bottom=0.75in,
+    footskip=0.30in
+  }%
+  \setlength{\ExhibitPreviewYOffset}{0pt}%
+}
+\newlength{\ExhibitPreviewYOffset}
+\setlength{\ExhibitPreviewYOffset}{0pt}
+\newcommand{\ApplyExhibitPreviewGeometry}{%
+  \newgeometry{
+    left=0.35in,
+    right=0.35in,
+    top=0.70in,
+    bottom=0.50in,
+    footskip=0.30in
+  }%
+  \setlength{\ExhibitPreviewYOffset}{0pt}%
+}
+\newcommand{\ApplyIfpAttachmentGeometry}{\ApplySubExhibitPreviewGeometry}
+
+\providecommand{\ExhibitBuildId}{r4qujc-5ximmk}
+\providecommand{\ExhibitGeneratedDir}{Exhibits/_Generated/\ExhibitBuildId}
+\providecommand{\ExhibitGeneratedDirFromFiling}{../../\ExhibitGeneratedDir}
+\providecommand{\ExhibitManifestFile}{exhibit-manifest.txt}
+
+\newcommand{\IfExhibitGeneratedFileExists}[3]{%
+  \IfFileExists{\ExhibitGeneratedDir/exhibit-#1.pdf}
+    {#2}
+    {%
+      \IfFileExists{\ExhibitGeneratedDirFromFiling/exhibit-#1.pdf}
+        {#2}
+        {#3}%
+    }%
+}
+\newcommand{\ExhibitGeneratedFile}[1]{%
+  \ExhibitGeneratedDir/exhibit-#1.pdf%
+}
+\newcommand{\SetExhibitGeneratedFile}[2]{%
+  \IfFileExists{\ExhibitGeneratedDir/exhibit-#1.pdf}
+    {\def#2{\ExhibitGeneratedDir/exhibit-#1.pdf}}
+    {%
+      \IfFileExists{\ExhibitGeneratedDirFromFiling/exhibit-#1.pdf}
+        {\def#2{\ExhibitGeneratedDirFromFiling/exhibit-#1.pdf}}
+        {\def#2{\ExhibitGeneratedDir/exhibit-#1.pdf}}%
+    }%
+}
+
+\ExplSyntaxOn
+
+\iow_new:N \g__exhibit_manifest_iow
+\bool_new:N \g__exhibit_manifest_open_bool
+\tl_new:N \l__exhibit_source_tl
+\tl_new:N \l__exhibit_pages_tl
+\tl_new:N \l__exhibit_crop_tl
+\tl_new:N \l__exhibit_label_tl
+\seq_new:N \g__exhibit_table_rows_seq
+
+\cs_new_protected:Npn \__exhibit_manifest_ensure_open:
+  {
+    \bool_if:NF \g__exhibit_manifest_open_bool
+      {
+        \exp_args:Nx \iow_open:Nn \g__exhibit_manifest_iow { \ExhibitManifestFile }
+        \bool_gset_true:N \g__exhibit_manifest_open_bool
+      }
+  }
+
+\AtEndDocument
+  {
+    \bool_if:NT \g__exhibit_manifest_open_bool
+      { \iow_close:N \g__exhibit_manifest_iow }
+  }
+
+\keys_define:nn { exhibit/split }
+  {
+    source .tl_set:N = \l__exhibit_source_tl,
+    pages  .tl_set:N = \l__exhibit_pages_tl,
+    crop   .tl_set:N = \l__exhibit_crop_tl,
+    label  .tl_set:N = \l__exhibit_label_tl,
+  }
+
+\cs_new_protected:Npn \__exhibit_table_add:nnn #1#2#3
+  {
+    \seq_gput_right:Nn \g__exhibit_table_rows_seq
+      { \__exhibit_table_row:nnn { #1 } { #2 } { #3 } }
+  }
+
+\cs_generate_variant:Nn \__exhibit_table_add:nnn { n V V }
+
+\cs_new:Npn \__exhibit_table_row:nnn #1#2#3
+  {
+    \hyperlink{exhibit.#1}{\textbf{#1}} & #2 & \ExhibitPacketPages{#1} \\
+  }
+
+\NewDocumentCommand { \DefineExhibitSplit } { m m }
+  {
+    \group_begin:
+      \tl_clear:N \l__exhibit_source_tl
+      \tl_clear:N \l__exhibit_pages_tl
+      \tl_clear:N \l__exhibit_crop_tl
+      \tl_clear:N \l__exhibit_label_tl
+      \keys_set:nn { exhibit/split } { #2 }
+      \__exhibit_manifest_ensure_open:
+
+      \iow_now:Nx \g__exhibit_manifest_iow
+        {
+          #1 |
+          \l__exhibit_source_tl |
+          \l__exhibit_pages_tl |
+          \l__exhibit_crop_tl |
+          \l__exhibit_label_tl
+        }
+
+      \__exhibit_table_add:nVV { #1 } \l__exhibit_label_tl \l__exhibit_pages_tl
+    \group_end:
+  }
+
+\NewDocumentCommand { \PrintExhibitTable } { }
+  {
+    {
+      \setlength{\LTpre}{0.35em}
+      \setlength{\LTpost}{0.85em}
+      \setlength{\LTleft}{0pt}
+      \setlength{\LTright}{0pt}
+      \setlength{\tabcolsep}{3pt}
+      \renewcommand{\arraystretch}{1.12}
+      \begin{longtable}
+        {
+          @{}
+          >{\raggedright\arraybackslash}p{0.12\textwidth}
+          >{\raggedright\arraybackslash}p{0.72\textwidth}
+          >{\raggedright\arraybackslash}p{0.13\textwidth}
+          @{}
+        }
+        \textbf{Exhibit} & \textbf{Description} & \textbf{Pages} \\
+        \hline
+        \endfirsthead
+        \textbf{Exhibit} & \textbf{Description} & \textbf{Pages} \\
+        \hline
+        \endhead
+        \seq_use:Nn \g__exhibit_table_rows_seq { }
+      \end{longtable}
+    }
+  }
+
+\ExplSyntaxOff
+
+\makeatletter
+\newcommand{\SubExhibitPageRange}[1]{%
+  \@ifundefined{r@#1.start}{??}{%
+    \@ifundefined{r@#1.end}{%
+      \pageref{#1.start}%
+    }{%
+      \ifnum\getpagerefnumber{#1.start}=\getpagerefnumber{#1.end}%
+        \pageref{#1.start}%
+      \else
+        \pageref{#1.start}--\pageref{#1.end}%
+      \fi
+    }%
+  }%
+}
+\makeatother
+
+\newcommand{\ExhibitPacketPages}[1]{\SubExhibitPageRange{exhibit.#1}}
+\newcommand{\IfpAttachmentPages}[1]{\SubExhibitPageRange{#1}}
+
+\newcommand{\PreviewSubExhibitPdfPage}[8]{%
+  \clearpage
+  \ifnum#4=1
+    \phantomsection
+    \hypertarget{#2}{}%
+    \label{#2.start}%
+    \pdfbookmark[#3]{#1}{bookmark.#2}%
+  \fi
+  \ifnum#4=#5\label{#2.end}\fi
+  \thispagestyle{#7}%
+  \def\TopBorderStyle{subexhibit cont}%
+  \def\BottomBorderStyle{subexhibit cont}%
+  \ifnum#4=1\def\TopBorderStyle{subexhibit solid}\fi
+  \ifnum#4=#5\def\BottomBorderStyle{subexhibit solid}\fi
+  \noindent\makebox[\textwidth][c]{%
+  \raisebox{-\ExhibitPreviewYOffset}{%
+  \begin{tikzpicture}
+    \node[inner sep=2pt] (img)
+      {\includegraphics[
+        page=#4,
+        width=\dimexpr\textwidth-4pt\relax,
+        height=0.965\textheight,
+        keepaspectratio
+      ]{#6}};
+    \node[overlay, above=4pt of img.north, anchor=south]
+      {\footnotesize #8};
+    \draw[\TopBorderStyle] (img.north west) -- (img.north east);
+    \draw[subexhibit solid] (img.north west) -- (img.south west);
+    \draw[subexhibit solid] (img.north east) -- (img.south east);
+    \draw[\BottomBorderStyle] (img.south west) -- (img.south east);
+  \end{tikzpicture}
+  }%
+  }%
+}
+
+\newcommand{\PreviewGeneratedExhibitPage}[4]{%
+  \SetExhibitGeneratedFile{#1}{\CurrentExhibitGeneratedFile}%
+  \PreviewSubExhibitPdfPage
+    {Exhibit #1}
+    {exhibit.#1}
+    {1}
+    {#3}
+    {#4}
+    {\CurrentExhibitGeneratedFile}
+    {exhibit}
+    {\textit{Exhibit #1: #2 --- Page #3 of #4}}%
+}
+
+\newcommand{\PreviewGeneratedExhibit}[3]{%
+  \IfExhibitGeneratedFileExists{#1}
+    {%
+      \foreach \exhibitpage in {1,...,#3}{%
+        \PreviewGeneratedExhibitPage{#1}{#2}{\exhibitpage}{#3}%
+      }%
+    }
+    {%
+      \clearpage
+      \noindent
+      \fbox{%
+        \begin{minipage}{0.92\linewidth}
+          Exhibit \texttt{#1} is unavailable in the generated exhibit
+          folder. Build this file from the workspace root with
+          \texttt{python3 \_latex-workshop-build.py Civil/Filing/complaint-exhibits.tex}.
+        \end{minipage}%
+      }%
+      \par\medskip
+    }%
+}
+
+\newcommand{\PreviewIfpStatementPage}[5]{%
+  \PreviewSubExhibitPdfPage
+    {#1}
+    {#2}
+    {2}
+    {#3}
+    {#4}
+    {#5}
+    {ifpattachment}
+    {\bfseries\color{black}Attachment A: #1 -- Page #3 of #4}%
+}
+
+\newcommand{\IncludeStatementPages}[4]{%
+  \foreach \statementpage in {1,...,#4}{%
+    \PreviewIfpStatementPage{#1}{#2}{\statementpage}{#4}{#3}%
+  }%
+}
+\newcommand{\IncludeOnePageStatement}[3]{\IncludeStatementPages{#1}{#2}{#3}{1}}
+\newcommand{\IncludeTwoPageStatement}[3]{\IncludeStatementPages{#1}{#2}{#3}{2}}
+\newcommand{\IncludeFourPageStatement}[3]{\IncludeStatementPages{#1}{#2}{#3}{4}}
+\newcommand{\IncludeSixPageStatement}[3]{\IncludeStatementPages{#1}{#2}{#3}{6}}

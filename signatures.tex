@@ -1,0 +1,50 @@
+% Shared signature helpers.
+%
+% To be used with a Signatures/ directory containing cropped signatures
+% in PDF format.
+%
+% Generate/update assets with:
+%   python3 _extract-signatures.py
+%
+% Usage from any filing after \usepackage{graphicx}:
+%   \input{../../signatures.tex}
+%   \SignatureImage[width=1.4in]{signature4}
+% or one of:
+%   \SignatureOne[width=1.4in]
+%   \SignatureTwo[width=1.4in]
+%   \SignatureThree[width=1.4in]
+%   \SignatureFour[width=1.4in]
+%
+% The cropped PDFs do not paint an opaque white background when included in a
+% larger PDF. To place one over a signature rule, use:
+%   \SignatureFourOnLine[width=1.5in]
+% or:
+%   \SignatureOnLine[width=1.5in]{signature4}
+
+\newcommand{\SignatureImage}[2][]{%
+  \IfFileExists{Signatures/#2.pdf}{%
+    \includegraphics[#1]{Signatures/#2.pdf}%
+  }{%
+  \IfFileExists{../Signatures/#2.pdf}{%
+    \includegraphics[#1]{../Signatures/#2.pdf}%
+  }{%
+  \IfFileExists{../../Signatures/#2.pdf}{%
+    \includegraphics[#1]{../../Signatures/#2.pdf}%
+  }{%
+  \IfFileExists{../../../Signatures/#2.pdf}{%
+    \includegraphics[#1]{../../../Signatures/#2.pdf}%
+  }{%
+    \includegraphics[#1]{Signatures/#2.pdf}%
+  }}}}%
+}
+\newcommand{\SignatureOne}[1][]{\SignatureImage[#1]{signature1}}
+\newcommand{\SignatureTwo}[1][]{\SignatureImage[#1]{signature2}}
+\newcommand{\SignatureThree}[1][]{\SignatureImage[#1]{signature3}}
+\newcommand{\SignatureFour}[1][]{\SignatureImage[#1]{signature4}}
+\newcommand{\SignatureOnLine}[2][]{%
+  \raisebox{-0.35\height}{\SignatureImage[#1]{#2}}%
+}
+\newcommand{\SignatureOneOnLine}[1][]{\SignatureOnLine[#1]{signature1}}
+\newcommand{\SignatureTwoOnLine}[1][]{\SignatureOnLine[#1]{signature2}}
+\newcommand{\SignatureThreeOnLine}[1][]{\SignatureOnLine[#1]{signature3}}
+\newcommand{\SignatureFourOnLine}[1][]{\SignatureOnLine[#1]{signature4}}
