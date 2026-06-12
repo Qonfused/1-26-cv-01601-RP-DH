@@ -1,0 +1,716 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[hidelinks,bookmarksopen=true,bookmarksnumbered=false]{hyperref}
+\usepackage[nopatch=footnote]{microtype}
+% Local metadata/signature files are used when present. Fallback definitions allow this
+% source to compile as a standalone draft outside the filing repository.
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{%
+  \newcommand{\FilingCourtName}{UNITED STATES DISTRICT COURT}%
+  \newcommand{\FilingDistrictName}{WESTERN DISTRICT OF TEXAS}%
+  \newcommand{\FilingDivisionName}{AUSTIN DIVISION}%
+  \newcommand{\FilingPlaintiffName}{Cory J. Bennett}%
+  \newcommand{\FilingPlaintiffNameUpper}{CORY J. BENNETT}%
+  \newcommand{\FilingPlaintiffMailingAddress}{6705 W Highway 290, Ste 607 PMB \#268, Austin, TX 78735-8407}%
+  \newcommand{\FilingPlaintiffMailingLineOne}{6705 W Highway 290}%
+  \newcommand{\FilingPlaintiffMailingLineTwo}{Ste 607 PMB \#268}%
+  \newcommand{\FilingPlaintiffMailingCityStateZip}{Austin, TX 78735-8407}%
+  \newcommand{\FilingPlaintiffTelephone}{[telephone]}%
+  \newcommand{\FilingPlaintiffFax}{N/A}%
+  \newcommand{\FilingPlaintiffEmail}{[email]}%
+  \newcommand{\FilingDate}{\today}%
+  \newcommand{\FilingDefendantUniversity}{THE UNIVERSITY OF TEXAS AT AUSTIN}%
+  \newcommand{\FilingDefendantHsiao}{EMILY HSIAO}%
+  \newcommand{\FilingDefendantScott}{JAMES G. SCOTT}%
+  \newcommand{\FilingDefendantRagsdale}{SALLY K. RAGSDALE}%
+  \newcommand{\FilingDefendantBartroff}{JAY BARTROFF}%
+  \newcommand{\FilingDefendantBradley}{KELLI BRADLEY}%
+  \newcommand{\FilingDefendantGraves}{JEFF GRAVES}%
+}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{%
+  \newcommand{\SignatureFourOnLine}[1][]{/s/ Cory J. Bennett}%
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+\emergencystretch=3em
+\doublespacing
+\pagenumbering{arabic}
+
+% Section formatting 
+\titleformat{\section}{\normalfont\bfseries\centering\uppercase}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.2em}{0.7em}
+\titlespacing*{\subsection}{0pt}{0.9em}{0.5em}
+
+% Numbered pleading paragraphs.
+\newcounter{pleadingparagraph}
+\newcommand{\para}{%
+  \refstepcounter{pleadingparagraph}%
+  \par\noindent\hangindent=2.4em\hangafter=1\makebox[2.4em][l]{\thepleadingparagraph.}%
+}
+
+% Exhibit-reference helper.
+\newcommand{\exh}[1]{\textit{Exhibit~#1}}
+\newcommand{\exhs}[1]{\textit{Exhibits~#1}}
+
+% Unnumbered headings that still populate the PDF outline/sidebar.
+\newcommand{\complaintsection}[1]{%
+  \section*{#1}%
+  \phantomsection%
+  \addcontentsline{toc}{section}{#1}%
+}
+\newcommand{\complaintsubsection}[1]{%
+  \subsection*{#1}%
+  \phantomsection%
+  \addcontentsline{toc}{subsection}{#1}%
+}
+
+\begin{document}
+
+\begin{singlespace}
+\begin{center}
+\textbf{\FilingCourtName}\\
+\textbf{\FilingDistrictName}\\
+\textbf{\FilingDivisionName}
+\end{center}
+
+\vspace{1em}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{0.58\textwidth}|>{\raggedright\arraybackslash}X@{}}
+\textbf{\FilingPlaintiffNameUpper,} & \textbf{Civil Action No.} \rule{1.45in}{0.4pt} \\
+\quad Plaintiff, & \\
+ & \\
+\textbf{v.} & \\
+ & \\
+\textbf{\MakeUppercase{\FilingDefendantUniversity};} & \\
+\textbf{\MakeUppercase{\FilingDefendantHsiao}, in her individual capacity;} & \\
+\textbf{\MakeUppercase{\FilingDefendantScott}, in his individual capacity;} & \\
+\textbf{\MakeUppercase{\FilingDefendantRagsdale}, in her individual capacity;} & \\
+\textbf{\MakeUppercase{\FilingDefendantBartroff}, in his individual capacity;} & \\
+\textbf{\MakeUppercase{\FilingDefendantBradley}, in her individual capacity;} & \\
+\textbf{\MakeUppercase{\FilingDefendantGraves}, in his individual capacity,} & \\
+\quad Defendants. & \\
+\end{tabularx}
+
+\vspace{1.2em}
+
+\begin{center}
+\textbf{COMPLAINT FOR VIOLATIONS OF ADA TITLE II, SECTION 504, AND 42 U.S.C. \S{} 1983}\\
+\textbf{JURY TRIAL DEMANDED}
+\end{center}
+\end{singlespace}
+
+\complaintsection{I. Introduction}
+
+\para Plaintiff Cory J. Bennett brings this civil-rights action against The University of Texas at Austin (``UT Austin'') and individual state actors for disability discrimination, failure to provide meaningful access to approved accommodations, retaliation, failure to provide prompt and impartial handling of protected complaints, and deprivation of constitutional rights under color of state law.
+
+\para Four institutional terms are used throughout this complaint. ``SDS'' refers to UT Austin's Department of Statistics and Data Sciences. ``D\&A'' refers to UT Austin's Disability and Access office, the office responsible for approving and coordinating disability accommodations. ``DIA'' refers to UT Austin's Department of Investigation and Adjudication, the office responsible for handling discrimination and retaliation complaints under University policy. ``URCS'' refers to University Risk and Compliance Services, the University division that includes DIA.
+
+\para Selected exhibits cited in this Complaint are attached as Exhibits A through Z in the accompanying \textit{Selected Exhibits to Complaint}.
+
+\para On September 4, 2025, Plaintiff and his SDS 320E instructor documented a course-specific implementation plan for Plaintiff's approved disability accommodations, including a way to make up missed labs through Monday teaching-assistant office hours without advance notice. UT Austin later displaced that plan through an in-person office-hours ban and monitored electronic communication rules, justified by alleged misconduct. D\&A then certified a revised lab make-up procedure as reasonable and effective. DIA later dismissed Plaintiff's disability-discrimination and retaliation complaint after relying on D\&A's conclusion about that revised lab procedure. D\&A had already approved and defended it.
+
+\para On September 30, 2025, Plaintiff pursued a Homework 2 grade dispute in Hsiao's office hours and sent Hsiao a written counterexample email documenting the grading dispute being discussed. On October 2, 2025, after that September 30 grade dispute and after Plaintiff submitted or attempted to submit academic complaints about grading irregularities and the handling of regrade requests, Defendant Emily Hsiao imposed an in-person office-hours ban and communication restrictions. Defendant James G. Scott, the Chair of SDS, formalized and maintained those restrictions later that same morning.
+
+\para Plaintiff further alleges that SDS officials used his Spring 2025 and Fall 2025 academic and disability-rights complaints to support a behavioral misconduct characterization. In Spring 2025, Defendant Jay Bartroff forwarded Plaintiff's disability/discrimination and DIA-related complaint communication to the professor whose actions Plaintiff had reported. In Fall 2025, Defendant Sally K. Ragsdale advised Hsiao that Plaintiff's grade complaint resembled the Spring 2025 SDS 322E dispute involving Guyot, recommended informing Rachel Meyer and Bartroff, and stated that someone needed to speak with Plaintiff about his ``behavior.'' Bartroff later transmitted Spring 2025 Guyot materials and Fall 2025 Hsiao materials to support the same misconduct characterization. Internal correspondence later characterized Plaintiff's use of official reporting and appeal processes as alleged ``threats'' made ``for litigation,'' even though Hsiao's underlying report described Plaintiff's statements that he would report Hsiao or the course staff to the dean, chair, or University.
+
+\para The office-hours ban eliminated the September 4 arrangement allowing missed labs to be made up during Monday TA office hours without advance notice. It also prevented Plaintiff from using the approved attendance-flexibility accommodation in practice during sudden disability-related absences. After consulting CNS Student Dean Michael Drew, SDS officials treated the September 30 office-hours dispute as misconduct and imposed restrictions before Plaintiff received notice, access to the evidence, a hearing, or a meaningful opportunity to respond.
+
+\para Although the October 2 office-hours ban was written as applying to SDS 320E, the unresolved misconduct framing and accommodation displacement affected Plaintiff's Fall 2025 semester more broadly. During October 2025, Plaintiff had to seek legal assistance, preserve witness evidence, pursue internal complaint procedures, and explore federal civil-rights enforcement channels while the University left the SDS restrictions, Student Conduct referral, and revised accommodation procedure unresolved. Plaintiff did not or could not attend most other class meetings during that period, attempted to catch up in November and December, ultimately took incompletes in two Fall 2025 courses to continue work the next semester, and completed only one course during the Fall 2025 semester.
+
+\para D\&A and UT Legal became involved after SDS had imposed the October 2 office-hours ban and communication restrictions. Plaintiff forwarded the Scott email exchange to CNS Assistant Dean Anneke Chy, and Chy included D\&A and Legal Affairs in the email exchange. After Plaintiff objected in writing that advance notice was impossible during unpredictable disability-related absences or incapacitation, D\&A leadership, including Defendant Kelli Bradley, approved the revised lab make-up procedure as reasonable and effective without Plaintiff's participation in the interactive process. University absence-notification records also documented medical absences in September and throughout October, including an October 8 emergency absence. Student Services and SOS later recognized that the office-hours ban had eliminated the agreed make-up policy and that there was a ``disconnect'' over whether Plaintiff had an alternative way to complete missed labs under his accommodations. The University left D\&A's determination in place after Plaintiff identified D\&A's role as a conflict of interest.
+
+\para Plaintiff later filed a complaint with DIA under Handbook of Operating Procedures 3-3020 (``HOP 3-3020''), UT Austin's policy for discrimination, retaliation, and interference complaints, including disability-discrimination complaints. DIA dismissed Plaintiff's HOP 3-3020 complaint after deferring to D\&A on whether the revised lab procedure allowed Plaintiff to use his approved attendance-flexibility accommodation. By then, Plaintiff had disputed D\&A's certification of the revised lab procedure and D\&A's failure to engage in an interactive process with him.
+
+\para DIA's dismissal email stated that ``University decision-makers'' received both the dismissal notice and DIA's intake notes. The dismissal notice was addressed to senior University officials and copied to several offices, including D\&A leadership. The intake notes contained Plaintiff's legal theories, witness information, requested witnesses, desired outcomes, and evidentiary assessments. Officials and offices already involved in the revised lab procedure and the response to Hsiao's misconduct report received advance disclosure of Plaintiff's specific legal theories, witnesses, and requested relief.
+
+\para Defendant Jeff Graves, UT Austin's Chief Compliance Officer, personally decided Plaintiff's HOP 3-3020 appeal. Before Graves acted, Plaintiff repeatedly asked that a neutral official decide the appeal and objected to Graves deciding it because of Graves's prior role in related D\&A and DIA proceedings concerning Plaintiff's disability-accommodation and discrimination complaints. Plaintiff raised these objections through DIA, through notice to Associate Vice President Esteban Soto and Legal Affairs, and directly to Graves before Graves closed the appeal. Plaintiff stated that DIA failed to conduct the HOP 3-3020 due-diligence inquiry required to evaluate whether formal investigation was warranted into his ADA Title II and Section 504 allegations, the disputed misconduct premise, D\&A's role in the revised procedure, and the identified witnesses; disclosed confidential intake materials; and relied on D\&A after Plaintiff identified D\&A's role in the dispute as a conflict of interest. Graves refused recusal, denied the appeal, and closed Plaintiff's HOP 3-3020 complaint while refusing to address the specific procedural and conflict-of-interest concerns Plaintiff raised.
+
+\para Plaintiff alleges that UT Austin, through officials with authority to correct the violations, acted with deliberate indifference to his federally protected rights. Plaintiff further alleges that the individual Defendants personally participated in the deprivation of one or more clearly established constitutional rights: for all individual Defendants, the right to neutral and meaningful process before deprivation of protected educational interests, practical use of approved disability accommodations, and reputational interests; and, for Defendants Hsiao, Scott, Ragsdale, Bartroff, and Bradley, the right to be free from retaliation for protected speech and petitioning activity.
+
+\complaintsection{II. Parties}
+
+\para Plaintiff Cory J. Bennett is a resident of Texas. Plaintiff was, at all relevant times, a student at UT Austin and a qualified individual with disabilities within the meaning of Title II of the Americans with Disabilities Act and Section 504 of the Rehabilitation Act. Plaintiff's mailing address is \FilingPlaintiffMailingAddress.
+
+\para Defendant UT Austin (also referred to as ``the University'') is a public university located in Austin, Texas. UT Austin is a public entity under ADA Title II. On information and belief, UT Austin receives and directly benefits from federal financial assistance for purposes of Section 504, including federal student-aid funds, federal research and education funds, and federal funds supporting University academic programs and student services. The programs and services involved here include academic instruction, SDS, D\&A, DIA/URCS, Student Conduct and SOS/student services, University technology and enrollment services, and financial-aid administration. UT Austin may be served through its authorized agent or through the appropriate state official under applicable law.
+
+\para Defendant Emily Hsiao was, at all relevant times, an instructor for SDS 320E at UT Austin. Hsiao personally imposed or initiated the October 2, 2025 in-person office-hours ban and communication restrictions and submitted the report that resulted in the Student Conduct case. Hsiao is sued for damages in her individual capacity under 42 U.S.C. \S 1983 only.
+
+\para Defendant James G. Scott was, at all relevant times, Chair of the Department of Statistics and Data Sciences at UT Austin. Scott personally formalized and maintained the October 2 office-hours ban and related restrictions, including the monitored electronic-communication requirement, and advised that UTPD be contacted if Plaintiff returned to office hours. Scott is sued for damages in his individual capacity under 42 U.S.C. \S 1983 only.
+
+\para Defendant Sally K. Ragsdale was, at all relevant times, an SDS 320E course coordinator and SDS faculty member at UT Austin. Ragsdale personally advised Hsiao on October 1, 2025 to resist Plaintiff's grade complaint, warned that granting relief would produce more complaints, connected the dispute to Plaintiff's prior Spring 2025 protected activity in SDS 322E, recommended that Rachel Meyer and Jay Bartroff be informed that the SDS 320E grade complaint resembled the prior SDS 322E dispute, and stated that someone needed to speak with Plaintiff about his ``behavior.'' Ragsdale later participated in the decision-making that led to the October 2 office-hours ban and electronic-communication restrictions, including the decision identified in the Student Conduct export to bar Plaintiff from in-person office hours before witnesses were contacted or Plaintiff was heard. Ragsdale is sued for damages in her individual capacity under 42 U.S.C. \S 1983 only.
+
+\para Defendant Jay Bartroff was, at all relevant times, SDS Director of Undergraduate Studies and/or Associate Chair in the Department of Statistics and Data Sciences at UT Austin. Bartroff personally handled Plaintiff's Spring 2025 SDS 322E grade, syllabus, and accommodation dispute involving Guyot, forwarded Plaintiff's protected DIA-related complaint communication to Guyot and Calder after Plaintiff stated that he would report disability/discrimination concerns to DIA, disclosed that complaint communication to the professor whose actions Plaintiff had challenged, and later revived and transmitted the Spring 2025 materials in Fall 2025 to support the SDS 320E restriction and Student Conduct referral. Bartroff is sued for damages in his individual capacity under 42 U.S.C. \S 1983 only.
+
+\para Defendant Kelli Bradley was, at all relevant times, D\&A Executive Director or a senior D\&A official with authority over accommodation implementation, access-coordinator assignments, and D\&A handling of accommodation complaints. Bradley personally participated in D\&A's October 2025 certification of the revised SDS 320E lab procedure as reasonable and effective after Plaintiff had objected that the procedure required advance notice he could not provide during disability-related absences or incapacitation. Bradley later confirmed that the information provided to Plaintiff had been given in consultation with Bradley and VPLA, denied reassignment to an access coordinator outside the disputed procedure, and maintained D\&A control over the accommodation file. Bradley is sued for damages in her individual capacity under 42 U.S.C. \S 1983 only.
+
+\para Defendant Jeff Graves was, at all relevant times, UT Austin's Chief Compliance Officer and the official who decided Plaintiff's DIA appeal under HOP 3-3020. Graves personally refused recusal, denied Plaintiff's appeal, and closed Plaintiff's HOP 3-3020 complaint after Plaintiff had repeatedly asked for a neutral decisionmaker and identified procedural irregularity, conflict of interest, lack of a HOP 3-3020 due-diligence inquiry, disclosure of intake notes, DIA's deference to D\&A, and Graves's prior role in Plaintiff's related disability-accommodation and discrimination complaints. Graves is sued for damages in his individual capacity under 42 U.S.C. \S 1983 only.
+
+\complaintsection{III. Jurisdiction and Venue}
+
+\para This Court has federal-question jurisdiction under 28 U.S.C. \S 1331 because this action arises under ADA Title II, 42 U.S.C. \S 12131 et seq.; Section 504 of the Rehabilitation Act, 29 U.S.C. \S 794; and 42 U.S.C. \S 1983.
+
+\para This Court has authority to grant declaratory and injunctive relief under 28 U.S.C. \S\S 2201 and 2202 and Federal Rule of Civil Procedure 57.
+
+\para Venue is proper in the Western District of Texas, Austin Division, under 28 U.S.C. \S 1391 because UT Austin is located in this District and the events giving rise to the claims occurred in Austin, Texas.
+
+\para Plaintiff has satisfied any administrative prerequisites required for the claims asserted, or no exhaustion requirement applies. Plaintiff's ADA Title II, Section 504, and \S 1983 claims do not require exhaustion of state administrative remedies before filing suit in federal court.
+
+\complaintsection{IV. Factual Allegations}
+
+\complaintsubsection{A. Background notice: prior D\&A history and OCR context}
+
+\para Before the Fall 2025 events, UT Austin had notice that delays in D\&A intake, medical-documentation processing, and accommodation approvals could obstruct meaningful access to accommodations.
+
+\para In 2022, the United States Department of Education Office for Civil Rights investigated UT Austin's D\&A office and entered a resolution agreement after intake delays left a student without accommodations for an entire semester.
+
+\para Beginning in Fall 2024, Plaintiff encountered delayed D\&A intake, delayed documentation processing, and accommodation approvals that came too late to provide meaningful access during the semester.
+
+\para In Spring 2025, Plaintiff disputed D\&A's handling of attendance-related accommodations connected to pneumonia and continuing respiratory symptoms. D\&A first asserted, among other rationales, that Plaintiff's pneumonia documentation did not satisfy a projected-duration requirement. After Plaintiff pointed to the documentation's recovery date and D\&A's documentation requirements, D\&A Director Jasper Howard acknowledged that the documentation would satisfy duration of recovery, but maintained denial on non-retroactivity grounds after the accommodation could no longer be used for the Spring 2025 absences and deadlines involved.
+
+\para In Summer 2025, Plaintiff again had to seek D\&A leadership involvement after the interactive process broke down with a D\&A coordinator refusing to adhere to D\&A policy during a compressed academic term.
+
+\para The prior D\&A history gave UT Austin notice that delays, deferral, and failure to correct accommodation-implementation problems could deny practical access to approved accommodations.
+
+\complaintsubsection{B. UT Austin discrimination-complaint procedures and conflict-of-interest safeguards}
+
+\para UT Austin uses HOP 3-3020 as its internal policy for handling complaints alleging discrimination, harassment, retaliation, and related interference, including disability-based discrimination and retaliation.
+
+\para HOP 3-3020 treats failure to implement or hindering implementation of approved D\&A accommodations as a covered policy concern. HOP 3-3020 also recognizes retaliation and interference with the policy process as covered conduct.
+
+\para At the initial intake stage, HOP 3-3020 requires DIA to determine whether the complaint, if true, would implicate the policy and whether formal investigation is warranted. When additional information is needed to evaluate that question, HOP 3-3020 provides that DIA will conduct a due-diligence inquiry, including appropriate steps to properly and thoroughly evaluate the complaint and gather sufficient information to decide whether formal investigation is warranted.
+
+\para HOP 3-3020 permits appeal from a dismissal based on procedural irregularity affecting DIA's determination, new relevant evidence unavailable at dismissal, or conflict of interest or bias affecting the outcome. HOP 3-3020 provides that disagreement with DIA's determination, without more, is not sufficient for appeal.
+
+\para HOP 3-3020 further provides that, when a complaint or report is directed against an individual who would otherwise play a role in investigating or resolving the complaint, or when another conflict of interest is present, the function assigned to that person by the procedures will be delegated to another person as determined appropriate by the Chief Compliance Officer in consultation with the Vice President for Legal Affairs.
+
+\para UT Austin's discrimination-complaint materials are treated as private and confidential, and DIA materials in this case were marked private, confidential, and protected by FERPA and University confidentiality rules. Plaintiff alleges that the University was required to control disclosure of discrimination-complaint materials and to avoid giving respondent parties access to a complainant's legal theories, witnesses, or complaint communications outside the procedures used to evaluate or investigate the complaint.
+
+\para These policy provisions are relevant because UT Austin chose HOP 3-3020 as the process for disability-discrimination and retaliation complaints, and because the policy gave D\&A, DIA, Legal Affairs, Bradley, and Graves notice of the procedural safeguards relevant to the Fall 2025 dispute over access to approved accommodations. Plaintiff's federal constitutional rights arise from the First and Fourteenth Amendments, with HOP 3-3020 providing notice, context, and the University's chosen remedial framework.
+
+
+\complaintsubsection{C. Spring 2025 SDS 322E protected activity and internal sharing}
+
+\para In Spring 2025, Plaintiff pursued grade, syllabus, make-up lab, and disability-accommodation concerns in SDS 322E involving Professor Layla Guyot. Plaintiff was directed by CNS personnel to raise the unresolved grade and syllabus dispute with Guyot and, if unresolved, with Defendant Jay Bartroff.
+
+\para Plaintiff contacted Bartroff regarding the SDS 322E missed-lab and syllabus dispute. Bartroff responded that he had considered Plaintiff's materials, spoken with Guyot, and would not ask Guyot to revisit the missed-lab dispute.
+
+\para Plaintiff then informed Bartroff that the decision ignored Plaintiff's agreement with the professor and the syllabus, failed to address Plaintiff's concerns, implicated University policy concerning disability and discrimination, and would be included in Plaintiff's report to DIA.
+
+\para The following morning, after Plaintiff had invoked disability/discrimination policy and stated that he would report the dispute to DIA, Bartroff forwarded Plaintiff's protected complaint communication to Guyot and Calder with the message ``FYI...'' Plaintiff had contacted Bartroff in his departmental role for the unresolved grade, syllabus, make-up lab, and disability-accommodation dispute. Plaintiff had not authorized Bartroff to send that DIA-related complaint communication to Guyot, the professor whose actions Plaintiff had challenged (\exh{O}).
+
+\para Bartroff's ``FYI...'' forwarding disclosed the pending discrimination complaint to the respondent professor before DIA had conducted any neutral inquiry. The disclosure gave Guyot advance notice of Plaintiff's complaint theories, allowed her to defend her conduct internally, and exposed Plaintiff to predictable retaliation by the professor whose conduct he was reporting. Guyot then responded that she was not sure what ``a report to DIA'' implied, defended her conduct, and stated that she had done everything she could to support Plaintiff (\exh{O}).
+
+\para On May 5, 2025, Guyot wrote to Bartroff and Calder that ``this same student'' had been giving her ``a lot of trouble,'' was contesting comments on his final project, and that she had contacted BCAL because she did not know how to manage the situation. Plaintiff alleges that Bartroff's disclosure opened the same internal retaliation channel that later allowed Spring 2025 protected complaint activity to be revived in Fall 2025 as alleged evidence of recurring misconduct (\exh{O}).
+
+\para The Spring 2025 SDS 322E materials reflected unresolved academic, syllabus, disability-accommodation, and protected complaint activity. They did not contain disciplinary findings, threat findings, or adjudicated misconduct.
+
+\complaintsubsection{D. Approved accommodations and the September 4 implementation plan}
+
+\para At the start of the Fall 2025 semester, Plaintiff had approved D\&A accommodations, including flexibility with deadlines and attendance, access to materials and notes, use of technology, and extended time (\exh{A}).
+
+\para Plaintiff's D\&A materials required an interactive process to implement flexible attendance terms in each course because attendance flexibility does not implement itself; the student and instructor must identify how missed work can actually be completed when disability-related absences occur.
+
+\para In SDS 320E, Plaintiff and Hsiao confirmed a written implementation agreement on or about September 4, 2025, to which both parties had explicitly signed. The agreement was the course-specific answer to the practical question of how Plaintiff would use his approved attendance and deadline flexibility in that course (\exh{B}).
+
+\para The September 4 implementation agreement included, among other terms, an arrangement allowing Plaintiff to make up missed labs during TA Sagar Ghosh's Monday office hours without advance notice (\exh{B}).
+
+\para The Monday office-hours arrangement was the practical way Plaintiff could use his attendance-flexibility accommodation when disability-related episodes caused sudden or unpredictable absences.
+
+\para The September 4 implementation agreement remained in place unless UT Austin engaged in a lawful interactive process or made a legally sufficient determination that the accommodation could not be provided.
+
+\complaintsubsection{E. The September 30 office-hours interaction, grade dispute, and complaints}
+
+\para On September 26, 2025, Plaintiff pursued a Homework 2 regrade request through Gradescope and emailed the course team about grading and rubric discrepancies.
+
+\para On September 30, 2025, at approximately 11:30 a.m., Plaintiff attended Hsiao's office hours to discuss the Homework 2 grade dispute and related course-material concerns. During that office-hours discussion, Plaintiff prepared and sent Hsiao a written counterexample email about Homework 2 Problem 1.b, histogram behavior, and to document the grading rationale being discussed (\exh{C}).
+
+\para Plaintiff alleges that the counterexample email documented the grade-dispute discussion while it was happening, including the rationale being given, Plaintiff's counterexample, and the points being discussed. Plaintiff further alleges that this was ordinary academic advocacy in a public-university course, as done by other students in office hours, and part of the same protected activity later used to justify restrictions.
+
+\para The September 30 counterexample email was specifically focused on the grade dispute. It addressed whether the disputed drawing should be treated as a histogram or a bar plot under the course materials, standard histogram definitions, and examples from common plotting software.
+
+\para Other students were present during the September 30 office-hours interaction. Their presence is material because Plaintiff later asked UT Austin to interview student or TA witnesses before treating the interaction as misconduct.
+
+\para Hsiao's October 1 internal email acknowledged that two other students witnessed the September 30 office-hours conversation. The Student Conduct export redacted those students' names, but the redaction did not remove Hsiao's acknowledgement that student witnesses existed (\exh{M}).
+
+\para In the same October 1 internal email, Hsiao stated that Plaintiff had come to her office hours ``quite frequently'' and that she was anxious he would return. Plaintiff alleges that statement was false because September 30, 2025 was Plaintiff's first and only attendance at Hsiao's office hours.
+
+\para Hsiao later described the interaction as involving no raised voices and stated that Plaintiff left without saying anything else. UT Austin's own record therefore lacked facts showing an immediate physical threat that required summary exclusion from the office-hours process.
+
+\para Hsiao's misconduct account was materially false in the respects used to justify the October 2 office-hours ban. The available records could have been checked immediately: the September 30 counterexample email documented the grade-dispute discussion as it occurred, Gradescope records showed the assignment and rubric context, Hsiao's narrative recorded no raised voices and Plaintiff's departure, and student witnesses were known to exist. Hsiao also attributed statements and context to the September 30 interaction that depended on information she had not received during that interaction or events that occurred only after October 2.
+
+\para The contemporaneous record available to UT Austin included Plaintiff's same-day written denials, the counterexample email, Hsiao's description that nobody raised voices, Hsiao's statement that Plaintiff left without saying anything else, Hsiao's acknowledgment that student witnesses existed, and Student Conduct metadata listing no charge, finding, hearing, resolution, sanction, or appeal.
+
+\para Plaintiff had filed or attempted to file academic-misconduct or grade-related complaints regarding Hsiao and/or the course staff. Those complaints concerned alleged grading irregularities, rubric inconsistencies, uncredited or incorrectly credited work, and the failure of ordinary regrade channels to resolve Plaintiff's objections. Plaintiff alleges that one such complaint was mistakenly forwarded to Hsiao by UT's academic integrity form, creating immediate notice of Plaintiff's protected academic and petitioning activity before the October 2 office-hours ban and communication restrictions were imposed.
+
+\complaintsubsection{F. October 1 internal characterization, October 2 office-hours ban, SDS restrictions, and Student Conduct routing}
+
+\para On September 30, 2025, after Plaintiff sent Hsiao the Homework 2 counterexample email, Hsiao privately asked Ragsdale what she would respond. Hsiao's message stated that she did not care much about the 0.5 points but believed the ``principle'' of the dispute was at stake (\exh{M}).
+
+\para On October 1, 2025, before Plaintiff received notice of any behavioral allegation, access to the evidence, witness interviews, or opportunity to respond, Ragsdale advised Hsiao not to concede even the small grading point. Ragsdale wrote that Plaintiff was wrong, that the green graph ``makes no sense,'' and that giving the point back would create a precedent and lead to more complaints from Plaintiff during the semester. Ragsdale advised Hsiao to tell Plaintiff that Hsiao was the content expert, ``not him.'' (\exh{M}).
+
+\para Ragsdale then connected Plaintiff's grade complaint to the prior SDS 322E dispute involving Guyot. Ragsdale wrote that she did not need to know Plaintiff's name, but that the situation sounded like the student from Guyot's SDS 322E class who had given Guyot ``a ton of issues,'' including complaining to the associate dean for undergraduates. Ragsdale stated that, if it was Plaintiff, Rachel Meyer and Bartroff should be informed of the perceived connection between the two disputes and that someone needed to speak with Plaintiff about his ``behavior.'' (\exh{M}).
+
+\para Plaintiff alleges that Ragsdale's October 1 email treated protected academic and disability-related complaint activity as a student-conduct concern before Plaintiff was heard, before witnesses were interviewed, and before any neutral process tested Hsiao's account.
+
+\para At approximately 5:42 a.m. on October 2, 2025, Hsiao responded to the September 30 Homework 2 counterexample email. Hsiao stated that the final grading decision was that Plaintiff's drawing was a bar plot, not a histogram, and that she would not discuss the grade dispute further. In the same email, Hsiao accused Plaintiff of name-calling, insulting course staff, and verbal harassment, then stated that Plaintiff was no longer permitted to attend in-person office hours and that course communications would be limited to electronic channels with oversight (\exh{C}).
+
+\para The October 2 office-hours ban applied to office hours with Hsiao and SDS 320E instructional staff, including teaching assistants.
+
+\para The accompanying communication restrictions required Plaintiff to communicate through electronic channels subject to oversight, including Gmail, Canvas, or Gradescope. The restrictions changed both the place and the manner in which Plaintiff could seek course help, clarify assignments, and arrange make-up work.
+
+\para At approximately 9:46 a.m. on October 2, Plaintiff replied to Hsiao. Plaintiff denied Hsiao's allegations, stated that other students could testify, explained the September 30 Homework 2 grade dispute, asserted that the refusal to address the grading decision implicated academic integrity, stated that Hsiao's characterization of him was a deflection from that grading and academic-integrity concern, and gave notice that he would pursue the academic-misconduct concern through URCS and the disability-accommodation concern through DIA (\exh{C}).
+
+\para At approximately the same timestamp, Scott separately emailed Plaintiff and stated that the department had decided to implement the office-hours ban and communication restrictions ``from today onwards.'' Scott also wrote that he had consulted with Bartroff, the director of the undergraduate program, and CNS Student Dean Drew, and that they were ``all in agreement'' about the restrictions. Scott's email was sent before Plaintiff had any meaningful opportunity to respond to Scott, provide witness names, or submit course records to the department (\exh{D}).
+
+\para Plaintiff responded to Scott at approximately 10:03 a.m. and 10:14 a.m., denying the allegations, identifying possible student and TA evidence, and attaching or referencing records he believed would contradict Hsiao's account (\exh{D}).
+
+\para The office-hours ban eliminated the September 4 agreement allowing missed labs to be completed during Monday TA office hours without advance notice.
+
+\para The office-hours ban was imposed without prior notice to Plaintiff, without access to the evidence, without witness interviews, without a hearing, and without a meaningful opportunity for Plaintiff to respond before the ban took effect.
+
+\para On October 2, 2025, after Scott had formalized the restrictions, Hsiao submitted a report concerning Plaintiff's September 30 office-hours interaction (\exh{L}).
+
+\para In a later October 2 internal email, Scott wrote that Plaintiff could invoke due-process rights ``with the relevant bodies'' and told Hsiao that this was ``not your concern.'' Scott also wrote that Plaintiff had no right to expect an extended exchange about questions that had ``already been decided,'' told Hsiao to ``let whomever he wants to appeal to sort it out,'' stated that he had no intention of responding to Plaintiff's communications, and advised that UTPD be contacted if Plaintiff returned to office hours (\exh{M}).
+
+\para Scott's internal email showed that Scott understood the restrictions implicated due-process rights. Scott nevertheless kept the restrictions in force, told Hsiao that process would be handled by other University bodies, refused to engage Plaintiff's response, and advised that UTPD be called if Plaintiff returned to office hours. No University body provided a prompt hearing, access to the evidence, witness interviews, or stay of the restrictions while SDS 320E deadlines continued.
+
+\para Hsiao's report should have been tested against readily available course records before the office-hours ban was imposed or maintained, including Gradescope records, the September 30 counterexample email documenting the grading discussion, and witnesses who were present for relevant course interactions. Straightforward examination of those records would have shown that Hsiao's account did not support a summary exclusion from the office-hours arrangement.
+
+\para The Student Conduct export identifies the incident date as September 30, 2025; the reported date as October 2, 2025; the reporter as Emily Hsiao; and the case-created date as October 3, 2025.
+
+\para The Student Conduct case was housed in the Office of Student Conduct and Academic Integrity as a behavioral-misconduct case.
+
+\para The Student Conduct export also included an October 1, 2025 internal SDS email from Jay Bartroff, SDS Director of Undergraduate Studies, to Michael Drew, CNS Student Dean. The email copied Defendant Emily Hsiao; Sally K. Ragsdale, the SDS 320E course coordinator; Rachel S. Meyer and Catherine (Kate) Calder, University personnel included in the internal circulation; and Defendant James G. Scott, the SDS department chair. Bartroff characterized the September 30 office-hours interaction as recurring aggressive conduct toward instructors, citing Hsiao's forwarded account and a purportedly similar Spring 2025 SDS 322E interaction involving Layla Guyot. Bartroff stated that Hsiao had been advised to file reports with BCAL and Title IX if needed, recommended that Plaintiff not attend Hsiao's office hours, and suggested that Plaintiff could attend Ragsdale's office hours instead because Ragsdale was the SDS 320E course coordinator. The available Student Conduct records do not show that a Title IX complaint was filed, that Plaintiff received notice of any Title IX referral, or that any Title IX process tested the factual basis for that suggested referral (\exh{O}).
+
+\para Bartroff's internal suggestion identified an in-person alternative before SDS imposed the October 2 office-hours ban. The October 2 directive omitted Ragsdale's office hours, and the later revised lab make-up procedure also omitted that option. The record gives no reason why Ragsdale's office hours, or another in-person make-up option that did not require advance notice, was unavailable.
+
+\para The Student Conduct export later included an October 14, 2025 email exchange that was forwarded into the Student Conduct file on October 21, 2025 with attachments labeled ``guyot emails.pdf'' and ``hsiao emails.pdf.'' In that exchange, Bartroff told Vice Provost Janet Dukerich that he was attaching email exchanges about Plaintiff in Hsiao's class and about a ``similar situation'' in Guyot's SDS 322E class. Bartroff wrote that the materials reflected recurring behavior by Plaintiff and asked whether anyone had obtained guidance from Student Conduct about what action could be taken. Dukerich then forwarded the materials to Bradley, Soto, Hughes, Student Conduct, and others, stating that the department chair had reported that Hsiao and the TAs were concerned about Plaintiff's alleged ``aggressive behavior'' and alleged ``threats that he has made for litigation.'' Hsiao's underlying Student Conduct report described Plaintiff as saying that he would report Hsiao or the course staff to the dean, the department chair, or the University, and Hsiao stated in that report that Plaintiff was free to do so as his right. The later internal phrasing treated protected reporting and petitioning activity as evidence supporting a misconduct response. The Guyot attachment consisted of internal Spring 2025 correspondence between Guyot, Bartroff, and Calder about Plaintiff's SDS 322E syllabus, make-up lab, accommodation, and final-project disputes. Plaintiff was not copied on the internal Guyot correspondence and had no opportunity in the Student Conduct file to contest those characterizations, identify witnesses, or explain the Spring 2025 disability and syllabus dispute before those materials were placed in the Student Conduct file (\exh{O}).
+
+\para On March 18, 2025, Plaintiff asked Catherine (Kate) Calder how UT Austin handled grade disputes and academic grievances. Calder directed Plaintiff to discuss the unresolved SDS 322E grading and syllabus concerns with Guyot and, if it remained unresolved, with Bartroff, whom she copied on the correspondence. Plaintiff followed that direction. The same missed-lab dispute also involved disability-related illness absences and an accommodation-related make-up arrangement that Plaintiff alleged Guyot and SDS failed to honor, so Plaintiff also pursued a related disability-discrimination complaint through DIA. On May 5, 2025, Plaintiff told CNS Student Dean Michael Drew that the SDS 322E dispute remained unresolved and that a DIA meeting was scheduled for the following day. Drew responded on May 6 that CNS would wait for DIA before considering the SDS 322E dispute, shared the CNS grade-dispute form, and later directed Plaintiff to complete that form after DIA dismissed the complaint. Plaintiff alleges that University officials later used his directed complaints and grade-dispute communications to support the misconduct characterization without giving him notice or a fair opportunity to respond (\exh{O}).
+
+\para The Student Conduct export states that, after the office-hours interaction, Sally K. Ragsdale, the SDS 320E course coordinator, James G. Scott, the SDS department chair, and Michael Drew, CNS Student Dean, discussed the September 30 interaction and decided that Plaintiff was no longer permitted to attend in-person office hours and that all course communication would occur electronically. The export links Ragsdale to the decision to bar in-person office hours in addition to her academic advice about the Homework 2 grade dispute.
+
+\para The Student Conduct export and the October 2 correspondence do not identify D\&A or Legal Affairs as participants in the decision to impose the initial office-hours ban and communication restrictions before they took effect.
+
+\para The Student Conduct export listed no charge, no finding, no appointment date, no hearing date, no resolution date, no sanction, and no appeal (\exh{N}).
+
+\para The Student Conduct export generated on November 4, 2025 included an individual note entered by Assistant Director Khary McGhee on October 16, 2025, at approximately 10:31 a.m. The note stated that the decision to commence the conduct process was on hold until after SOS, SCAI, D\&A, and CNS administrators met to discuss Plaintiff's ``behavior history,'' with the meeting likely to occur during the week of October 20, 2025 (\exh{N}).
+
+\para The November 4, 2025 export did not identify that the planned meeting occurred, did not identify any outcome from the planned meeting, and did not show that a formal student-discipline process had commenced. The ``behavior history'' framing relied on prior academic and disability-rights advocacy, with no prior findings of threats or discipline identified in the export.
+
+\para UT Austin enforced a restriction that functioned like student discipline while withholding the ordinary procedural safeguards of a formal disciplinary process.
+
+\para The requested relief concerns access restrictions imposed without any misconduct finding, witness interviews, access to the evidence, hearing, individualized safety assessment, or direct-threat determination. UT Austin also replaced the September 4 Monday TA office-hours make-up arrangement with an advance-notice procedure after receiving actual notice that disability-related absences or incapacitation could prevent advance notice. The replacement procedure therefore screened out the absences that the September 4 implementation had addressed.
+
+\complaintsubsection{G. D\&A and UT Legal involvement before DIA dismissal}
+
+\para After the October 2 office-hours ban, Plaintiff objected that the ban eliminated the September 4 accommodation implementation plan and prevented him from completing lab assignments because the approved attendance-flexibility accommodation depended on in-person Monday office hours as the no-advance-notice make-up arrangement (\exh{D}).
+
+\para On October 6, 2025, after receiving no substantive response from Scott, Plaintiff forwarded the Scott email exchange to CNS Assistant Dean Anneke Chy. Plaintiff explained that the restrictions had effectively barred the September 4 accommodation implementation plan and prevented him from completing lab assignments (\exh{D}).
+
+\para Chy acknowledged receipt that afternoon and included D\&A, Student Conduct, and UT Legal in the email exchange, creating an oversight record before DIA's later dismissal. D\&A, Student Conduct, and UT Legal then had notice that the dispute involved disability-accommodation implementation and the practical availability of Plaintiff's approved missed-lab make-up arrangement (\exh{D}).
+
+\para On October 7, 2025, Hsiao proposed a revised lab make-up procedure (\exh{F}).
+
+\para The revised procedure required notice no later than the day of the assigned lab, at least one day of advance notice for staff to open electronic access, and completion of the make-up lab in another section within one week. The revision replaced the September 4 no-advance-notice office-hours make-up arrangement with a process that required Plaintiff to predict or report incapacitating disability episodes before he could know they would occur (\exh{F}).
+
+\para Plaintiff promptly objected that his disabilities cause sudden and unpredictable absences and that advance notice is not possible during incapacitating episodes.
+
+\para On October 8, 2025, Scott responded that the revised procedure represented the maximum flexibility the instructor and department would offer under the new restrictions, stated that the revised procedure had been considered by the instructor, department chair, Associate Dean for Undergraduate Education, and Legal Affairs, and declared that the decision was final unless D\&A or Legal Affairs specifically instructed otherwise (\exh{F}).
+
+\para Scott's statement did not address the in-person alternative Bartroff had already identified internally: Plaintiff attending Ragsdale's office hours instead of Hsiao's. The record gives no reason why that option, or another in-person make-up option that did not require advance notice, was unavailable.
+
+\para University absence-notification records documented medical absences in September and throughout October 2025, including an October 8, 2025 disability-related emergency absence verified through a University Emergency SOS Absence Notification (\exh{G}).
+
+\para The October 8 emergency absence was the clearest contemporaneous example that the revised advance-notice procedure was unusable for the disability-related circumstances the accommodation was meant to address.
+
+\para After Chy's referral, UT Legal became involved in the revised procedure. Deputy Vice President for Legal Affairs Jody Hughes later confirmed that Scott consulted with UT Legal and that UT Legal consulted with D\&A to implement the revised procedure, characterizing the alteration as necessitated by Plaintiff's behavior.
+
+\para Bradley's involvement began before Plaintiff requested reassignment to a different access coordinator. On October 10, 2025, Harrington stated that she had consulted with Deputy Vice President for Legal Affairs Jody Hughes and D\&A Executive Director Kelli Bradley before confirming that the revised procedure was reasonable and met Plaintiff's accommodations (\exh{H}).
+
+\para Before D\&A issued that certification, no D\&A official asked Plaintiff how the revised procedure would operate during sudden disability-related absences, how Plaintiff could give advance notice while incapacitated, or how Plaintiff could make up missed labs if the September 4 Monday office-hours arrangement remained unavailable. The certification relied on communications among D\&A, Legal Affairs, SDS, and Hsiao and characterized the accommodation change as necessitated by Plaintiff's behavior before Student Conduct had issued any charge, finding, hearing, sanction, or appeal (\exh{H}).
+
+\para Plaintiff responded that his absences can occur without notice, that he had been hospitalized without notice, and that he could not use the revised procedure during disability-related absences or incapacitation. D\&A and Legal Affairs therefore had notice that the revised procedure did not restore meaningful access after the October 2 restriction removed the agreed missed-lab make-up arrangement (\exh{H}).
+
+\para On October 13, 2025, Bradley confirmed that the accommodation information given to Plaintiff was accurate and had been provided in consultation with Bradley and VPLA. She denied Plaintiff's request for a coordinator change after confirming her role in the certification Plaintiff challenged (\exh{I}).
+
+\para Bradley's October 13 response addressed Plaintiff's emails, voicemails, and communications with multiple University departments seeking action on the accommodation dispute. Bradley directed legal questions to Legal Affairs and discrimination complaints to DIA, while leaving the accommodation file with D\&A after Bradley, D\&A leadership, and Legal Affairs had already approved the revised procedure Plaintiff challenged (\exh{I}).
+
+\para Bradley and D\&A leadership did not restore the September 4 implementation plan, did not provide an equivalent no-advance-notice arrangement for making up missed labs, did not identify a fundamental alteration, and did not provide a written undue-burden determination.
+
+\para On October 13, 2025, Plaintiff notified Bradley that the revised implementation discriminated against his disability, denied access to approved accommodations, and violated ADA and Section 504 requirements as well as D\&A implementation policy. Plaintiff requested reassignment of his access coordinator because the officials handling D\&A coordination had participated in approving the revised procedure he was challenging (\exh{J}).
+
+\para Plaintiff's October 13 written communications framed the continuing concern as a failure to implement his accommodations. The September 4 arrangement allowed missed labs to be completed through Monday office hours without advance notice. The revised procedure required advance notice that Plaintiff could not provide during disability-related absences or incapacitation. TA Sagar Ghosh later reported that he had recorded an interaction with Plaintiff ``for my own safety,'' although Plaintiff's written record concerned accommodation implementation and confusion over the revised procedure. That response further treated questions about using approved accommodations as safety or misconduct concerns.
+
+\para Plaintiff's October 10 and October 13 communications placed Bradley on notice that the concern was the loss of a usable no-advance-notice accommodation implementation. Plaintiff told Bradley and D\&A that the revised procedure required advance notice during disability-related absences or incapacitation, that the procedure had been presented without Plaintiff's participation in the interactive process for implementing attendance flexibility, and that the course TAs could provide testimony relevant to the restrictions.
+
+\para As Executive Director of D\&A, Bradley had authority over the D\&A staff responsible for implementing Plaintiff's accommodations. Bradley also had authority to require D\&A staff to re-engage the interactive process, assign a coordinator who had not participated in the revised procedure, or require a D\&A official who had not joined the October 10 certification to determine whether the revised procedure provided usable attendance flexibility during sudden disability-related absences.
+
+
+\para On October 15, 2025, Bradley stated that she had been properly informed about the situation, had communicated with D\&A personnel and Legal Affairs, and was placing Plaintiff on her caseload because she had been involved in the situation. Bradley also stated that this would be the last coordinator change. Bradley's assignment of the accommodation file to herself kept D\&A decisionmaking with an official whose office had already approved and defended the revised lab procedure Plaintiff disputed (\exh{J}).
+
+\para On October 16, 2025, Plaintiff gave Bradley, Legal Affairs, and the ADA Coordinator specific statutory and regulatory notice that the revised implementation procedure violated ADA Title II and Section 504. Plaintiff identified, among other provisions, ADA Title II regulations at 28 C.F.R. \S\S 35.130(b)(1)(ii), 35.134, and 35.164, and Section 504's academic-adjustment regulation at 34 C.F.R. \S 104.44(a). Plaintiff explained that the revised advance-notice procedure screened out unpredictable disability-related absences, bypassed D\&A's Attendance Policy Addendum interactive process, and lacked any written fundamental-alteration or undue-burden determination (\exh{K}).
+
+\para Student Services and SOS personnel also recognized the loss of access to the approved missed-lab make-up arrangement. Patrick Joseph independently identified the question as whether Plaintiff had an alternative way to complete missed labs consistent with his accommodations and wrote that there appeared to be a ``disconnect.'' SOS absence notices could ask professors for flexibility, but they did not themselves reopen Canvas, Gradescope, lab passcodes, or the office-hours make-up arrangement. The internal recognition placed the University on notice that the office-hours ban had removed the agreed missed-lab make-up arrangement and that an effective course-specific alternative was still required. Scott and other University officials continued to treat the unresolved loss of access as a misconduct concern and left D\&A's determination in place after Plaintiff had identified D\&A's role as a conflict of interest.
+
+\para By the time DIA later dismissed Plaintiff's HOP 3-3020 complaint, D\&A had already defended the revised lab procedure, allegedly refused to engage in the interactive process, and been explicitly named by Plaintiff as a respondent party in his DIA complaint. DIA's deference to D\&A left the legal sufficiency of that procedure and the adequacy of the interactive process to the office whose decisions Plaintiff had disputed.
+
+\complaintsubsection{H. Academic impact during Fall 2025}
+
+\para The October 2 office-hours ban and unresolved misconduct framing chilled Plaintiff's participation in SDS 320E and disrupted Plaintiff's participation across Fall 2025. During October 2025, Plaintiff diverted substantial time and effort from coursework to legal-aid outreach, internal complaints, witness preservation, records requests, and federal enforcement channels because the University had imposed restrictions immediately but had not provided a process to test the allegations, restore the September 4 make-up arrangement, or identify an effective equivalent accommodation.
+
+\para Plaintiff did not or could not attend most class meetings in his other Fall 2025 courses during October. Plaintiff attempted to recover academically in November and December, but the cumulative disruption caused by the unresolved SDS, D\&A, DIA, Student Conduct, and Legal Affairs response prevented normal completion of the semester. Plaintiff ultimately took incompletes in two Fall 2025 courses so that work could continue into the next semester and completed only one course during Fall 2025.
+
+\para In SDS 320E specifically, course participation fell sharply after the restriction and the University's refusal to restore a workable no-advance-notice make-up arrangement. Plaintiff's SDS 320E Gradescope dashboard shows completed or graded early assignments, including Homework 1, Intro Lab, Homework 2, Subsetting Lab, Homework 3, Descriptives Lab, and Homework 4. The same dashboard shows no submissions for the later October and November assignments: Homework 5, T-Test Lab, Homework 6, ANOVA Lab, Chi2 Lab, Homework 7, and Regression Lab. The later no-submissions show the academic effect of the unresolved restrictions on Plaintiff's SDS 320E participation (\exh{E}).
+
+\para The loss of SDS 320E participation followed the removal of the September 4 Monday TA office-hours make-up arrangement, continued enforcement of electronic-only communication and office-hours restrictions, Scott's instruction to involve UTPD if Plaintiff returned to office hours, and the absence of any prompt witness interviews or hearing while coursework deadlines continued.
+
+\complaintsubsection{I. DIA written intake and notice of ADA, Section 504, due-process, and witness information}
+
+\para On October 17, 2025, DIA informed Plaintiff that it had received and reviewed his complaint and attachments and that the allegations would be handled under HOP 3-3020. DIA also confirmed that, at Plaintiff's request, it would use written intake instead of an interview and requested responses by October 24, 2025 (\exh{P}).
+
+\para Plaintiff submitted his written intake responses that evening. DIA acknowledged receipt on October 20, 2025 and stated that it would follow up if it had questions after evaluating Plaintiff's responses and documentation (\exh{P}).
+
+\para DIA's written intake questions asked Plaintiff to explain his disability-discrimination, retaliation, ability to use approved accommodations, D\&A, and academic-impact allegations. Plaintiff answered in writing, creating a detailed record of the legal theories, witnesses, requested corrective action, and evidence he believed DIA needed to consider (\exh{P}).
+
+\para DIA's first written question summarized the complaint as disability discrimination and retaliation, including failure to implement approved academic accommodations. DIA also asked Plaintiff to explain how the office-hours restriction affected his approved accommodations, why he could not use the alternate accommodations, whether the retaliation claim related to disability, the academic impact of the restrictions, and who DIA should contact if it pursued the matter further (\exh{P}).
+
+\para Plaintiff's written intake responses stated that Hsiao revoked a mutually agreed accommodation implementation, unilaterally imposed a revised procedure that Plaintiff could not use during disability-related absences or incapacitation, and effectively prevented Plaintiff from using his approved attendance-flexibility accommodation.
+
+\para Plaintiff's written intake responses stated that D\&A leadership bypassed the required statutory procedure, certified a nonfunctional accommodation plan without Plaintiff's consultation, and failed to engage in the interactive process.
+
+\para Plaintiff's written intake responses stated that no due-diligence inquiry had been conducted into Hsiao's claims before punitive actions were taken. Plaintiff also stated that Hsiao's report made materially false claims about the September 30 office-hours interaction, including claims that could be checked against records available at the time and claims that depended on information Hsiao had not received during that interaction or events that occurred only after October 2, 2025.
+
+\para Plaintiff identified student and TA witnesses and stated that a proper due-diligence inquiry under HOP 3-3020 should at minimum contact the TA witnesses.
+
+\para Plaintiff stated that the office-hours ban obstructed his ability to gather student witnesses.
+
+\para Plaintiff's written intake responses also explained that he had been forced to seek legal consultations while federal enforcement channels, including DOJ, were unavailable during the October 2025 federal shutdown.
+
+\para The record does not show a status update or determination between DIA's October 20 acknowledgment and November 21, 2025. On the morning of November 21, before DIA issued its dismissal that afternoon, Plaintiff followed up with DIA, stated that the timing had become urgent because the non-academic drop deadline was December 8, and explained that the course affected Spring registration and graduation planning (\exh{P}).
+
+\para In the same follow-up, Plaintiff restated that his complaint raised specific ADA Title II and Section 504 violations, including failure to implement approved accommodations, imposition of an advance-notice rule that screened out his disability, restrictions on office-hours access and communication, and interference and coercion in requiring him to accept a revised procedure.
+
+\para Plaintiff's November 21 follow-up reached DIA before the dismissal issued that afternoon and was later forwarded to Legal Affairs and DIA for University records. DIA and Legal Affairs therefore had renewed written notice, before Graves later decided the appeal, that Plaintiff was asserting ADA Title II and Section 504 violations tied to the revised advance-notice procedure, office-hours restrictions, communication restrictions, and interference with his approved accommodations (\exh{P}).
+
+\complaintsubsection{J. DIA dismissal, disclosure of intake notes, and deference to D\&A}
+
+\para On November 21, 2025, DIA issued a Notice of Dismissal regarding Plaintiff's complaint against Hsiao (\exh{Q}).
+
+\para The dismissal email stated that ``University decision-makers'' had been provided with both the dismissal notice and DIA's intake notes (\exh{Q}).
+
+\para DIA's intake notes contained Plaintiff's legal theories, witness strategy, requested witnesses, desired outcomes, and evidentiary assessments. The disclosure was material because the dismissal notice itself reflected distribution to senior officials and to D\&A leadership while the dismissal relied on D\&A's conclusion about the revised accommodations.
+
+\para D\&A had already certified the revised lab procedure that Plaintiff disputed. The distribution gave D\&A access to Plaintiff's legal theories, witnesses, and requested corrective action while DIA was deciding whether to investigate a complaint that included D\&A's role in the revised procedure.
+
+\para The Fall 2025 response already involved coordination among SDS, CNS, D\&A, Student Conduct, Legal Affairs, and DIA concerning the office-hours ban, accommodation implementation, and misconduct routing. The distribution gave those decisionmakers access to Plaintiff's account and witness strategy before a neutral investigation, witness process, or evidence-control procedure occurred.
+
+\para The dismissal materials were marked private, confidential, and protected by FERPA and University confidentiality rules.
+
+\para The DIA dismissal letter identified Plaintiff's complaint as involving disability and retaliation and as handled under HOP 3-3020 (\exh{R}).
+
+\para The dismissal letter did not identify ADA Title II or Section 504 as legal standards being applied, did not mention those statutes, and did not address Plaintiff's asserted ADA Title II and Section 504 theories as federal statutory claims (\exh{R}).
+
+\para The dismissal letter acknowledged that Plaintiff alleged Hsiao barred him from in-person office hours and revoked his approved accommodations from D\&A (\exh{R}).
+
+\para The dismissal letter treated one portion of Plaintiff's retaliation allegations as a grade-dispute issue outside HOP 3-3020 and also treated Plaintiff's allegation that Hsiao made false claims as outside HOP 3-3020. The same dismissal letter, however, identified disability as a basis, identified retaliation as a basis, and acknowledged that Plaintiff alleged revocation of approved D\&A accommodations, an unworkable procedure for unpredictable absences, and failure to engage in the accommodation process (\exh{R}).
+
+\para DIA's scope decision left untested the same misconduct premise the University used to remove the September 4 Monday TA office-hours make-up arrangement and route the matter into Student Conduct. It also allowed D\&A's accommodation certification to carry the dismissal even though Plaintiff had challenged D\&A's role in approving and defending the revised procedure.
+
+\para The dismissal letter stated that DIA defers to D\&A on academic-accommodation questions. DIA did not independently decide whether the October 2 office-hours ban and revised lab procedure prevented Plaintiff from using the approved attendance-flexibility accommodation.
+
+\para The dismissal letter relied on D\&A's conclusion that the alternative lab accommodations did not negate the provisions in Plaintiff's accommodation letter or deny Plaintiff access to accommodations.
+
+\para The dismissal letter also stated that advance notice is reasonable and common for students with flexible attendance and that medical emergencies, even if disability-related, are not covered by D\&A academic accommodations. Those statements did not address whether the revised procedure was usable during sudden disability-related absences or incapacitation, whether the September 4 Monday TA office-hours arrangement could be replaced without Plaintiff's participation, or whether UT Austin had made an individualized determination that an equivalent no-advance-notice arrangement would fundamentally alter the course or impose an undue burden (\exh{R}).
+
+\para D\&A's role in the DIA complaint included its certification of the revised lab procedure, its alleged failure to engage in the interactive process, and Bradley's direct involvement in requiring Plaintiff to accept that procedure.
+
+\para By deferring judgment to D\&A, DIA relied on the office whose certification and process Plaintiff had disputed in the HOP 3-3020 complaint. Plaintiff alleged that D\&A could not neutrally decide whether the University could replace the September 4 Monday TA office-hours make-up arrangement with an advance-notice procedure after Plaintiff had objected that the replacement was unusable during disability-related absences or incapacitation.
+
+\para DIA did not conduct the HOP 3-3020 due-diligence inquiry Plaintiff requested. That inquiry would have addressed Plaintiff's ADA Title II and Section 504 allegations, D\&A's role in the revised procedure, the factual basis for deferring to D\&A, the usability of the advance-notice procedure during disability-related absences or incapacitation, the disputed misconduct premise, and the identified witnesses. The dismissal letter stated that DIA did not interview Hsiao, and the record does not show that DIA interviewed the TA or student witnesses Plaintiff identified as relevant to Hsiao's allegations (\exh{R}).
+
+\para After acknowledging Plaintiff's written intake responses on October 20, DIA did not ask Plaintiff for additional documents, clarification, or witness contact information before issuing the November 21 dismissal. Plaintiff alleges that DIA resolved the intake through deference to D\&A rather than through the HOP 3-3020 due-diligence inquiry Plaintiff had requested. The missing inquiry concerned the ADA Title II and Section 504 accommodation allegations, D\&A's role in the challenged procedure, the conflict issue created by deference to D\&A, and the witness and evidence issues connected to the misconduct premise used to displace the September 4 arrangement (\exh{R}).
+
+\complaintsubsection{K. Graves's prior role and refusal to recuse}
+
+\para Before the December 2025 DIA appeal, Graves had already personally acted in D\&A and DIA proceedings concerning Plaintiff's disability-accommodation and discrimination complaints.
+
+\para In June 2025, Graves denied a DIA appeal arising from a separate Spring 2025 SDS 322E dispute involving a nondiscretionary syllabus make-up policy and alleged failure to honor accommodation-related make-up agreements. Plaintiff had objected that DIA wrongly treated the complaint as a classroom-policy dispute even though Plaintiff alleged both nondiscretionary syllabus obligations and D\&A accommodation obligations supported the make-up policy, supported by several written and verbal agreements witnessed by the whole class. Graves stated that he was the University official who considered the appeal, adopted the disputed premise that Plaintiff had been provided a make-up accommodation and failed to use it, and denied the appeal (\exh{U}).
+
+\para In July 2025, Graves asserted broad compliance authority over Plaintiff's D\&A complaint and closed that complaint after relying on an internal ADA Coordinator assessment.
+
+\para Plaintiff disputed Graves's involvement and objected that Graves was blocking or mishandling disability-related complaint handling.
+
+\para After DIA dismissed Plaintiff's Fall 2025 HOP 3-3020 complaint against Hsiao, Plaintiff sent an appeal request to Dawn M. Spinozza, the DIA official who transmitted the dismissal correspondence on behalf of Associate Vice President Esteban Soto. Plaintiff objected that the dismissal cited D\&A and other involved parties as support for the decision, that the decision process was biased, that Plaintiff had produced evidence of ADA Title II and Section 504 violations, and that dismissal without investigation would constitute deliberate indifference to Plaintiff's federal rights (\exh{Q}).
+
+\para Later on November 21, 2025, DIA informed Plaintiff that the appeal had been sent to Graves to decide. Plaintiff objected to Graves serving as the appeal decisionmaker because Graves had already acted in related D\&A and DIA proceedings concerning Plaintiff's disability-accommodation and discrimination complaints, and Plaintiff stated that Graves was not impartial or an appropriate decisionmaker for procedural irregularities.
+
+\para Later on November 21, 2025, Plaintiff submitted a more detailed appeal to DIA and copied Legal Affairs and the ADA Coordinator. Plaintiff stated that no ADA or Section 504 violations had been investigated, that the dismissal relied on Hsiao's and D\&A's explanations, that D\&A had approved the revised procedure, that the September 4 implementation remained the only binding implementation agreement absent a lawful individualized process, and that any decision relying on D\&A's testimony without an independent and impartial legal determination would constitute deliberate indifference to Plaintiff's statutory rights.
+
+\para On November 24, 2025, Plaintiff forwarded his complaint and appeal materials to Esteban Soto, the Associate Vice President for Investigation and Adjudication listed on DIA's dismissal letter, and copied Legal Affairs. Plaintiff again sought decision by an official other than Graves, requested a fair and impartial handling under ADA Title II, Section 504, and HOP 3-3020, objected that a decision by Graves would not be impartial, and requested recusal of DIA or compliance personnel with conflicts of interest or prior roles in the events at issue, including Graves (\exh{S}).
+
+\para Plaintiff also forwarded the November 24 recusal and appeal materials to DIA and compliance personnel. By the time Graves acted, DIA, Legal Affairs, the ADA Coordinator, Soto, and compliance personnel had all received written notice that Plaintiff was requesting a neutral decision by a different official and objecting to Graves's participation because Graves had already acted in related disability-accommodation and discrimination matters and because Plaintiff had identified a conflict of interest (\exh{S}).
+
+\para Despite those requests for decision by an official other than Graves, Graves acted on the appeal on December 5, 2025. Graves copied Soto and DIA, stated that he was the University official who considered the appeal, quoted Plaintiff's objection that no ADA or Section 504 violations had been investigated and that dismissal without investigation would constitute deliberate indifference, and dismissed the appeal as disagreement with DIA's determination (\exh{T}).
+
+\para Plaintiff responded to Graves directly the same morning and stated that the appeal was based on procedural irregularity, including DIA's deference to D\&A despite D\&A's role in the underlying accommodation dispute and the identified conflict of interest. Plaintiff also told Graves that HOP 3-3020 treated procedural irregularity and conflict of interest as grounds for appeal (\exh{T}).
+
+\para Plaintiff told Graves that the dismissal did not explain or mention ADA Title II or Section 504 as the basis for dismissal and that DIA had not independently addressed the ADA Title II or Section 504 violations Plaintiff alleged.
+
+\para Plaintiff told Graves that the dismissal violated HOP 3-3020's due-diligence and conflict-of-interest requirements and the prompt and equitable complaint-handling obligations Plaintiff invoked under ADA Title II and Section 504.
+
+\para Plaintiff again requested Graves's recusal directly in the December 5, 2025 appeal exchange because Graves had already acted in Plaintiff's related D\&A and DIA proceedings concerning disability-accommodation and discrimination complaints.
+
+\para Graves refused recusal, stating that he had already made a final decision on recusal (\exh{T}).
+
+\para Graves did not explain why the procedural irregularity, D\&A conflict, intake-note disclosure, lack of a HOP 3-3020 due-diligence inquiry, and recusal objections failed to qualify under HOP 3-3020's appeal grounds. He treated those grounds as disagreement with DIA's substantive decision and declared Plaintiff's HOP 3-3020 complaint closed (\exh{T}).
+
+\para Graves's decision ended the only then-pending University complaint procedure addressing Plaintiff's ADA Title II and Section 504 allegations while Plaintiff's requests for witness inquiry, protection of intake materials, and decision by an official outside Graves's prior role remained unresolved.
+
+\para Graves's December 5 decision came after Plaintiff had been without the September 4 office-hours make-up arrangement for more than two months and only days before the December 8 non-academic drop deadline. By then, the Fall 2025 course and Spring 2026 registration consequences Plaintiff had identified to DIA were already time-sensitive.
+
+\para Graves did not transfer or delegate his HOP 3-3020 role in deciding the appeal to a neutral University official despite multiple written conflict objections and recusal requests made to DIA, Soto, Legal Affairs, compliance personnel, and Graves directly.
+
+\para Graves did not provide a neutral process for addressing DIA's disclosure of intake notes, DIA's deference to D\&A, or DIA's failure to conduct the requested HOP 3-3020 due-diligence inquiry. Graves also did not provide prompt, equitable handling of Plaintiff's ADA Title II, Section 504, and disability-discrimination allegations.
+
+\para By closing the appeal, Graves ratified DIA's disclosure of Plaintiff's confidential intake materials, DIA's deference to D\&A after Plaintiff had identified D\&A's role as a conflict of interest, and DIA's dismissal without the due-diligence inquiry required by HOP 3-3020. Graves also left in place the absence of prompt, equitable handling of Plaintiff's ADA Title II and Section 504 complaint.
+
+\complaintsubsection{L. Spring 2026 coordinator reassignment refusal and constructive disenrollment}
+
+\para In January 2026, D\&A's system initially identified Plaintiff as requiring a new access coordinator assignment. Around January 14, 2026, Plaintiff learned that Emily Harrington was no longer with D\&A. Plaintiff does not know when or why Harrington left UT Austin. Her departure gave Plaintiff a separate reason to expect reassignment to an access coordinator other than Bradley after Harrington had participated in the Fall 2025 revised lab procedure (\exhs{V--W}).
+
+\para On January 13, 2026, Bradley sent a mass communication asserting herself as Plaintiff's D\&A access coordinator. By that time, Plaintiff had already raised conflict-of-interest concerns, and D\&A had previously indicated that a new coordinator would be assigned (\exh{X}).
+
+\para On January 14, 2026, Plaintiff emailed Bradley, D\&A, the Vice President for Legal Affairs, and the ADA Coordinator requesting a coordinator change because Bradley's conflict of interest prevented an effective process for implementing accommodations. Plaintiff informed Bradley that she was involved in pending federal civil-rights complaints, including DOE OCR and DOJ complaints, and that continued assignment to Bradley would interfere with Plaintiff's ADA and Section 504 rights (\exh{Y}).
+
+\para On January 15, 2026, Bradley refused reassignment and stated that she had consulted with Legal Affairs and the ADA office and that they agreed with her decision. Plaintiff responded that Bradley was a named party in DOE and DOJ complaints and that her continued role would be treated as a retaliatory disability-discrimination act in Plaintiff's filings (\exh{Y}).
+
+\para By the final day to add Spring classes, Bradley and D\&A had refused to assign Plaintiff to an access coordinator who had not participated in the disputed Fall 2025 arrangement (\exh{Z}).
+
+\para Plaintiff was left unable to access accommodations needed for continued enrollment. The continued assignment to Bradley affected Plaintiff's ability to enroll because Bradley had already participated in, defended, or ratified the Fall 2025 revised lab procedure that Plaintiff disputed.
+
+\para Plaintiff was constructively disenrolled or forced out of continued enrollment throughout Spring and Summer 2026 because continued participation required him to seek accommodations through Bradley and D\&A while the Fall 2025 office-hours ban, related communication restrictions, Student Conduct records, DIA's dismissal after deferring to D\&A, and Graves's refusal to recuse from the appeal remained unresolved. Although the initial October 2 office-hours ban and communication restrictions arose in SDS 320E in Fall 2025, Plaintiff alleges that the later institutional response by SDS, D\&A, DIA, Student Conduct, Legal Affairs, and University administrators made continued enrollment untenable.
+
+\para Plaintiff could not continue enrollment while the University left the Fall 2025 restrictions and related misconduct framing unresolved. SDS continued to enforce the office-hours ban and communication restrictions that had displaced the September 4 no-advance-notice make-up procedure. Student Conduct kept the September 30/October 2 misconduct file open while postponing notice, access to the evidence, and any hearing or resolution.
+
+\para DIA had also deferred to D\&A and disclosed Plaintiff's intake notes to ``University decision-makers'' while the dismissal materials were distributed to officials and offices already involved in the disputed events. Because Bradley remained Plaintiff's assigned coordinator and Graves had closed the HOP 3-3020 appeal, Plaintiff was required to seek Spring 2026 accommodations through officials and processes he had identified as discriminatory, retaliatory, or lacking neutrality.
+
+\para The unresolved restrictions and processes Plaintiff had identified as lacking neutrality made the educational environment hostile and inaccessible. Scott had advised that UTPD be contacted if Plaintiff returned to office hours, while University officials continued to treat Plaintiff's disability-accommodation requests, grade-process objections, and civil-rights complaints as misconduct concerns. The University also declined to restore the September 4 make-up arrangement, assign an access coordinator outside the disputed Fall 2025 arrangement, or provide complaint decision by an official outside the DIA and compliance process Plaintiff had identified as lacking neutrality.
+
+\para Under those conditions, Plaintiff reasonably believed that continued enrollment would require counsel and, for in-person academic or accommodation interactions, written safeguards and neutral third-party involvement to prevent further mischaracterization or punitive action.
+
+\para Plaintiff suffered economic, academic, educational, medical-access, and service-access injuries, including loss of enrollment, financial-aid harm or clawbacks, loss of student services, loss of University technology access, impairment of degree progress, delayed graduation, disruption of research and graduate-program opportunities, and loss of educational opportunity.
+
+\para Loss of enrollment also terminated or materially impaired Plaintiff's access to University Health Services, including physical therapy and related treatment access for a documented knee disability. Plaintiff has had to defer, replace, or pay out of pocket for care that would otherwise have been available through University student-health services. These medical-access damages arise from the loss of University Health Services and physical-therapy access tied to the documented knee disability.
+
+\para The enrollment block also disrupted Plaintiff's documented graduation and research trajectory. Before Spring 2026 cancellation, Plaintiff had registered for required coursework, petitioned around a planned ETH Zurich research opportunity, and documented a Spring/Summer 2026 graduation plan. The delayed graduation timeline impaired Plaintiff's ability to pursue graduate-program enrollment and funding cycles, including the Oden CSEM PhD trajectory and other fall-entry opportunities tied to timely graduation.
+
+\para Plaintiff remained without effective internal corrective action for months after the disputed actions. The University left the restrictions, Student Conduct records, D\&A conflict-of-interest concerns, DIA dismissal, and Graves appeal closure unresolved while external civil-rights processes provided no timely corrective action.
+
+\para Plaintiff also suffered severe emotional distress, anxiety, humiliation, fear, loss of sense of safety in the academic environment, sleep disruption, impaired concentration, and the reasonable belief that continued enrollment required extraordinary protective measures.
+
+\para After Bradley refused reassignment and the disputed restrictions continued to affect Plaintiff's enrollment and access to University services, Plaintiff also reported post-notice interference with enrollment, accommodations, and University services to external civil-rights, public-integrity, and law-enforcement channels with authority to receive such complaints, including the Texas Rangers Public Integrity Unit, the Travis County District Attorney, and the FBI Civil Rights Division.
+
+\complaintsection{V. Claims for Relief}
+
+\para For the ADA Title II and Section 504 claims, Plaintiff seeks compensatory damages under the ordinary disability-discrimination standards applicable outside and inside the educational-services context, including deliberate indifference where required. \textit{A.J.T. v. Osseo Area Schools, Independent School District No. 279}, 605 U.S. 335 (2025), governs education-service disability claims under the same standards applicable in other ADA and Rehabilitation Act contexts.
+
+\para The ADA Title II and Section 504 damages sought from UT Austin are economic, academic, educational-opportunity, service-access, medical-access, out-of-pocket, delayed-graduation, and other legally recoverable non-emotional injuries, together with declaratory and injunctive relief. The emotional-distress damages requested in this complaint are sought from the individual Defendants in their personal capacities under 42 U.S.C. \S 1983 for the constitutional injuries alleged in Counts IV and V.
+
+\para The statutory claims arise from UT Austin's use of untested misconduct allegations to eliminate the September 4 Monday TA office-hours make-up arrangement and certify a revised advance-notice procedure without Plaintiff's participation, witness inquiry, individualized safety assessment, or fundamental-alteration or undue-burden determination.
+
+\complaintsubsection{Count I - ADA Title II: Failure to Accommodate, Denial of Meaningful Access, and Deliberate Indifference Against UT Austin}
+
+\para Plaintiff realleges and incorporates all preceding paragraphs.
+
+\para Plaintiff is a qualified individual with disabilities under ADA Title II.
+
+\para UT Austin is a public entity subject to ADA Title II.
+
+\para Plaintiff was eligible to participate in UT Austin's academic programs, courses, services, and activities, including SDS 320E and related academic and disability-accommodation services.
+
+\para UT Austin denied Plaintiff meaningful access to its services, programs, or activities by permitting the unilateral revocation of the September 4 accommodation implementation plan, eliminating the no-advance-notice office-hours make-up arrangement, imposing a revised lab procedure that Plaintiff could not use during unpredictable disability episodes, and failing to provide an effective equivalent accommodation. After the restriction remained unresolved and no equivalent no-advance-notice make-up arrangement was restored, Plaintiff stopped submitting later SDS 320E assignments in October and November, as reflected in the Gradescope record (\exh{E}).
+
+\para UT Austin failed to engage in a meaningful interactive process before certifying the revised lab procedure as reasonable and effective.
+
+\para UT Austin failed to conduct or require a legally sufficient fundamental-alteration or undue-burden analysis before materially limiting Plaintiff's approved accommodation implementation.
+
+\para UT Austin acted with deliberate indifference because officials with authority to correct the violation, including D\&A leadership, Legal Affairs, DIA/URCS officials, Student Conduct officials, and University administrators, had actual notice that the restrictions prevented Plaintiff from using his approved accommodation in practice and failed to respond reasonably. University officials also had notice of less restrictive in-person alternatives, including Ragsdale's office hours and the need for another no-advance-notice make-up arrangement.
+
+\para The violation caused Plaintiff legally recoverable non-emotional damages, including economic harm, academic harm, delayed graduation, disrupted research and graduate-program opportunities, lost educational opportunity, lost University services, lost University Health Services and physical-therapy access, out-of-pocket or substitute medical and rehabilitative expenses, and lost use of approved accommodations.
+
+\complaintsubsection{Count II - Section 504 of the Rehabilitation Act Against UT Austin}
+
+\para Plaintiff realleges and incorporates all preceding paragraphs.
+
+\para Plaintiff is an individual with disabilities under Section 504.
+
+\para UT Austin receives and directly benefits from federal financial assistance and is subject to Section 504. On information and belief, the federally assisted University programs and activities involved here include academic instruction, SDS, D\&A, DIA/URCS, Student Conduct and SOS/student services, enrollment and technology services, and financial-aid administration.
+
+\para Plaintiff was otherwise qualified to participate in UT Austin's academic programs, courses, services, and activities.
+
+\para UT Austin excluded Plaintiff from participation in, denied him the benefits of, and subjected him to discrimination under its programs and activities solely by reason of disability, including by maintaining a revised procedure that screened out Plaintiff's unpredictable disability-related absences after actual notice that the procedure prevented practical use of approved accommodations.
+
+\para UT Austin's actions and omissions included failure to maintain the September 4 accommodation implementation plan or provide an equally effective alternative, failure to engage in a meaningful interactive process, adoption of an advance-notice procedure that screened out Plaintiff's disability-related absences, and refusal to provide a prompt and equitable complaint response.
+
+\para UT Austin acted with deliberate indifference to Plaintiff's federally protected rights after receiving actual notice that Plaintiff could not practically use the approved accommodation under the revised procedure.
+
+\para UT Austin's violations caused legally recoverable non-emotional damages, including economic harm, academic harm, delayed graduation, disrupted research and graduate-program opportunities, lost educational opportunity, lost University services, lost University Health Services and physical-therapy access, out-of-pocket or substitute medical and rehabilitative expenses, and lost use of approved accommodations.
+
+\complaintsubsection{Count III - ADA/Section 504 Retaliation, Interference, Coercion, Hostile and Inaccessible Educational Environment, and Failure to Correct After Notice Against UT Austin}
+
+\para Plaintiff realleges and incorporates all preceding paragraphs.
+
+\para Plaintiff engaged in protected activity by requesting and using disability accommodations, opposing disability discrimination, asserting ADA Title II and Section 504 rights, filing disability-related complaints, participating in DIA intake, identifying witnesses, requesting a due-diligence inquiry, requesting a neutral decision by a different official and recusal, and seeking external civil-rights remedies. His academic complaints and grade-related petitions were also protected where Defendants treated Plaintiff's use of official University reporting and appeal processes as misconduct evidence and used those complaints to support the adverse response.
+
+\para UT Austin subjected Plaintiff to adverse actions, including the office-hours ban, electronic-only communication restrictions, treatment of disputes over accommodation implementation as disciplinary misconduct, failure to restore the September 4 accommodation implementation, disclosure of confidential intake materials, deference to D\&A despite the conflict of interest Plaintiff had identified, refusal to assign an appeal decisionmaker outside the DIA and compliance process Plaintiff had identified as biased, and constructive disenrollment.
+
+\para The adverse actions were causally connected to Plaintiff's protected activity by temporal proximity, direct references to Plaintiff's complaints and disability-rights advocacy, use of Plaintiff's prior complaints and academic advocacy to support the misconduct characterization in internal records, and the targeting of the September 4 Monday TA office-hours make-up arrangement.
+
+\para UT Austin interfered with, coerced, intimidated, or restrained Plaintiff in the exercise or enjoyment of rights protected by ADA Title II and Section 504.
+
+\para UT Austin created and maintained a hostile and inaccessible educational environment by treating Plaintiff's objections to the revised lab procedure and his protected complaints as misconduct while refusing to assign a D\&A coordinator who had not participated in the revised procedure or provide prompt, equitable handling of the complaint.
+
+\para The cumulative effect of these actions denied or limited Plaintiff's ability to participate in and benefit from UT Austin's educational programs, including SDS 320E participation, other Fall 2025 coursework, use of approved accommodations, Spring 2026 enrollment, University services, and access to disability-related support. Plaintiff continued to petition for relief because doing so was necessary to preserve access and protect his record, but the retaliation and interference chilled course participation and made normal academic engagement impracticable.
+
+\para UT Austin's response to Plaintiff's HOP 3-3020 complaint was not prompt, equitable, neutral, or consistent with appropriate complaint-handling standards. DIA acknowledged Plaintiff's written intake responses on October 20 but did not issue a determination until November 21, after Plaintiff followed up about the December 8 deadline and Spring registration consequences. DIA then disclosed intake materials, relied on D\&A after Plaintiff had disputed D\&A's role in the revised procedure, declined to conduct the HOP 3-3020 due-diligence inquiry Plaintiff requested, and allowed Graves to decide the appeal after Plaintiff requested recusal. The missing inquiry included Plaintiff's ADA Title II and Section 504 accommodation allegations, D\&A's role in the revised procedure, the identified witnesses and evidence, and the factual basis for relying on D\&A despite D\&A's disputed role. Those facts show actual notice, retaliation, interference, causation, deliberate indifference, and UT Austin's failure to restore the September 4 Monday TA office-hours make-up arrangement after Plaintiff identified the problem.
+
+\para UT Austin's retaliation, interference, hostile and inaccessible environment, and failure to correct after notice caused Plaintiff legally recoverable non-emotional damages, including economic harm, academic harm, delayed graduation, disrupted research and graduate-program opportunities, lost educational opportunity, lost University services, lost University Health Services and physical-therapy access, out-of-pocket or substitute medical and rehabilitative expenses, and lost use of approved accommodations.
+
+\complaintsubsection{Count IV - 42 U.S.C. \S 1983: Procedural Due Process Against Hsiao, Scott, Ragsdale, Bartroff, Bradley, and Graves in Their Individual Capacities}
+
+\para Plaintiff realleges and incorporates all preceding paragraphs.
+
+\para Plaintiff had protected interests in continued meaningful access to public university education, practical use of approved disability accommodations as the means of accessing that education, continued enrollment and the student services attached to enrollment, timely academic progress, and avoidance of erroneous misconduct-based restrictions and stigmatizing misconduct records. UT Austin used alleged misconduct to remove the September 4 Monday TA office-hours make-up arrangement, route the matter into Student Conduct, and place misconduct-related material in University systems. D\&A and HOP 3-3020 were the processes UT Austin had chosen for correcting that ongoing restriction. Defendants imposed, maintained, and finalized the restriction before providing notice, access to the evidence, witness interviews, or a meaningful opportunity to respond.
+
+\para Public-university students facing misconduct-based restrictions that materially affect educational access, reputation, enrollment, or academic progress are entitled to fundamentally fair procedures. Plaintiff alleges that the process required here included notice, a meaningful opportunity to respond, prompt consideration of identified witness and documentary evidence, and decisionmaking by officials who had not already participated in the asserted procedural defects or conflicts of interest. A prompt post-deprivation opportunity to respond would have had immediate value because the restrictions remained in effect while SDS 320E and other Fall 2025 coursework deadlines continued.
+
+\para The contemporaneous record did not make process impracticable. Hsiao's account recorded no raised voices and Plaintiff leaving, known student witnesses existed, Plaintiff immediately denied the allegations, and course records were available for examination. The restriction nevertheless took effect first, with process deferred to other offices while course deadlines, Student Conduct records, D\&A decisions, and enrollment consequences continued.
+
+\para Defendants Hsiao, Scott, Ragsdale, Bartroff, Bradley, and Graves acted under color of state law.
+
+\para The individual Defendants acted at different stages of the same constitutional injury. Hsiao and Scott imposed and formalized the October 2 misconduct-based restrictions. Ragsdale helped convert the September 30 grade dispute and prior complaint activity into a behavior concern, then was identified in the Student Conduct export as one of the officials involved in the decision to bar Plaintiff from in-person office hours. Bartroff helped connect the Fall 2025 restriction to the Spring 2025 protected complaint activity, recommended office-hours limits before Plaintiff was heard, and later sent Spring and Fall materials forward as evidence of recurring misconduct. Bradley participated in D\&A's certification of the revised lab procedure after notice that advance notice was not possible during disability-related absences or incapacitation, then refused to assign the matter to an access coordinator outside the disputed procedure. Graves closed the HOP 3-3020 process after receiving notice of procedural irregularity, D\&A's role in the disputed procedure, disclosure of intake notes, lack of the requested HOP 3-3020 due-diligence inquiry, and repeated requests for a neutral decision by a different official.
+
+\para Hsiao personally imposed or initiated the office-hours ban and communication restrictions without prior notice, access to the evidence, hearing, or opportunity for Plaintiff to respond. Hsiao also submitted the report that placed the September 30 interaction into Student Conduct as behavioral misconduct.
+
+\para Scott personally formalized and maintained the restrictions, advised that UTPD be contacted if Plaintiff returned to office hours, and refused to meaningfully engage Plaintiff's communications. Scott's own internal email acknowledged that Plaintiff could invoke due-process rights with other University bodies, which shows that Scott understood the restrictions implicated process rights while he kept the restrictions in force.
+
+\para Ragsdale personally helped initiate and maintain the misconduct framing. On October 1, before Plaintiff had notice or any opportunity to respond, Ragsdale advised Hsiao not to concede the grade dispute, warned that granting even a small point adjustment would lead to more complaints, linked the dispute to Plaintiff's Spring 2025 complaint activity in SDS 322E, recommended informing Bartroff and Meyer, and stated that someone needed to speak with Plaintiff about his ``behavior.'' The Student Conduct export then identifies Ragsdale, Scott, and Drew as the officials who discussed the September 30 interaction and decided that Plaintiff could no longer attend in-person office hours and that all course communication would be electronic. Ragsdale's role therefore extended beyond grading advice: she helped recast protected academic and disability-related complaint activity as a behavior concern and participated in the decision that removed the September 4 Monday TA office-hours make-up arrangement before witnesses were contacted or Plaintiff was heard.
+
+\para Bartroff personally participated in the cross-semester misconduct characterization and the resulting restrictions. In Spring 2025, after Plaintiff stated that he would include the SDS 322E disability/discrimination dispute in a DIA report, Bartroff forwarded Plaintiff's protected complaint communication to Guyot and Calder with the message ``FYI.'' On October 1, Bartroff wrote to CNS Student Dean Drew that the Hsiao interaction reflected a recurring pattern of aggressive behavior, recommended that Plaintiff not attend Hsiao's office hours, and suggested Ragsdale's office hours as a less restrictive in-person alternative. Scott's October 2 email stated that he had consulted Bartroff and Drew and that they were ``all in agreement'' before Scott formalized restrictions that omitted Ragsdale's office hours and barred in-person office hours with all SDS 320E instructional staff. On October 14, Bartroff then sent Spring 2025 Guyot materials and Fall 2025 Hsiao materials to Vice Provost Dukerich, described them as a recurring behavior record, and asked whether anyone had obtained Student Conduct guidance about what action could be taken.
+
+\para Bradley personally participated in the due-process violation by consulting on and approving the revised SDS 320E lab procedure after D\&A and Legal Affairs had notice that the procedure required advance notice Plaintiff could not provide during disability-related absences or incapacitation. Bradley approved that procedure without Plaintiff's participation, without a new course-specific attendance discussion, without a fundamental-alteration or undue-burden determination, and while the office-hours restriction remained based on untested misconduct allegations.
+
+\para Bradley had authority to require D\&A staff to reconsider the procedure, meet with Plaintiff about attendance flexibility, assign an access coordinator who had not participated in the October 10 certification, or require an independent D\&A assessment of whether the revised procedure worked during sudden disability-related absences. After Plaintiff requested reassignment and identified the conflict of interest, Bradley refused to assign a coordinator outside the officials involved in the Fall 2025 dispute, maintained the revised procedure, and placed Plaintiff on her own caseload because she had been involved in the situation. Continued enrollment in Spring 2026 required effective D\&A coordination through the same official whose office had already certified and defended the procedure Plaintiff disputed.
+
+\para Graves personally made the final decision on Plaintiff's appeal from the DIA dismissal after Plaintiff notified him of procedural irregularity, conflict of interest, the lack of the requested HOP 3-3020 due-diligence inquiry, disclosure of confidential intake notes containing legal theories and witness strategy, and reliance on D\&A despite D\&A's role in the underlying accommodation dispute. As Chief Compliance Officer, Graves was also the official whose HOP 3-3020 role included responsibility for the policy's conflict-delegation safeguard in consultation with Legal Affairs.
+
+\para Plaintiff expressly appealed on recognized HOP 3-3020 grounds, including procedural irregularity and conflict of interest. Plaintiff requested Graves's recusal because Graves had previously acted in related D\&A and DIA proceedings concerning Plaintiff's disability-accommodation and discrimination complaints. Those requests were made first through DIA after Plaintiff was told Graves would decide the appeal, then through Soto, Legal Affairs, DIA, and compliance personnel, and then directly to Graves. Graves quoted the HOP 3-3020 appeal grounds in his denial but did not explain why DIA's reliance on D\&A, the intake-note disclosure, the lack of the requested HOP 3-3020 due-diligence inquiry, and recusal objections failed to qualify under those grounds. Graves decided the recusal issue himself, refused to delegate the appeal, treated the appeal as disagreement, and made the dismissal final while the October 2 restrictions, Student Conduct record, and Fall 2025 academic consequences remained unresolved.
+
+\para Through their individual acts, each individual Defendant denied Plaintiff neutral and meaningful process while the restrictions and related records affected his protected interests. Hsiao and Scott imposed and enforced the office-hours ban and communication restrictions. Ragsdale helped initiate the behavior framing and participated in the decision described in the Student Conduct export. Bartroff connected the Fall 2025 incident to Plaintiff's earlier protected SDS 322E complaints, recommended office-hours limits, identified a narrower alternative, and later sent Spring and Fall materials forward as alleged evidence of recurring misconduct. Bradley joined the D\&A certification of the revised procedure after notice that it was unusable during disability-related absences or incapacitation, then kept the procedure and D\&A assignment in place after Plaintiff requested consideration by an access coordinator who had not participated in the Fall 2025 dispute. Graves used HOP 3-3020 authority to make the final HOP 3-3020 decision to close the only timely University procedure for Plaintiff's disability-discrimination and retaliation complaint after direct notice of procedural irregularity, D\&A's conflict of interest, intake-note disclosure, the lack of the requested HOP 3-3020 due-diligence inquiry, and recusal objections.
+
+\para The risk of error was high. The restrictions were imposed before investigation, witness interviews, access to the evidence, or hearing. Ragsdale and Bartroff helped convert protected academic and disability-related complaint activity into evidence supporting the misconduct characterization. The Student Conduct process was delayed while restrictions remained in effect. Bradley participated in the October 10 certification and maintained the revised procedure without Plaintiff's participation after notice that it did not function during absences or incapacitation. Student Services and SOS personnel recognized a ``disconnect'' over whether Plaintiff had an alternative way to complete missed labs under his accommodations. DIA disclosed Plaintiff's legal and witness strategy to University decisionmakers, relied on D\&A's conclusions after Plaintiff had disputed D\&A's role in the revised procedure, and Graves refused to delegate the appeal despite direct notice of the asserted conflict of interest.
+
+\para Additional safeguards had obvious value and low burden: interviewing identified student and TA witnesses before enforcing or maintaining misconduct-based restrictions; providing Plaintiff an opportunity to respond before or promptly after the restriction; requiring D\&A to conduct a renewed interactive discussion regarding the implementation of attendance flexibility after Plaintiff explained the advance-notice barrier; assigning an access coordinator who had not participated in the revised procedure; preserving intake-note confidentiality through a controlled evidence process; and assigning a neutral HOP 3-3020 appeal decisionmaker when Plaintiff raised procedural irregularity, conflict of interest, and recusal.
+
+\para At all relevant times, a reasonable public-university official would have understood that due process required notice and a meaningful opportunity to respond before or promptly after imposing, maintaining, or finalizing a misconduct-based restriction that materially affected a student's educational access and left misconduct records in University systems. UT Austin could not avoid that requirement by calling the restriction nonpunitive while using alleged misconduct to bar Plaintiff from in-person SDS 320E office hours, remove the September 4 Monday TA office-hours make-up arrangement, and leave misconduct materials in University systems. A reasonable official exercising authority to make the final decision would also have understood that due process requires a fair decisionmaker when the decisionmaker has been specifically identified as part of the conflict of interest, receives a recusal request before acting, decides the recusal question himself, and finalizes a process presenting an objectively intolerable risk of bias and error.
+
+\para Defendants' due-process violations caused Plaintiff compensatory injuries, including economic and academic harm, delayed graduation, disruption of research and graduate-program opportunities, loss of educational opportunity, loss of University Health Services and physical-therapy access, constructive disenrollment, and emotional distress. Plaintiff's emotional distress flowed directly from being deprived of neutral process while misconduct-based restrictions, misconduct records, and accommodation decisions Plaintiff had identified as lacking neutrality remained in effect.
+
+\para Defendants acted intentionally, recklessly, or with callous disregard for Plaintiff's federally protected rights, supporting punitive damages against the individual Defendants in their personal capacities.
+
+\complaintsubsection{Count V - 42 U.S.C. \S 1983: First Amendment Retaliation Against Hsiao, Scott, Ragsdale, Bartroff, and Bradley in Their Individual Capacities}
+
+\para Plaintiff realleges and incorporates all preceding paragraphs.
+
+\para Plaintiff engaged in protected speech and petitioning activity, including ADA Title II and Section 504 objections, complaints that the revised procedure denied disability access, DIA complaint participation, witness-identification and due-diligence requests, HOP 3-3020 procedural objections, records requests and requests for process, and external OCR/DOJ civil-rights complaints. His grade-related academic petitions and academic-misconduct complaints were also protected where Defendants treated Plaintiff's use of official University reporting and appeal processes as part of the misconduct narrative.
+
+\para Plaintiff's protected activity concerned academic fairness, disability rights, public-university compliance, access to public education, and University and federal civil-rights complaint processes.
+
+\para For the October 1 and October 2 SDS actions, Plaintiff's protected activity included his Spring 2025 SDS 322E academic and disability-related complaints, his September 30 Homework 2 grade dispute and counterexample email, his attempted academic-misconduct or grade-related complaints concerning SDS 320E, and his October 2 notice that he would pursue the academic-misconduct concern through URCS and the disability-accommodation concern through DIA.
+
+\para For the later D\&A and Bradley actions, Plaintiff's protected activity included his October 7 through October 16 ADA Title II and Section 504 objections, his request for D\&A coordinator reassignment, his DIA complaint and written intake, his witness-identification requests, his request for a HOP 3-3020 due-diligence inquiry, and his request for handling by D\&A officials who had not participated in approving the revised lab procedure.
+
+\para Hsiao took adverse action against Plaintiff by imposing or initiating the office-hours ban and communication restrictions shortly after Plaintiff pursued grade-related and complaint activity.
+
+\para Scott took adverse action by formalizing and maintaining the restrictions, advising UTPD involvement if Plaintiff returned to office hours, refusing meaningful engagement with Plaintiff's communications, and directing Plaintiff to other University bodies while the restriction remained in force.
+
+\para Ragsdale took adverse action by advising Hsiao to resist Plaintiff's grade complaint because granting relief would encourage more complaints, by connecting Plaintiff's protected academic and complaint activity to the prior Guyot dispute, by recommending that Bartroff and Meyer be informed and that someone speak with Plaintiff about his ``behavior,'' and by participating in the decision identified in the Student Conduct export to bar Plaintiff from in-person office hours before witnesses were contacted or Plaintiff was heard.
+
+\para Bartroff took adverse action by disclosing Plaintiff's protected Spring 2025 DIA-related complaint communication to the professor whose conduct Plaintiff had reported, by creating an internal record in which that professor responded to the pending DIA report and characterized Plaintiff as giving her ``a lot of trouble,'' by using the Spring 2025 dispute as support for the October 1 recommendation that Plaintiff not attend Hsiao's office hours, by participating in the consultation Scott described before the October 2 restrictions were imposed, and by later sending the Spring 2025 Guyot materials and Fall 2025 Hsiao materials forward as support for the misconduct characterization in the Student Conduct record.
+
+\para Bradley took adverse action after Plaintiff asserted ADA Title II, Section 504, and D\&A-policy objections to the revised lab procedure she had helped approve without his participation. Bradley refused reassignment to an access coordinator who had not participated in the Fall 2025 dispute, placed Plaintiff on her caseload because she had been involved in the situation, kept the revised procedure in place, and later refused reassignment while Plaintiff's protected complaints remained pending or unresolved.
+
+\para Bradley's October 13 response addressed Plaintiff's protected efforts to obtain action on the accommodation dispute: emails, voicemails, communications with multiple University departments, legal-rights objections, and attempts to obtain consideration outside the existing D\&A assignment. Bradley directed legal questions to Legal Affairs and discrimination complaints to DIA while refusing reassignment and leaving Plaintiff's accommodation file with the same D\&A leadership that had certified the revised procedure in consultation with Bradley. A reasonable student would be deterred from continuing ADA Title II and Section 504 advocacy if the response to that advocacy was denial of an unconflicted access coordinator and continued routing through the offices whose conduct the student had challenged.
+
+\para Defendants' adverse actions would chill a person of ordinary firmness from continuing to engage in protected speech and petitioning activity. Plaintiff continued to seek relief because doing so was necessary to preserve access and protect his record, but that necessity did not eliminate the chilling effect. Defendants' actions chilled Plaintiff's SDS 320E course participation, impaired participation in other Fall 2025 courses, and forced Plaintiff to divert academic time to legal-aid outreach, federal enforcement channels, internal complaints, and evidence preservation.
+
+\para Plaintiff's protected activity was a substantial or motivating factor in the adverse actions, and the adverse actions would not have occurred in the same manner but for Defendants' treatment of protected complaints, reports, ADA/Section 504 objections, and civil-rights petitioning as misconduct or as a reason to restrict access. Causation is shown by temporal proximity, direct references to Plaintiff's complaints, appeals, disability-rights advocacy, DIA activity, stated intent to use official University reporting channels, use of Plaintiff's protected complaints and academic advocacy to support the misconduct characterization in internal records, and targeting of the September 4 Monday TA office-hours make-up arrangement through which Plaintiff completed missed labs under his attendance-flexibility accommodation. For Bradley, causation is also shown by the content of her own response: Bradley responded to Plaintiff's ADA/Section 504 objections and multi-office requests for action by refusing reassignment and directing Plaintiff back into D\&A, DIA, and Legal Affairs channels.
+
+\para The right to be free from retaliation for protected speech and petitioning activity was clearly established at the time of Defendants' actions.
+
+\para Defendants' retaliation caused Plaintiff compensatory injuries, including economic and academic harm, delayed graduation, disruption of research and graduate-program opportunities, loss of educational opportunity, loss of University Health Services, constructive disenrollment, and emotional distress. Plaintiff's emotional distress flowed directly from the chilling and punitive treatment of his protected academic, disability-rights, and complaint activity.
+
+\para Defendants acted intentionally, recklessly, or with callous disregard for Plaintiff's federally protected rights, supporting punitive damages against the individual Defendants in their personal capacities.
+
+\complaintsection{VI. Prayer for Relief}
+
+WHEREFORE, Plaintiff respectfully requests that the Court enter judgment in his favor and grant the following relief. Plaintiff seeks institutional equitable remediation from UT Austin under ADA Title II and Section 504 and seeks damages from the individual Defendants only in their personal capacities under 42 U.S.C. \S 1983:
+
+\begin{enumerate}[label=\Alph*., leftmargin=2.5em]
+\item Declaratory judgment that UT Austin violated Plaintiff's rights under ADA Title II and Section 504;
+\item Judgment against the individual Defendants in their personal capacities under 42 U.S.C. \S 1983 as to the counts asserted against each;
+\item Preliminary and permanent injunctive relief requiring UT Austin to restore Plaintiff to good standing and meaningful access to enrollment, accommodations, student services, University technology systems, course materials, and disability resources;
+\item Injunctive relief requiring UT Austin to assign Plaintiff a D\&A access coordinator and administrative contacts who did not participate in the disputed Fall 2025 decisions for any remaining accommodation implementation or academic remediation;
+\item Injunctive relief requiring UT Austin to remove, seal, correct, or otherwise remediate misconduct notations, Student Conduct records, or internal misconduct characterizations arising from the disputed September 30/October 2 events and related disability-accommodation implementation disputes;
+\item Injunctive relief requiring UT Austin to provide a neutral, prompt, equitable, and due-process-compliant determination of Plaintiff's disability-accommodation and retaliation complaints;
+\item Compensatory damages against UT Austin for legally recoverable non-emotional damages under ADA Title II and Section 504, including economic harm, academic harm, delayed graduation, disrupted research and graduate-program opportunities, lost educational opportunity, lost University services, lost University Health Services and physical-therapy access, out-of-pocket or substitute medical and rehabilitative expenses, and lost use of approved accommodations;
+\item Compensatory damages against the individual Defendants in their personal capacities under 42 U.S.C. \S 1983 as to the counts asserted against each, including damages for emotional distress, anxiety, humiliation, fear, loss of sense of safety, sleep disruption, impaired concentration, academic harm, economic harm, delayed graduation, disrupted research and graduate-program opportunities, loss of University Health Services and physical-therapy access, and loss of educational opportunity;
+\item Nominal damages against the individual Defendants under 42 U.S.C. \S 1983 as to the counts asserted against each if Plaintiff proves constitutional violations but the Court or jury awards no compensatory damages for any such violation;
+\item Punitive damages against the individual Defendants in their personal capacities under 42 U.S.C. \S 1983 as to the counts asserted against each;
+\item Costs of suit and all recoverable litigation expenses;
+\item Reasonable attorney's fees to the extent permitted by law if Plaintiff later obtains counsel or otherwise becomes legally entitled to such fees;
+\item Prejudgment and post-judgment interest as allowed by law; and
+\item Such other and further relief as the Court deems just and proper.
+\end{enumerate}
+
+\complaintsection{VII. Jury Demand}
+
+Plaintiff demands a trial by jury on all issues so triable.
+
+\begin{singlespace}
+\vspace{2em}
+
+\noindent Respectfully submitted,
+
+\vspace{0.75em}
+
+\noindent Dated: \FilingDate
+
+\vspace{1.2em}
+
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\noindent\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName, Plaintiff Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+\end{singlespace}
+
+\end{document}

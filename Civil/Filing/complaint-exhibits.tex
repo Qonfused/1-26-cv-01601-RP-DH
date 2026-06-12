@@ -1,0 +1,289 @@
+\documentclass[12pt]{article}
+
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{mathptmx}
+\usepackage[T1]{fontenc}
+\IfFileExists{extract-subexhibits.tex}{\input{extract-subexhibits.tex}}{\input{../../extract-subexhibits.tex}}
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\usepackage[pdfencoding=auto,psdextra,hidelinks,bookmarksopen=true]{hyperref}
+\hypersetup{pdftitle={Selected Exhibits to Complaint}}
+\raggedbottom
+
+\newcommand{\ExhibitPacketCaption}{%
+  \begin{singlespace}
+  \begin{center}
+  \textbf{\FilingCourtName}\\
+  \textbf{\FilingDistrictName}\\
+  \textbf{\FilingDivisionName}
+  \end{center}
+
+  \vspace{1em}
+
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.65in}@{}}
+  \textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \mbox{\textbf{Civil Action No.}\ \rule{1.25in}{0.4pt}} \\
+  \textbf{v.} & \\
+  \textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+  \end{tabularx}
+
+  \vspace{1.2em}
+
+  \begin{center}
+  \textbf{SELECTED EXHIBITS TO COMPLAINT}
+  \end{center}
+  \end{singlespace}
+}
+
+\begin{document}
+
+\pdfbookmark[1]{Selected Exhibits to Complaint}{bookmark.selected.exhibits}
+\ExhibitPacketCaption
+
+% =====================================================
+% === DEFINE EXHIBIT SPLITS HERE ===
+% =====================================================
+
+% Case Summary Doc. 1
+\DefineExhibitSplit{A}{
+  source = {\detokenize{Exhibits/Documents/AccommodationLetter_ELEMENTS_OF_STATISTICS_320E_section_62435_SDS__9___HSIAO__EMILY.pdf}},
+  pages  = {1},
+  crop   = {full},
+  label  = {D\&A Accommodation Letter for SDS 320E (Sept. 2)},
+}
+
+% Case Summary Doc. 2
+\DefineExhibitSplit{B}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Accommodations.pdf}},
+  pages  = {1},
+  crop   = {full},
+  label  = {SDS 320E Accommodation Implementation Email (Sept. 4)},
+}
+
+% Case Summary Doc. 6A
+\DefineExhibitSplit{C}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - SDS 320E - Homework 2 Problem 1.b counterexample.pdf}},
+  pages  = {1-3},
+  crop   = {full},
+  label  = {Hsiao Office-Hours Ban and Plaintiff's Reply (Oct. 2)},
+}
+
+% Case Summary Doc. 7
+\DefineExhibitSplit{D}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - SDS 320E course communication.pdf}},
+  pages  = {1-5},
+  crop   = {full},
+  label  = {Scott Office-Hours Restriction and CNS/D\&A/Legal Escalation},
+}
+
+% Case Summary Doc. 35
+\DefineExhibitSplit{E}{
+  source = {\detokenize{Exhibits/Documents/SDS 320E Hsiao Dashboard _ Gradescope.pdf}},
+  pages  = {1},
+  crop   = {full},
+  label  = {SDS 320E Hsiao Gradescope and Course-Participation Record},
+}
+
+% Case Summary Doc. 8
+\DefineExhibitSplit{F}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Alternative Lab Accommodations.pdf}},
+  pages  = {1-3},
+  crop   = {full},
+  label  = {Alternative Lab Accommodation Procedure (Oct. 7--8)},
+}
+
+% Case Summary Doc. 10
+\DefineExhibitSplit{G}{
+  source = {\detokenize{Exhibits/Documents/2025760601SOSAbsNotif.pdf}},
+  pages  = {1},
+  crop   = {full},
+  label  = {Emergency SOS Absence Notification (Oct. 8--9)},
+}
+
+% Case Summary Doc. 9
+\DefineExhibitSplit{H}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Flexibility Accommodations.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {D\&A/Legal Certification of Revised Procedure (Oct. 10)},
+}
+
+% Case Summary Doc. 11
+\DefineExhibitSplit{I}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Follow-up to your emails and voicemails.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {Bradley Response to Coordinator-Change Request (Oct. 13)},
+}
+
+% Case Summary Doc. 11
+\DefineExhibitSplit{J}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Follow-up to your emails and voicemails.pdf}},
+  pages  = {4-5},
+  crop   = {full},
+  label  = {Plaintiff Request and Bradley Caseload Assignment (Oct. 13--15)},
+}
+
+% Case Summary Doc. 11
+\DefineExhibitSplit{K}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Follow-up to your emails and voicemails.pdf}},
+  pages  = {7},
+  crop   = {trim:0 0 0 375;paper:596 467},
+  label  = {ADA/Section 504 Statutory Notice Excerpt (Oct. 16)},
+}
+
+% Case Summary Doc. 14A
+\DefineExhibitSplit{L}{
+  source = {Exhibits/Documents/2025740501SCCMCaseDocumentRequest.pdf},
+  pages  = {6-8},
+  crop   = {full},
+  label  = {Instructor Conduct Report (Sept. 30 / Oct. 2)},
+}
+
+% Case Summary Doc. 14B
+\DefineExhibitSplit{M}{
+  source = {Exhibits/Documents/2025740501SCCMCaseDocumentRequest.pdf},
+  pages  = {24-29},
+  crop   = {full},
+  label  = {Scott Internal Email re: Office-Hours Ban \& UTPD (Oct. 2)},
+}
+
+% Case Summary Doc. 14C
+\DefineExhibitSplit{N}{
+  source = {Exhibits/Documents/2025740501SCCMCaseDocumentRequest.pdf},
+  pages  = {4},
+  crop   = {trim:0 0 0 270;paper:612 522},
+  label  = {Resolution Information, SOS Conduct-Hold Note, and Export Footer},
+}
+
+% Case Summary Doc. 14D
+\DefineExhibitSplit{O}{
+  source = {Exhibits/Documents/2025740501SCCMCaseDocumentRequest.pdf},
+  pages  = {74,76-81},
+  crop   = {full},
+  label  = {Selected Bartroff/Ragsdale/Guyot Internal Correspondence},
+}
+
+% Case Summary Doc. 25
+\DefineExhibitSplit{P}{
+  source = {\detokenize{Exhibits/Documents/Gmail - Intake Questions.pdf}},
+  pages  = {1-3},
+  crop   = {full},
+  label  = {DIA Intake Correspondence and Follow-Up (Oct. 17--Nov. 21)},
+}
+
+% Case Summary Doc. 15
+\DefineExhibitSplit{Q}{
+  source = {\detokenize{Exhibits/Documents/Gmail - Notice of Dismissal - Bennett, Cory and Hsiao, Emily.pdf}},
+  pages  = {1},
+  crop   = {full},
+  label  = {DIA Dismissal Email and Intake-Notes Disclosure (Nov. 21)},
+}
+
+% Case Summary Doc. 16
+\DefineExhibitSplit{R}{
+  source = {\detokenize{Exhibits/Documents/Bennett, Cory and Hsiao, Emily - Notice of Dismissal 2025.11.21.pdf}},
+  pages  = {1-3},
+  crop   = {full},
+  label  = {DIA Notice of Dismissal Letter (Nov. 21)},
+}
+
+% Case Summary Doc. 17, selected Nov. 24 page
+\DefineExhibitSplit{S}{
+  source = {\detokenize{Exhibits/Documents/Gmail - Fw_ Notice of Dismissal - Bennett, Cory and Hsiao, Emily.pdf}},
+  pages  = {3},
+  crop   = {trim:0 0 0 350;paper:594.96 491.92},
+  label  = {Soto / Legal Affairs / DIA Neutral-Review Notice (Nov. 24)},
+}
+
+% Case Summary Doc. 18
+\DefineExhibitSplit{T}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - RE_ Notice of Dismissal - - Bennett, Cory and Hsiao, Emily.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {Graves Appeal Denial and Refusal to Recuse (Dec. 5)},
+}
+
+% Case Summary Doc. 70A
+\DefineExhibitSplit{U}{
+  source = {\detokenize{Exhibits/Documents/Graves.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {Prior Graves DIA Appeal Decision (Spring 2025)},
+}
+
+% Case Summary Doc. 28
+\DefineExhibitSplit{V}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Welcome to Spring 2026 from D&A!.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {D\&A New-Coordinator Notice (Jan. 8)},
+}
+
+% Case Summary Doc. 29
+\DefineExhibitSplit{W}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Please disregard yesterday's email_.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {D\&A New-Coordinator Retraction (Jan. 9)},
+}
+
+% Case Summary Doc. 31
+\DefineExhibitSplit{X}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Welcome to Spring 2026 from Your D&A Access Coordinator!.pdf}},
+  pages  = {1},
+  crop   = {full},
+  label  = {Bradley Access-Coordinator Assignment Email (Jan. 13)},
+}
+
+% Case Summary Doc. 19
+\DefineExhibitSplit{Y}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - D&A Access Coordinator Change.pdf}},
+  pages  = {1-2},
+  crop   = {full},
+  label  = {Bradley Coordinator-Reassignment Refusal (Jan. 14--15)},
+}
+
+% Case Summary Doc. 20
+\DefineExhibitSplit{Z}{
+  source = {\detokenize{Exhibits/Documents/UTmail Mail - Open Records Request Link.pdf}},
+  pages  = {1},
+  crop   = {trim:0 205 0 0;paper:612 587},
+  label  = {SOS Reassignment Follow-Up and Enrollment Record (Jan. 15--20)},
+}
+
+\PrintExhibitTable
+
+\ApplyExhibitPreviewGeometry
+
+\PreviewGeneratedExhibit{A}{D\&A Accommodation Letter for SDS 320E (Sept. 2)}{1}
+\PreviewGeneratedExhibit{B}{SDS 320E Accommodation Implementation Email (Sept. 4)}{1}
+\PreviewGeneratedExhibit{C}{Hsiao Office-Hours Ban and Plaintiff's Reply (Oct. 2)}{3}
+\PreviewGeneratedExhibit{D}{Scott Office-Hours Restriction and CNS/D\&A/Legal Escalation}{5}
+\PreviewGeneratedExhibit{E}{SDS 320E Hsiao Gradescope Dashboard and Course-Participation Record}{1}
+\PreviewGeneratedExhibit{F}{Alternative Lab Accommodation Procedure (Oct. 7--8)}{3}
+\PreviewGeneratedExhibit{G}{Emergency SOS Absence Notification (Oct. 8--9)}{1}
+\PreviewGeneratedExhibit{H}{D\&A/Legal Certification of Revised Procedure (Oct. 10)}{2}
+\PreviewGeneratedExhibit{I}{Bradley Response to Coordinator-Change Request (Oct. 13)}{2}
+\PreviewGeneratedExhibit{J}{Plaintiff Request and Bradley Caseload Assignment (Oct. 13--15)}{2}
+\PreviewGeneratedExhibit{K}{ADA/Section 504 Statutory Notice Excerpt (Oct. 16)}{1}
+\PreviewGeneratedExhibit{L}{Instructor Conduct Report (Sept. 30 / Oct. 2)}{3}
+\PreviewGeneratedExhibit{M}{Scott Internal Email re: Office-Hours Ban \& UTPD (Oct. 2)}{6}
+\PreviewGeneratedExhibit{N}{Resolution Information, SOS Conduct-Hold Note, and Export Footer}{1}
+\PreviewGeneratedExhibit{O}{Selected Bartroff/Ragsdale/Guyot Internal Correspondence}{7}
+\PreviewGeneratedExhibit{P}{DIA Intake Correspondence and Follow-Up (Oct. 17--Nov. 21)}{3}
+\PreviewGeneratedExhibit{Q}{DIA Dismissal Email and Intake-Notes Disclosure (Nov. 21)}{1}
+\PreviewGeneratedExhibit{R}{DIA Notice of Dismissal Letter (Nov. 21)}{3}
+\PreviewGeneratedExhibit{S}{Soto / Legal Affairs / DIA Neutral-Review Notice (Nov. 24)}{1}
+\PreviewGeneratedExhibit{T}{Graves Appeal Denial and Refusal to Recuse (Dec. 5)}{2}
+\PreviewGeneratedExhibit{U}{Prior Graves DIA Appeal Decision (Spring 2025)}{2}
+\PreviewGeneratedExhibit{V}{D\&A New-Coordinator Notice (Jan. 8)}{2}
+\PreviewGeneratedExhibit{W}{D\&A New-Coordinator Retraction (Jan. 9)}{2}
+\PreviewGeneratedExhibit{X}{Bradley Access-Coordinator Assignment Email (Jan. 13)}{1}
+\PreviewGeneratedExhibit{Y}{Bradley Coordinator-Reassignment Refusal (Jan. 14--15)}{2}
+\PreviewGeneratedExhibit{Z}{SOS Reassignment Follow-Up and Enrollment Record (Jan. 15--20)}{1}
+
+\end{document}

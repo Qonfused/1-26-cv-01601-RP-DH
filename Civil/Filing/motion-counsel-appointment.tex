@@ -1,0 +1,371 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{etoolbox}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{ragged2e}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pdfpages}
+\usepackage{refcount}
+\usepackage{hyperref}
+\hypersetup{colorlinks=false,pdfborder={0 0 0}}
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\input{../../signatures.tex}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+\setlength{\headheight}{14pt}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{Y}{>{\RaggedRight\arraybackslash}X}
+\newcommand{\missinggaprow}{\multicolumn{3}{@{}l@{}}{\makebox[0pt][r]{$\triangleright$\hspace{0.45em}}{\color{black!60}$\cdots$}}\\}
+\newcommand{\AttachmentPageRange}[2]{%
+  \hyperref[#1]{%
+    \ifnum\getpagerefnumber{#1}=\getpagerefnumber{#2}%
+      \pageref*{#1}%
+    \else
+      \pageref*{#1}--\pageref*{#2}%
+    \fi
+  }%
+}
+\pagenumbering{arabic}
+
+\titleformat{\section}{\large\bfseries\centering\setstretch{1}}{}{0pt}{}
+\titleformat{\subsection}{\normalsize\bfseries\setstretch{1}}{}{0pt}{}
+
+\newcommand{\CourtAppointmentFormPdf}{Reference/f.-Motion-for-Appointment-of-Counsel.pdf}
+
+% Filled text for the court's static appointment-of-counsel form.
+\newcommand{\MotionFormDivision}{\FilingDivisionShort}
+\newcommand{\MotionFormPlaintiff}{\FilingPlaintiffName}
+\newcommand{\MotionFormDefendantsLineOne}{\FilingDefendantsShortLineOne}
+\newcommand{\MotionFormDefendantsLineTwo}{\FilingDefendantsShortLineTwo}
+\newcommand{\MotionFormComesNow}{\FilingPlaintiffName}
+\newcommand{\MotionFormPrivateAttorneysLineOne}{Private attorneys were contacted but most did not respond. Others declined, lacked capacity,}
+\newcommand{\MotionFormPrivateAttorneysLineTwo}{or required fees that were unaffordable. See Attachment 2.}
+\newcommand{\MotionFormLegalAid}{Legal-aid organizations contacted; declined, lacked capacity, or were not a fit. See Attachment 2.}
+\newcommand{\MotionFormReferralService}{Referred to Stephen Jon Moss; declined because case was outside practice. See Attachment 2.}
+
+% Optional fields left blank until final signature/factual confirmation.
+\newcommand{\MotionFormDidNotGraduate}{}
+\newcommand{\MotionFormGED}{}
+\newcommand{\MotionFormHighSchoolGraduate}{}
+\newcommand{\MotionFormSomeCollege}{B.S. Mathematics (in progress)}
+\newcommand{\MotionFormCollegeGraduate}{}
+\newcommand{\MotionFormGraduateEducation}{}
+\newcommand{\MotionFormEmployerOne}{}
+\newcommand{\MotionFormWagesOne}{}
+\newcommand{\MotionFormPositionOne}{}
+\newcommand{\MotionFormEmploymentDatesOne}{}
+\newcommand{\MotionFormEmployerTwo}{}
+\newcommand{\MotionFormWagesTwo}{}
+\newcommand{\MotionFormPositionTwo}{}
+\newcommand{\MotionFormEmploymentDatesTwo}{}
+\newcommand{\MotionFormEmployerThree}{}
+\newcommand{\MotionFormWagesThree}{}
+\newcommand{\MotionFormPositionThree}{}
+\newcommand{\MotionFormEmploymentDatesThree}{}
+\newcommand{\MotionFormEmployerFour}{}
+\newcommand{\MotionFormWagesFour}{}
+\newcommand{\MotionFormPositionFour}{}
+\newcommand{\MotionFormEmploymentDatesFour}{}
+\newcommand{\MotionFormEmployerFive}{}
+\newcommand{\MotionFormWagesFive}{}
+\newcommand{\MotionFormPositionFive}{}
+\newcommand{\MotionFormEmploymentDatesFive}{}
+\newcommand{\MotionFormDate}{\FilingDate}
+\newcommand{\MotionFormSignature}{\SignatureFourOnLine[width=1.45in]}
+\newcommand{\MotionDeclarationDate}{\FilingDate}
+\newcommand{\MotionDeclarationSignature}{\SignatureFourOnLine[width=1.55in]}
+
+\newcommand{\MotionFormText}[3]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{12}\selectfont #3}};%
+}
+\newcommand{\MotionFormSmallText}[3]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{12}\selectfont #3}};%
+}
+\newcommand{\MotionFormTinyText}[3]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{10}{11}\selectfont #3}};%
+}
+\newcommand{\MotionFormBlock}[5]{%
+  \node[anchor=north west, inner sep=0pt, align=left, text width=#3pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{#4 #5}};%
+}
+\newcommand{\MotionFormStrikeLine}[3]{%
+  \draw[line width=0.55pt] ([xshift=#1pt,yshift=-#2pt]current page.north west) -- ([xshift=#3pt,yshift=-#2pt]current page.north west);%
+}
+\newcommand{\MotionFormCheckmark}[2]{%
+  \node[anchor=center, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{11}\selectfont\bfseries X}};%
+}
+\newcommand{\MotionFormPageOneCheckmark}[2]{%
+  \node[anchor=center, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{11}\selectfont\bfseries X}};%
+}
+\newcommand{\MotionFormOptionalSmallText}[3]{%
+  \ifdefempty{#1}{}{\MotionFormSmallText{#2}{#3}{#1}}%
+}
+\newcommand{\MotionFormOptionalCheckText}[5]{%
+  \ifdefempty{#1}{}{\MotionFormCheckmark{#2}{#3}\MotionFormSmallText{#4}{#5}{#1}}%
+}
+
+\newcommand{\MotionFormPageOneOverlay}{%
+  \thispagestyle{empty}%
+  \phantomsection
+  \pdfbookmark[1]{Motion for Appointment of Counsel Form}{bookmark.appointment-form}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \MotionFormText{249}{151.8}{\MotionFormDivision}
+    \MotionFormText{75}{190.6}{\MotionFormPlaintiff}
+    \MotionFormText{75}{314.5}{\MotionFormDefendantsLineOne}
+    \MotionFormText{75}{342.1}{\MotionFormDefendantsLineTwo}
+    \MotionFormText{140}{411.7}{\MotionFormComesNow}
+    \MotionFormStrikeLine{483}{425.0}{531}
+    \MotionFormStrikeLine{72}{439.1}{148}
+    \MotionFormTinyText{72}{456.6}{28 U.S.C. \S{} 1915(e)(1)}
+    \MotionFormPageOneCheckmark{83.7}{495.4}
+    \MotionFormText{108}{540.0}{\MotionFormPrivateAttorneysLineOne}
+    \MotionFormText{108}{553.5}{\MotionFormPrivateAttorneysLineTwo}
+    \MotionFormPageOneCheckmark{83.7}{564.3}
+    \MotionFormText{75}{604.4}{\MotionFormLegalAid}
+    \MotionFormPageOneCheckmark{83.7}{647.1}
+    \MotionFormText{75}{701.0}{\MotionFormReferralService}
+  \end{tikzpicture}%
+}
+
+\newcommand{\MotionFormPageTwoOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \MotionFormOptionalCheckText{\MotionFormDidNotGraduate}{83.7}{107.6}{444}{108.2}
+    \MotionFormOptionalCheckText{\MotionFormGED}{83.7}{135.2}{219}{135.8}
+    \MotionFormOptionalCheckText{\MotionFormHighSchoolGraduate}{83.7}{162.8}{307}{163.4}
+    \MotionFormOptionalCheckText{\MotionFormSomeCollege}{83.7}{190.4}{310}{191.0}
+    \MotionFormOptionalCheckText{\MotionFormCollegeGraduate}{83.7}{218.0}{314}{218.6}
+    \MotionFormOptionalCheckText{\MotionFormGraduateEducation}{83.7}{245.6}{388}{246.2}
+    \MotionFormOptionalSmallText{\MotionFormEmployerOne}{134}{328.4}
+    \MotionFormOptionalSmallText{\MotionFormWagesOne}{207}{342.1}
+    \MotionFormOptionalSmallText{\MotionFormPositionOne}{126}{356.0}
+    \MotionFormOptionalSmallText{\MotionFormEmploymentDatesOne}{192}{369.7}
+    \MotionFormOptionalSmallText{\MotionFormEmployerTwo}{134}{397.3}
+    \MotionFormOptionalSmallText{\MotionFormWagesTwo}{207}{411.2}
+    \MotionFormOptionalSmallText{\MotionFormPositionTwo}{126}{424.9}
+    \MotionFormOptionalSmallText{\MotionFormEmploymentDatesTwo}{192}{438.8}
+    \MotionFormOptionalSmallText{\MotionFormEmployerThree}{134}{466.4}
+    \MotionFormOptionalSmallText{\MotionFormWagesThree}{207}{480.1}
+    \MotionFormOptionalSmallText{\MotionFormPositionThree}{126}{494.0}
+    \MotionFormOptionalSmallText{\MotionFormEmploymentDatesThree}{192}{507.7}
+    \MotionFormOptionalSmallText{\MotionFormEmployerFour}{134}{535.3}
+    \MotionFormOptionalSmallText{\MotionFormWagesFour}{207}{549.2}
+    \MotionFormOptionalSmallText{\MotionFormPositionFour}{126}{562.9}
+    \MotionFormOptionalSmallText{\MotionFormEmploymentDatesFour}{192}{576.8}
+    \MotionFormOptionalSmallText{\MotionFormEmployerFive}{134}{618.1}
+    \MotionFormOptionalSmallText{\MotionFormWagesFive}{207}{632.0}
+    \MotionFormOptionalSmallText{\MotionFormPositionFive}{126}{645.7}
+    \MotionFormOptionalSmallText{\MotionFormEmploymentDatesFive}{192}{659.6}
+  \end{tikzpicture}%
+}
+
+\newcommand{\MotionFormPageThreeOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \ifdefempty{\MotionFormDate}{}{\MotionFormText{255}{135.7}{\MotionFormDate}}%
+    \ifdefempty{\MotionFormSignature}{}{\MotionFormText{255}{177.0}{\MotionFormSignature}}%
+  \end{tikzpicture}%
+}
+
+\newcommand{\RenderAppointmentForm}{%
+  \includepdf[pages=1,pagecommand={\MotionFormPageOneOverlay}]{\CourtAppointmentFormPdf}%
+  \includepdf[pages=2,pagecommand={\MotionFormPageTwoOverlay}]{\CourtAppointmentFormPdf}%
+  \includepdf[pages=3,pagecommand={\MotionFormPageThreeOverlay}]{\CourtAppointmentFormPdf}%
+}
+
+\begin{document}
+
+\RenderAppointmentForm
+
+\begin{singlespace}
+\phantomsection
+\pdfbookmark[1]{Attachment Index}{bookmark.appointment-attachment-index}%
+\begin{center}
+\textbf{\FilingCourtName}\\
+\textbf{\FilingDistrictName}\\
+\textbf{\FilingDivisionName}
+\end{center}
+
+\vspace{0.8em}
+
+\noindent
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.65in}@{}}
+\textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \mbox{\textbf{Civil Action No.}\ \rule{1.25in}{0.4pt}} \\
+\textbf{v.} & \\
+\textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+\end{tabularx}
+
+\vspace{1.2em}
+\begin{center}
+\textbf{ATTACHMENTS TO MOTION FOR APPOINTMENT OF COUNSEL}
+\end{center}
+
+\vspace{0.5em}
+
+\textbf{Index of Attachments}
+
+\begin{tabularx}{\textwidth}{@{}P{1.2in}Y>{\raggedleft\arraybackslash}p{0.65in}@{}}
+\toprule
+\textbf{Item} & \textbf{Description} & \textbf{Pages} \\
+\midrule
+\hyperref[attachment:counsel-declaration]{Attachment 1} &
+Declaration in Support of Motion for Appointment of Counsel. &
+\AttachmentPageRange{attachment:counsel-declaration}{attachment:counsel-declaration-end} \\
+\hyperref[attachment:counsel-efforts]{Attachment 2} &
+Efforts to Obtain Counsel and Supporting Record. &
+\AttachmentPageRange{attachment:counsel-efforts}{attachment:counsel-efforts-end} \\
+\hyperref[attachment:counsel-briefing]{Attachment 3} &
+Request to Adjust Rule 12 Briefing. &
+\AttachmentPageRange{attachment:counsel-briefing}{attachment:counsel-briefing-end} \\
+\bottomrule
+\end{tabularx}
+\end{singlespace}
+
+\newpage
+
+\doublespacing
+\phantomsection
+\pdfbookmark[1]{Attachment 1 - Declaration in Support of Motion for Appointment of Counsel}{bookmark.appointment-attachment-1}%
+\label{attachment:counsel-declaration}
+\section*{Attachment 1\\Declaration in Support of Motion for Appointment of Counsel}
+
+I, \FilingPlaintiffName, declare under penalty of perjury as follows:
+
+\begin{enumerate}[leftmargin=2em]
+    \item I am the Plaintiff in this action. I submit this declaration in support of my motion for appointment of counsel.
+
+    \item I am financially unable to retain counsel. My financial circumstances are described in my Application to Proceed in Forma Pauperis and supporting financial affidavit. I cannot afford hourly counsel, litigation retainers, or non-contingency representation.
+
+    \item I have made diligent efforts to obtain counsel. Those efforts are summarized in Attachment 2.
+
+    \item Despite these efforts, I have not been able to secure representation. Attorneys and organizations either did not respond, declined, lacked capacity, could not represent an individual plaintiff, or required fees and retainers I could not afford.
+
+    \item This case involves federal disability-discrimination, retaliation, due-process, and First Amendment claims against a public university and individual state actors. It also requires handling university accommodation, grievance, and Student Conduct records; confidential student information; witness evidence; disability-related facts and records; and damages tied to enrollment, services, financial aid, and academic progress.
+
+    \item My disability-related limitations materially impair my ability to litigate this case pro se against represented state actors. I can draft pleadings and organize records, but I cannot adequately handle the procedural and evidentiary demands of this case without counsel, including discovery, identifying and interviewing witnesses, confidentiality issues, and timely responses to dispositive motions.
+
+    \item I request appointment of counsel under 28 U.S.C. \S{} 1915(e)(1) and any other authority the Court deems applicable. If the Court requests them, I can provide additional records about my medical condition, disability, finances, or efforts to obtain counsel. Detailed medical records contain sensitive health information, and I can submit them separately under seal or as the Court directs.
+\end{enumerate}
+
+I declare under penalty of perjury that the foregoing is true and correct.
+
+\vspace{2em}
+\begin{tabularx}{\textwidth}{@{}X X@{}}
+Date: \underline{\makebox[1.65in][l]{\MotionDeclarationDate}} & Signature: \makebox[0pt][l]{\MotionDeclarationSignature}\hrulefill \\
+ & \phantom{Signature: }\FilingPlaintiffName \\
+\end{tabularx}
+\label{attachment:counsel-declaration-end}
+
+\newpage
+
+\singlespacing
+\phantomsection
+\pdfbookmark[1]{Attachment 2 - Efforts to Obtain Counsel}{bookmark.appointment-attachment-2}%
+\label{attachment:counsel-efforts}
+\section*{Attachment 2\\Summary of Efforts to Obtain Counsel}
+
+\doublespacing
+Plaintiff remains unrepresented despite sustained efforts from October 2025 through June 2026 to obtain counsel. This table lists identifiable contacts from emails, intake confirmations, referral correspondence, phone notes, declination messages, or recollection.
+
+\vspace{0.4em}
+{
+\setstretch{1}
+\setlength{\LTpre}{0.35em}
+\setlength{\LTpost}{0.85em}
+\setlength{\LTleft}{0pt}
+\setlength{\LTright}{0pt}
+\setlength{\tabcolsep}{3pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{longtable}{
+  @{}
+  >{\raggedright\arraybackslash}p{0.22\textwidth}
+  >{\raggedright\arraybackslash}p{0.50\textwidth}
+  >{\raggedright\arraybackslash}p{0.25\textwidth}
+  @{}
+}
+\textbf{Date} & \textbf{Attorney, Firm, or Organization} & \textbf{Result} \\
+\hline
+\endfirsthead
+\textbf{Date} & \textbf{Attorney, Firm, or Organization} & \textbf{Result} \\
+\hline
+\endhead
+\missinggaprow
+Oct.~10, 2025 & Lento Law Firm & Paid consultation; no response. \\
+Oct.--Nov. 2025 & Disability Rights Texas & Declined; no capacity. \\
+\missinggaprow
+Mar.--Apr.~9, 2026 & Whitburn \& Pevsner / Sean Pevsner & No response. \\
+Mar.~30--May~27, 2026 & Odediran Law & Declined; no capacity. \\
+Apr.~16--18, 2026 & Sanford Heisler Sharp McKnight & Declined; no capacity. \\
+Apr.~17, 2026 & Brown, Goldstein \& Levy / Eve Hill & Declined. \\
+Apr.~18, 2026 & Stein \& Vargas / Mary Vargas & No response. \\
+Apr.~18, 2026 & Kennedy Hunt & No response. \\
+Apr.~18--May~8, 2026 & GH Disability Law Group & Declined. \\
+Apr.~18, 2026 & Disability Rights Advocates & No response. \\
+Apr.~18--20, 2026 & National Center for Youth Law & No response. \\
+Apr.~18; May~11, 2026 & Center for Public Representation & No response. \\
+Apr.~18--27, 2026 & Democracy Forward Foundation & Declined. \\
+Apr.~18--20, 2026 & DREDF & Declined; no capacity; referral. \\
+Apr.~18; May~3--4, 2026 & Cirkiel Law Group / Martin Cirkiel & Declined. \\
+Apr.~18--May~3, 2026 & Disability Rights Bar Association & Referral. \\
+Apr.~19, 2026 & Eisenberg \& Baum & No response. \\
+Apr.~19--30, 2026 & Fox \& Robertson & Declined/referral. \\
+Apr.~19--May~4, 2026 & Public Justice & Referral. \\
+Apr.~19, 2026 & Glenn Agre Bergman \& Fuentes / Reid Skibell & No response. \\
+Apr.~20, 2026 & Chandler \& Shavin / Eliot Shavin & No response. \\
+Apr.~20, 2026 & TRE Legal / Timothy Elder & Referral. \\
+Apr.~20--May~8, 2026 & Undaunted Law Firm / Tomi Stoner & No fit. \\
+Apr.~21, 2026 & Relman Colfax & Declined; no capacity. \\
+Apr.~23--29, 2026 & Texas Legal Services Center / Julian Honor & Declined; no capacity. \\
+Apr.~23--29, 2026 & Wayne Krause Yang & Declined; no capacity. \\
+May~1, 2026 & Paul Grossman & No response. \\
+May~10--26, 2026 & Disability Rights Texas & Declined; no capacity; referral. \\
+May~10--21, 2026 & Charles Weiner Law & Declined. \\
+May~10--22, 2026 & Goodwin-Oquendo Law Firm & Declined; no capacity; referral. \\
+May~11, 2026 & Abdnour Weiker / Mark Weiker & Declined; not Texas-barred. \\
+May~12--13, 2026 & K Altman Law & Declined. \\
+May~22, 2026 & Disability Rights Texas / Brian East & No response. \\
+May~26, 2026 & FIRE & Declined; no capacity. \\
+May~26, 2026 & ACLU & Declined. \\
+May~26--June~2, 2026 & Texas RioGrande Legal Aid & No fit. \\
+May~26--June~2, 2026 & Drew Duncan & Declined. \\
+May~27, 2026 & Bazelon Center for Mental Health Law & No response. \\
+May~28--June~1, 2026 & Lawyer Referral Service of Central Texas / Stephen Jon Moss & Referral; no fit. \\
+May~31, 2026 & Allen Harris Law & Declined; no capacity. \\
+May~31, 2026 & Sergi \& Associates & Declined. \\
+June~3--4, 2026 & Bach Law Firm / Jason Bach & No contingency; unaffordable. \\
+\end{longtable}
+}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.12}
+
+\doublespacing
+\makebox[0pt][r]{$\triangleright$\hspace{0.45em}}Gap markers show additional contacts Plaintiff cannot now identify individually.
+\label{attachment:counsel-efforts-end}
+
+\newpage
+
+\doublespacing
+\phantomsection
+\pdfbookmark[1]{Attachment 3 - Request to Adjust Rule 12 Briefing}{bookmark.appointment-attachment-3}%
+\label{attachment:counsel-briefing}
+\section*{Attachment 3\\Request to Adjust Rule 12 Briefing}
+
+Plaintiff also requests that, if any Defendant files a motion under Federal Rule of Civil Procedure 12 before the Court has ruled on this Motion for Appointment of Counsel, the Court stay or adjust Plaintiff's response deadline until after this motion is resolved, or grant such other reasonable extension as the Court deems appropriate. Good cause exists because Plaintiff is proceeding pro se and in forma pauperis, has made sustained efforts to obtain counsel, and the anticipated Rule 12 issues are likely to include qualified immunity, individual-capacity liability under 42 U.S.C. \S{} 1983, ADA Title II, Section 504, and the interaction between University grievance records and federal constitutional claims. Plaintiff does not seek delay for its own sake; he seeks a fair opportunity to respond if dispositive briefing begins before the Court resolves whether counsel should be requested under 28 U.S.C. \S{} 1915(e)(1).
+\label{attachment:counsel-briefing-end}
+
+\end{document}
