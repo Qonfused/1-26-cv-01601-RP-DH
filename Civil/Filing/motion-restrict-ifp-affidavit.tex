@@ -1,0 +1,282 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{tikz}
+\usepackage[hidelinks,bookmarksopen=true]{hyperref}
+
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{\input{../../signatures.tex}}
+
+\newcommand{\RestrictMotionCaseNumber}{1:26-cv-01601}
+\newcommand{\RestrictMotionDate}{June 12, 2026}
+\newcommand{\RestrictMotionSignatureOnLine}[1][]{%
+  \raisebox{-0.62\height}{\SignatureFour[#1]}%
+}
+\IfFileExists{Civil/Filing/Reference/d.-Motion-to-Proceed-in-Forma-Pauperis-AO-240.pdf}{%
+  \newcommand{\RestrictMotionAoTwoFortyPdf}{Civil/Filing/Reference/d.-Motion-to-Proceed-in-Forma-Pauperis-AO-240.pdf}%
+}{%
+  \newcommand{\RestrictMotionAoTwoFortyPdf}{Reference/d.-Motion-to-Proceed-in-Forma-Pauperis-AO-240.pdf}%
+}
+\IfFileExists{Civil/Filing/Reference/e.-Financial-Affidavit-in-Support-of-Motion-Austin-Only.pdf}{%
+  \newcommand{\RestrictMotionAustinFinancialAffidavitPdf}{Civil/Filing/Reference/e.-Financial-Affidavit-in-Support-of-Motion-Austin-Only.pdf}%
+}{%
+  \newcommand{\RestrictMotionAustinFinancialAffidavitPdf}{Reference/e.-Financial-Affidavit-in-Support-of-Motion-Austin-Only.pdf}%
+}
+
+\newcommand{\RestrictIfpText}[3]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{12}\selectfont #3}};%
+}
+\newcommand{\RestrictIfpSmallText}[3]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{10}{11}\selectfont #3}};%
+}
+\newcommand{\RestrictIfpCaptionText}[3]{%
+  \node[anchor=base west, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{9.5}{10.5}\selectfont #3}};%
+}
+\newcommand{\RestrictIfpCheckmark}[2]{%
+  \node[anchor=center, inner sep=0pt] at ([xshift=#1pt,yshift=-#2pt]current page.north west){{\fontsize{11}{11}\selectfont\bfseries X}};%
+}
+\newcommand{\RestrictIfpErase}[4]{%
+  \fill[white] ([xshift=#1pt,yshift=-#2pt]current page.north west) rectangle ([xshift=#3pt,yshift=-#4pt]current page.north west);%
+}
+\newcommand{\RestrictIfpBlackRedaction}[4]{%
+  \fill[black] ([xshift=#1pt,yshift=-#2pt]current page.north west) rectangle ([xshift=#3pt,yshift=-#4pt]current page.north west);%
+}
+\newcommand{\RestrictIfpInlineRedaction}{%
+  \hspace{0.04em}\raisebox{0.05em}{\rule{1.55in}{0.72em}}\hspace{0.04em}%
+}
+
+\newcommand{\RestrictIfpAoPageOneOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpText{230}{184}{\FilingDistrictPartOne}
+    \RestrictIfpText{340}{184}{\FilingDistrictPartTwo}
+    \RestrictIfpErase{135}{249.5}{205}{264}
+    \RestrictIfpSmallText{122}{208}{\FilingPlaintiffName}
+    \RestrictIfpText{414}{232}{\RestrictMotionCaseNumber}
+    \RestrictIfpCaptionText{78}{244}{\FilingDefendantsCaptionLineOne}
+    \RestrictIfpCaptionText{78}{257}{\FilingDefendantsCaptionLineTwo}
+    \RestrictIfpCaptionText{78}{270}{\FilingDefendantsCaptionLineThree}
+    \RestrictIfpCheckmark{447}{582}
+    \RestrictIfpCheckmark{447}{595}
+    \RestrictIfpCheckmark{447}{609}
+    \RestrictIfpCheckmark{447}{622}
+    \RestrictIfpCheckmark{447}{636}
+    \RestrictIfpCheckmark{447}{649}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAoPageTwoOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpText{456}{166}{\$1,274.06}
+    \RestrictIfpText{75}{235}{\$4,695.00 - 2007 Toyota Yaris Hatchback (\RestrictIfpInlineRedaction)}
+    \RestrictIfpSmallText{75}{352}{Feb.-May 2026 net statement outflows average approx. \$568.32/month.}
+    \RestrictIfpSmallText{75}{367}{Gasoline/fuel avg. \$105.91.}
+    \RestrictIfpSmallText{75}{382}{Food/groceries/dining avg. \$194.32.}
+    \RestrictIfpSmallText{75}{397}{Prescriptions \$32.98.}
+    \RestrictIfpSmallText{75}{412}{Other miscellaneous avg. \$234.28.}
+    \RestrictIfpText{75}{576}{Unpaid medical bills totaling \$461.86:}
+    \RestrictIfpText{75}{591}{Baylor Scott \& White (\$111.86)}
+    \RestrictIfpText{75}{606}{Thrive Medical (\$100.00)}
+    \RestrictIfpText{75}{621}{Austin-Travis County EMS (\$250.00)}
+    \RestrictIfpText{80}{722}{\FilingDate}
+    \RestrictIfpText{330}{726}{\SignatureFourOnLine[width=1.5in]}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAoPageThreeOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpText{340}{104}{\FilingPlaintiffName}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAustinPageOneOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpSmallText{78}{218}{\FilingPlaintiffName}
+    \RestrictIfpText{372}{246}{\RestrictMotionCaseNumber}
+    \RestrictIfpCaptionText{78}{260}{\FilingDefendantsCaptionLineOne}
+    \RestrictIfpCaptionText{78}{273}{\FilingDefendantsCaptionLineTwo}
+    \RestrictIfpCaptionText{78}{286}{\FilingDefendantsCaptionLineThree}
+    \RestrictIfpText{93}{375}{\FilingPlaintiffName}
+    \RestrictIfpText{72}{459}{Federal disability-discrimination, retaliation, due-process, and First Amendment}
+    \RestrictIfpText{72}{473}{claims against a public university and individual state actors.}
+    \RestrictIfpText{180}{536}{\FilingPlaintiffName}
+    \RestrictIfpBlackRedaction{218}{551.5}{565}{565.5}
+    \RestrictIfpCheckmark{281}{648.5}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAustinPageTwoOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpCheckmark{417}{403}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAustinPageThreeOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpCheckmark{457}{126}
+    \RestrictIfpText{216}{158}{1,274.06}
+    \RestrictIfpText{72}{230}{Food and other living expenses are paid from existing bank-account funds.}
+    \RestrictIfpText{72}{240}{I do not pay shelter or insurance costs directly.}
+    \RestrictIfpCheckmark{392}{334}
+    \RestrictIfpText{84}{428}{4,695.00}
+    \RestrictIfpText{288}{428}{2007 Toyota Yaris Hatchback (\RestrictIfpInlineRedaction)}
+    \RestrictIfpCheckmark{197}{569.5}
+    \RestrictIfpText{224}{601.5}{0}
+    \RestrictIfpText{340}{678}{0}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAustinPageFourOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpText{72}{124}{None}
+    \RestrictIfpCheckmark{526.5}{160.5}
+    \RestrictIfpText{72}{337}{Medical bill}
+    \RestrictIfpSmallText{432}{337}{Baylor Scott \& White}
+    \RestrictIfpText{505}{351}{111.86}
+    \RestrictIfpText{505}{365}{0}
+    \RestrictIfpText{72}{392}{Medical bill}
+    \RestrictIfpSmallText{432}{392}{Thrive Medical}
+    \RestrictIfpText{505}{406}{100.00}
+    \RestrictIfpText{505}{420}{0}
+    \RestrictIfpText{72}{447}{Medical bill}
+    \RestrictIfpSmallText{432}{447}{Austin-Travis County EMS}
+    \RestrictIfpText{505}{461}{250.00}
+    \RestrictIfpText{505}{475}{0}
+    \RestrictIfpText{342}{588.3}{0}
+    \RestrictIfpText{342}{615.9}{0}
+    \RestrictIfpText{306}{643.5}{105.91}
+    \RestrictIfpText{306}{671.1}{0}
+    \RestrictIfpText{342}{698.7}{0}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAustinPageFiveOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpText{379}{96}{32.98}
+    \RestrictIfpText{190}{126}{Prescription medication.}
+    \RestrictIfpText{379}{151}{0}
+    \RestrictIfpText{379}{206}{0}
+    \RestrictIfpText{379}{262}{0}
+    \RestrictIfpText{379}{317}{0}
+    \RestrictIfpText{379}{372}{428.60}
+    \RestrictIfpText{190}{402}{Food/groceries/dining avg. \$194.32; other misc avg. \$234.28.}
+    \RestrictIfpText{72}{467}{In Fall 2025 (Aug.-Dec.), I incurred significant medical/disability-related expenses}
+    \RestrictIfpText{72}{488}{for orthopedics, chiropractic care, physical therapy, clinic care, and ER bills.}
+    \RestrictIfpText{72}{509}{These injuries/conditions have ongoing effects; I recently renewed a second}
+    \RestrictIfpText{72}{530}{temporary disability placard after an initial six-month placard.}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictIfpAustinPageSixOverlay}{%
+  \thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \RestrictIfpText{340}{356}{\FilingPlaintiffName}
+    \RestrictIfpText{306}{323}{\SignatureFourOnLine[width=1.5in]}
+    \RestrictIfpText{288}{397}{\FilingDate}
+  \end{tikzpicture}%
+}
+\newcommand{\RestrictMotionAppendRedactedIfp}{%
+  \clearpage
+  \phantomsection
+  \pdfbookmark[1]{Attachment A - Proposed Redacted Public Copy of IFP Application}{attachment-redacted-ifp}
+  \includepdf[pages=1,fitpaper=true,pagecommand={\RestrictIfpAoPageOneOverlay},addtotoc={1,section,1,{Attachment A - Proposed Redacted Public Copy of IFP Application},{attachment-redacted-ifp-copy}}]{\RestrictMotionAoTwoFortyPdf}%
+  \includepdf[pages=2,fitpaper=true,pagecommand={\RestrictIfpAoPageTwoOverlay}]{\RestrictMotionAoTwoFortyPdf}%
+  \includepdf[pages=3,fitpaper=true,pagecommand={\RestrictIfpAoPageThreeOverlay}]{\RestrictMotionAoTwoFortyPdf}%
+  \includepdf[pages=1,fitpaper=true,pagecommand={\RestrictIfpAustinPageOneOverlay}]{\RestrictMotionAustinFinancialAffidavitPdf}%
+  \includepdf[pages=2,fitpaper=true,pagecommand={\RestrictIfpAustinPageTwoOverlay}]{\RestrictMotionAustinFinancialAffidavitPdf}%
+  \includepdf[pages=3,fitpaper=true,pagecommand={\RestrictIfpAustinPageThreeOverlay}]{\RestrictMotionAustinFinancialAffidavitPdf}%
+  \includepdf[pages=4,fitpaper=true,pagecommand={\RestrictIfpAustinPageFourOverlay}]{\RestrictMotionAustinFinancialAffidavitPdf}%
+  \includepdf[pages=5,fitpaper=true,pagecommand={\RestrictIfpAustinPageFiveOverlay}]{\RestrictMotionAustinFinancialAffidavitPdf}%
+  \includepdf[pages=6,fitpaper=true,pagecommand={\RestrictIfpAustinPageSixOverlay}]{\RestrictMotionAustinFinancialAffidavitPdf}%
+}
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setlist[enumerate]{leftmargin=0.5in,itemsep=0pt,topsep=0.25\baselineskip,parsep=0pt,partopsep=0pt}
+\doublespacing
+
+\newcommand{\RestrictMotionCaption}{%
+  \begin{center}
+  \textbf{\FilingCourtName}\\
+  \textbf{\FilingDistrictName}\\
+  \textbf{\FilingDivisionName}
+  \end{center}
+
+  \vspace{1.25em}
+
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.45in}@{}}
+  \textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \mbox{\textbf{Civil Action No.} \RestrictMotionCaseNumber} \\
+  \textbf{v.} & \\
+  \textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+  \end{tabularx}
+
+  \vspace{1.25em}
+
+  \begin{center}
+  \textbf{PLAINTIFF'S MOTION TO RESTRICT ACCESS TO UNREDACTED}\\
+  \textbf{IFP AFFIDAVIT AND SUBSTITUTE REDACTED COPY}
+  \end{center}
+}
+
+\begin{document}
+\pdfbookmark[1]{Motion to Restrict Access to Unredacted IFP Financial Affidavit}{motion-restrict-ifp-affidavit}
+
+\RestrictMotionCaption
+
+Plaintiff \FilingPlaintiffName, proceeding pro se, respectfully moves the Court to restrict public access to the unredacted Application to Proceed In Forma Pauperis and Financial Affidavit submitted with Plaintiff's initiating papers, and to permit Plaintiff to substitute the attached redacted public copy omitting Plaintiff's residential address and limited non-party identifying information. In support, Plaintiff states:
+
+\begin{enumerate}
+\item Plaintiff filed this civil-rights action and related initiating papers on June 12, 2026. Plaintiff's public complaint, proposed summonses, and application for electronic filing use Plaintiff's mailing address at a private mailbox, where Plaintiff can receive court mail.
+
+\item The Austin Division IFP financial affidavit requested Plaintiff's ``Home Address.'' Plaintiff completed that field in the unredacted affidavit submitted with the initiating papers.
+
+\item Plaintiff requests narrow redaction or restriction only of Plaintiff's residential address and the name of a non-party family member listed only to identify title ownership of a vehicle disclosed in the IFP materials. Plaintiff does not seek to seal the complaint, the exhibits, the case, or the factual allegations.
+
+\item Good cause exists because public disclosure of Plaintiff's residential address creates personal-safety and retaliation concerns in this civil-rights action. In connection with Plaintiff's external reporting of the underlying events to federal law enforcement, Plaintiff was advised to avoid public disclosure of his residential address for safety reasons. Plaintiff does not include the name of the federal employee, report number, or underlying communication in this motion because those details are not necessary to the requested relief and may concern nonpublic reporting information. Plaintiff's residential address is not material to the merits of the claims or to the Court's determination of indigency.
+
+\item Federal Rule of Civil Procedure 5.2(e) permits the Court, for good cause, to require redaction of additional information, and Rule 5.2(f) permits an unredacted copy to be filed under seal. Local Rule CV-5.2 also contemplates redaction or sealed/restricted treatment of confidential information when necessary. Plaintiff's mailing address remains available for service and court communications, and the Court may retain the unredacted IFP financial affidavit under restricted access for its review.
+\end{enumerate}
+
+WHEREFORE, Plaintiff respectfully requests that the Court:
+
+\begin{enumerate}[label=\Alph*.,leftmargin=0.5in]
+\item restrict public access to the unredacted IFP application and financial affidavit submitted with Plaintiff's initiating papers;
+
+\item permit Plaintiff to file or substitute the attached redacted public copy omitting Plaintiff's residential address and limited non-party identifying information;
+
+\item direct the Clerk to maintain the unredacted IFP financial affidavit under restricted access for Court review; and
+
+\item grant such other relief as the Court deems just and proper.
+\end{enumerate}
+
+\clearpage
+
+\noindent Respectfully submitted,
+
+\vspace{1em}
+
+\noindent Dated: \RestrictMotionDate
+
+\vspace{1em}
+
+\noindent\makebox[3.2in][l]{\RestrictMotionSignatureOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName, Plaintiff Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+
+\RestrictMotionAppendRedactedIfp
+
+\end{document}
