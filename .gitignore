@@ -1,0 +1,60 @@
+# Ignore all top-level directories and indexes by default
+/*/
+**/_*/
+**/_*.md
+!.vscode/
+!Civil/
+
+# OS/editor scratch files
+.DS_Store
+Thumbs.db
+*~
+*.bak
+*.swp
+*.tmp
+.~lock.*
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+env/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.dvi
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.nav
+*.out
+*.run.xml
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.xdv
+
+# Client-Attorney documents
+Civil/*.pdf
+Civil/*.tex
+Civil/*.docx
+
+# Court Sealed documents
+Civil/Filing/Attachments/Bank Statements
+Civil/Filing/motion-proceed-ifp.pdf
+Civil/Filing/motion-proceed-ifp.tex
+REDACTIONS.txt

@@ -1,0 +1,5 @@
+# Literal text to redact from generated subexhibit PDFs.
+# One term per line. Blank lines and lines beginning with # are ignored.
+# Use brackets to preserve part of a matched term:
+#   12345678[9012]
+# matches 123456789012 but redacts only 12345678.
