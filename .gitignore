@@ -1,9 +1,16 @@
-# Ignore all top-level directories and indexes by default
-/*/
-**/_*/
+# Ignore all top-level directory contents by default, but keep directories
+# traversable so .gitkeep files can be tracked inside ignored trees.
+/*/**
+!/*/**/
+!**/.gitkeep
+
+# Explicitly tracked top-level directories
+!.vscode/**
+!Civil/**
+
+# Private work-folder contents and index markdown files
+**/_*/**
 **/_*.md
-!.vscode/
-!Civil/
 
 # OS/editor scratch files
 .DS_Store
