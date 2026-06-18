@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+## @file
+# Copyright (c) 2026, Cory Bennett. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+##
 """Extract reusable cropped signature PDFs from SIGNATURES.pdf."""
 
 from __future__ import annotations

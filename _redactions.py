@@ -1,3 +1,7 @@
+## @file
+# Copyright (c) 2026, Cory Bennett. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+##
 """Text redaction helpers for generated exhibit PDFs."""
 
 from __future__ import annotations

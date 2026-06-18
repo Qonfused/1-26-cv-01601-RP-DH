@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+## @file
+# Copyright (c) 2026, Cory Bennett. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+##
 """Remove LaTeX build artifacts while preserving source and PDF output files."""
 
 from __future__ import annotations

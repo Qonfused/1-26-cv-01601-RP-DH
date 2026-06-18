@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+## @file
+# Copyright (c) 2026, Cory Bennett. All rights reserved.
+# SPDX-License-Identifier: BSD-3-Clause
+##
 """Build a LaTeX root file from the workspace root.
 
 This keeps project-relative paths such as ``Exhibits/Documents/...`` usable even
