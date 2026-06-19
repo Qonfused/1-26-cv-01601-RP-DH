@@ -5,6 +5,7 @@
 !**/.gitkeep
 
 # Explicitly tracked top-level directories
+!.github/**
 !.vscode/**
 !Civil/**
 
