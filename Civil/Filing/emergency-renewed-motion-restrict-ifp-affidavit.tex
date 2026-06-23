@@ -1,0 +1,222 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{pdfpages}
+\IfFileExists{extract-subexhibits.tex}{\input{extract-subexhibits.tex}}{\input{../../extract-subexhibits.tex}}
+\usepackage[hidelinks]{hyperref}
+
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{\input{../../signatures.tex}}
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setlist[enumerate]{leftmargin=0.45in,itemsep=0pt,topsep=0.1\baselineskip,parsep=0pt,partopsep=0pt}
+\doublespacing
+\pagestyle{plain}
+
+\renewcommand{\FilingCivilActionNumber}{1:26-cv-01601}
+\newcommand{\RenewedMotionDate}{June 23, 2026}
+
+\IfFileExists{Civil/Filing/motion-restrict-ifp-affidavit.pdf}{%
+  \newcommand{\RenewedMotionExhibitAPdf}{Civil/Filing/motion-restrict-ifp-affidavit.pdf}%
+}{%
+  \newcommand{\RenewedMotionExhibitAPdf}{motion-restrict-ifp-affidavit.pdf}%
+}
+\IfFileExists{Civil/Filing/Attachments/ECF TXWD/Gmail - Incorrect Docketing of Unredacted File - Case No. 1_26-cv-01601.pdf}{%
+  \newcommand{\RenewedMotionExhibitBPdf}{\detokenize{Civil/Filing/Attachments/ECF TXWD/Gmail - Incorrect Docketing of Unredacted File - Case No. 1_26-cv-01601.pdf}}%
+}{%
+  \newcommand{\RenewedMotionExhibitBPdf}{\detokenize{Attachments/ECF TXWD/Gmail - Incorrect Docketing of Unredacted File - Case No. 1_26-cv-01601.pdf}}%
+}
+\IfFileExists{Civil/Filing/Attachments/ECF TXWD/rss_outside_pl_redacted.png}{%
+  \newcommand{\RenewedMotionExhibitCImage}{\detokenize{Civil/Filing/Attachments/ECF TXWD/rss_outside_pl_redacted.png}}%
+}{%
+  \newcommand{\RenewedMotionExhibitCImage}{\detokenize{Attachments/ECF TXWD/rss_outside_pl_redacted.png}}%
+}
+
+\newcommand{\RenewedMotionExhibitLink}[2]{\hyperlink{renewed-motion-exhibit.#1}{#2}}
+\newcommand{\RenewedMotionExhibitPages}[1]{\SubExhibitPageRange{renewed-motion-exhibit.#1}}
+\newcommand{\RenewedMotionExhibitPage}[5]{%
+  \PreviewSubExhibitPdfPage
+    {Exhibit #1}
+    {renewed-motion-exhibit.#1}
+    {2}
+    {#3}
+    {#4}
+    {#5}
+    {ifpattachment}
+    {\bfseries\color{black}Exhibit #1: #2 -- Page #3 of #4}%
+}
+\newcommand{\IncludeRenewedMotionExhibit}[4]{%
+  \foreach \exhibitpage in {1,...,#3}{%
+    \RenewedMotionExhibitPage{#1}{#2}{\exhibitpage}{#3}{#4}%
+  }%
+}
+\newcommand{\RenewedMotionImageExhibitPage}[4]{%
+  \clearpage
+  \phantomsection
+  \hypertarget{renewed-motion-exhibit.#1}{}%
+  \label{renewed-motion-exhibit.#1.start}%
+  \label{renewed-motion-exhibit.#1.end}%
+  \pdfbookmark[2]{Exhibit #1}{bookmark.renewed-motion-exhibit.#1}%
+  \thispagestyle{ifpattachment}%
+  \noindent\makebox[\textwidth][c]{%
+  \raisebox{-\ExhibitPreviewYOffset}{%
+  \begin{tikzpicture}
+    \node[inner sep=2pt] (img)
+      {\includegraphics[
+        width=\dimexpr\textwidth-4pt\relax,
+        height=0.965\textheight,
+        keepaspectratio
+      ]{#4}};
+    \node[overlay, above=4pt of img.north, anchor=south]
+      {\bfseries\color{black}Exhibit #1: #2 -- Page 1 of #3};
+    \draw[subexhibit solid] (img.north west) -- (img.north east);
+    \draw[subexhibit solid] (img.north west) -- (img.south west);
+    \draw[subexhibit solid] (img.north east) -- (img.south east);
+    \draw[subexhibit solid] (img.south west) -- (img.south east);
+  \end{tikzpicture}
+  }%
+  }%
+}
+\newcommand{\RenderRenewedMotionExhibits}{%
+  \clearpage
+  \newgeometry{margin=1in,footskip=0.35in}
+  \thispagestyle{ifpattachment}
+  \phantomsection
+  \pdfbookmark[1]{Exhibits to Emergency Renewed Motion}{renewed-motion-exhibits}
+  \begin{singlespace}
+    \begin{center}
+      \textbf{EXHIBITS TO PLAINTIFF'S EMERGENCY RENEWED MOTION}\\
+      \textbf{TO RESTRICT ACCESS TO UNREDACTED IFP AFFIDAVIT}
+    \end{center}
+  \end{singlespace}
+  \begin{doublespace}
+  \noindent The following exhibits are submitted in support of Plaintiff's emergency renewed motion.
+  \end{doublespace}
+
+  \vspace{0.35em}
+  \begin{singlespace}
+  \noindent
+  {
+  \setlength{\tabcolsep}{0pt}
+  \renewcommand{\arraystretch}{1.16}
+  \begin{tabularx}{\dimexpr\textwidth-0.30in\relax}{
+    @{}
+    >{\raggedright\arraybackslash}p{0.85in}
+    @{\hspace{0.15in}}
+    >{\raggedright\arraybackslash}X
+    @{\hspace{0.15in}}
+    >{\raggedright\arraybackslash}p{0.65in}
+    @{}
+  }
+  \textbf{Exhibit} & \textbf{Description} & \textbf{Pages} \\
+  \hline
+  \RenewedMotionExhibitLink{A}{Exhibit A}
+    & June 13 motion to restrict access and substitute redacted copy
+    & \RenewedMotionExhibitPages{A} \\
+  \RenewedMotionExhibitLink{B}{Exhibit B}
+    & ECF Help Desk correspondence about incorrect docketing
+    & \RenewedMotionExhibitPages{B} \\
+  \RenewedMotionExhibitLink{C}{Exhibit C}
+    & Redacted public RSS feed capture for the Document 3 docket entry
+    & \RenewedMotionExhibitPages{C} \\
+  \end{tabularx}
+  }
+  \end{singlespace}
+
+  \clearpage
+  \ApplyIfpAttachmentGeometry
+  \setlength{\headwidth}{\textwidth}
+  \IncludeRenewedMotionExhibit{A}{June 13 Motion to Restrict Access}{12}{\RenewedMotionExhibitAPdf}
+  \IncludeRenewedMotionExhibit{B}{ECF Help Desk Correspondence}{3}{\RenewedMotionExhibitBPdf}
+  \RenewedMotionImageExhibitPage{C}{Redacted Public RSS Feed Capture}{1}{\RenewedMotionExhibitCImage}
+}
+
+\newcommand{\Caption}{%
+  \begin{center}
+  \textbf{\FilingCourtName}\\
+  \textbf{\FilingDistrictName}\\
+  \textbf{\FilingDivisionName}
+  \end{center}
+
+  \vspace{0.5em}
+
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.45in}@{}}
+  \textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \mbox{\textbf{Civil Action No.} \FilingCivilActionNumber} \\
+  \textbf{v.} & \\
+  \textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+  \end{tabularx}
+
+  \vspace{1.25em}
+}
+
+\begin{document}
+\Caption
+
+\begin{center}
+\textbf{PLAINTIFF'S EMERGENCY RENEWED MOTION TO RESTRICT ACCESS}\\
+\textbf{TO UNREDACTED IFP AFFIDAVIT AND SUBSTITUTE REDACTED COPY}
+\end{center}
+
+Plaintiff \FilingPlaintiffName, proceeding pro se, respectfully renews the Motion to Restrict Access to Unredacted IFP Affidavit and Substitute Redacted Copy submitted on June 13, 2026. Plaintiff asks the Court to immediately restrict public access to Document 3, substitute the previously submitted redacted copy, and maintain the complete affidavit under restricted access. Plaintiff does not seek sanctions or other retrospective relief in this motion.
+
+In support, Plaintiff states:
+
+\begin{enumerate}
+\item On June 12, 2026, Plaintiff delivered his initiating papers in person to the Austin Divisional Office. They included the complete AO 240 application and Austin Division financial affidavit. Plaintiff's complaint and other public-facing papers used his private-mailbox address, while the affidavit separately requested his ``Home Address'' and detailed personal financial information.
+
+\item Before delivering the papers, Plaintiff called the Austin Divisional Office and understood that the late-Friday submission would not be processed that day. Plaintiff therefore delivered the complete materials for Court review on Friday and submitted the sealing and redaction materials the following day, before docketing. He did not intend for the complete affidavit to be made remotely accessible to the public before the sealing and redaction request was considered.
+
+\item On June 13, Plaintiff submitted through the Court's public Dropbox his Motion to Restrict Access to Unredacted IFP Affidavit and Substitute Redacted Copy, together with the proposed redacted copy. He also emailed the ECF Help Desk, identified this case, and asked that the complete affidavit not be made publicly available while the motion was considered. The June 13 motion is attached as Exhibit A.
+
+\item On June 15, after the ECF Help Desk directed him to the Austin Divisional Office, Plaintiff called that office and was informed that the June 13 submission had been received and associated with Case No. \FilingCivilActionNumber. Plaintiff retains contemporaneous audio recordings of the June 12 and June 15 calls and can provide them or transcripts if directed by the Court.
+
+\item On June 23, the Clerk entered the unredacted IFP materials as Document 3 and made the PDF remotely accessible. The Court's public RSS feed listed the ``Proceed In Forma Pauperis'' entry for Document 3, included a document link, and timestamped the entry at 16:42:48 GMT. A redacted contemporaneous capture is attached as Exhibit C, with the direct document link and related URL identifiers redacted. The June 13 motion was not reflected on the docket. Plaintiff promptly contacted the Austin Divisional Office, chambers, and the ECF Help Desk. The June 13--23 email correspondence is attached as Exhibit B.
+
+\item Document 3 contains Plaintiff's residential address, limited identifying information concerning a nonparty family member, and detailed personal financial and medical-expense information. Plaintiff's private-mailbox address remains public and available for service and Court communications.
+
+\item Federal Rule of Civil Procedure 5.2(e)--(f), Local Rule CV-5.2, and the Western District's published privacy policy authorize the requested restriction, targeted redaction, and retention of the complete affidavit under seal or restricted access. The district's privacy policy specifically identifies financial affidavits as records treated as nonpublic absent a court order.
+
+\item The requested relief is narrow. Plaintiff does not seek to seal the complaint, the case, or any merits filing. He asks only that the complete financial affidavit be restricted and that the redacted copy be substituted if the Court determines that a public copy should remain available.
+\end{enumerate}
+
+WHEREFORE, Plaintiff respectfully requests that the Court:
+
+\begin{enumerate}[label=\Alph*.,leftmargin=0.5in]
+\item immediately restrict public access to Document 3;
+\item substitute the redacted IFP copy attached to the June 13 motion (Exhibit A);
+\item maintain the complete IFP application and financial affidavit under seal or restricted access for Court review;
+\item consider the June 13 motion and redacted replacement as submitted before Document 3 was docketed; and
+\item grant such other relief as the Court deems just and proper.
+\end{enumerate}
+
+No Defendant has appeared, and there is presently no opposing counsel with whom Plaintiff can confer regarding this motion.
+
+\singlespacing
+\vspace{0.25em}
+\noindent Respectfully submitted,
+
+\vspace{0.5em}
+\noindent Dated: \RenewedMotionDate
+
+\vspace{0.5em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName, Plaintiff Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+
+\RenderRenewedMotionExhibits
+
+\end{document}
