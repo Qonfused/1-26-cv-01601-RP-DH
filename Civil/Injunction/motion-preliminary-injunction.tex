@@ -1,0 +1,386 @@
+% Default build: motion + preliminary-injunction appendix.
+% Appendix-only build: declaration + index + attached Exhibit 2 using extract-subexhibits.tex.
+% From repository root:
+% pdflatex -jobname=preliminary-injunction-appendix "\def\BUILDPIAPPENDIX{1}\input{Civil/Injunction/motion-preliminary-injunction.tex}"
+% From Civil/Injunction:
+% pdflatex -jobname=preliminary-injunction-appendix "\def\BUILDPIAPPENDIX{1}\input{motion-preliminary-injunction.tex}"
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\IfFileExists{extract-subexhibits.tex}{\input{extract-subexhibits.tex}}{%
+  \IfFileExists{Filing/extract-subexhibits.tex}{\input{Filing/extract-subexhibits.tex}}{%
+    \IfFileExists{../Filing/extract-subexhibits.tex}{\input{../Filing/extract-subexhibits.tex}}{%
+      \IfFileExists{Civil/Filing/extract-subexhibits.tex}{\input{Civil/Filing/extract-subexhibits.tex}}{%
+        \IfFileExists{../extract-subexhibits.tex}{\input{../extract-subexhibits.tex}}{\input{../../extract-subexhibits.tex}}%
+      }%
+    }%
+  }%
+}
+\usepackage[hidelinks,bookmarksopen=true,bookmarksnumbered=false]{hyperref}
+ 
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{%
+  \IfFileExists{Filing/filing-info.tex}{\input{Filing/filing-info.tex}}{%
+    \IfFileExists{../Filing/filing-info.tex}{\input{../Filing/filing-info.tex}}{%
+      \IfFileExists{Civil/Filing/filing-info.tex}{\input{Civil/Filing/filing-info.tex}}{%
+        \IfFileExists{../filing-info.tex}{\input{../filing-info.tex}}{\input{../../filing-info.tex}}%
+      }%
+    }%
+  }%
+}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{%
+  \IfFileExists{Filing/signatures.tex}{\input{Filing/signatures.tex}}{%
+    \IfFileExists{../Filing/signatures.tex}{\input{../Filing/signatures.tex}}{%
+      \IfFileExists{Civil/Filing/signatures.tex}{\input{Civil/Filing/signatures.tex}}{%
+        \IfFileExists{../signatures.tex}{\input{../signatures.tex}}{\input{../../signatures.tex}}%
+      }%
+    }%
+  }%
+}
+ 
+\renewcommand{\FilingCivilActionNumber}{1:26-cv-01601-RP-DH}
+\newcommand{\PIMotionDate}{\today}
+\newcommand{\PIEx}[1]{PI App. Ex.~#1}
+\newcommand{\ComplEx}[1]{Compl. Ex.~#1, ECF No.~1-2}
+\newcommand{\ComplExs}[1]{Compl. Exs.~#1, ECF No.~1-2}
+ 
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{4pt}
+\setlist[enumerate]{leftmargin=0.48in,itemsep=0.08\baselineskip,topsep=0.15\baselineskip,parsep=0pt,partopsep=0pt}
+\doublespacing
+\emergencystretch=3em
+\pagestyle{plain}
+ 
+\titleformat{\section}{\normalfont\bfseries\centering}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.0em}{0.5em}
+\titlespacing*{\subsection}{0pt}{0.75em}{0.35em}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}}
+ 
+\IfFileExists{Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}{%
+  \newcommand{\PIGraduationPlansPdf}{\detokenize{Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}}%
+}{%
+  \IfFileExists{../Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}{%
+    \newcommand{\PIGraduationPlansPdf}{\detokenize{../Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}}%
+  }{%
+    \IfFileExists{Civil/Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}{%
+      \newcommand{\PIGraduationPlansPdf}{\detokenize{Civil/Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}}%
+    }{%
+      \newcommand{\PIGraduationPlansPdf}{\detokenize{../../Exhibits/Documents/Summer 2026 and Spring 2027 Completion Plans.pdf}}%
+    }%
+  }%
+}
+ 
+\newcommand{\PIExhibitLink}[2]{\hyperlink{pi-exhibit.#1}{#2}}
+\newcommand{\PIExhibitPages}[1]{\SubExhibitPageRange{pi-exhibit.#1}}
+ 
+\newcommand{\PIExhibitPage}[5]{%
+  \PreviewSubExhibitPdfPage
+    {Exhibit #1}
+    {pi-exhibit.#1}
+    {2}
+    {#3}
+    {#4}
+    {#5}
+    {exhibit}
+    {\bfseries\color{black}Exhibit #1: #2 -- Page #3 of #4}%
+}
+\newcommand{\IncludePIExhibit}[4]{%
+  \foreach \exhibitpage in {1,...,#3}{%
+    \PIExhibitPage{#1}{#2}{\exhibitpage}{#3}{#4}%
+  }%
+}
+\newcommand{\IncludePICompletionPlans}{%
+  \clearpage
+  \ApplyExhibitPreviewGeometry
+  \setlength{\headwidth}{\textwidth}
+  \IncludePIExhibit{2}{Summer 2026 and Spring 2027 Course-Planning Source Sheets}{2}{\PIGraduationPlansPdf}%
+}
+ 
+\newcommand{\Caption}{%
+  \begin{singlespace}
+  \begin{center}
+  \textbf{\FilingCourtName}\\
+  \textbf{\FilingDistrictName}\\
+  \textbf{\FilingDivisionName}
+  \end{center}
+ 
+  \vspace{0.45em}
+ 
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.95in}@{}}
+  \textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \textbf{Civil Action No.} \FilingCivilActionNumber \\
+  \textbf{v.} & \\
+  \textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+  \end{tabularx}
+ 
+  \vspace{1.0em}
+  \end{singlespace}%
+}
+ 
+\newcommand{\RenderPIAppendix}{%
+\clearpage
+\doublespacing
+\pagestyle{plain}
+\Caption
+
+\begin{singlespace}
+\begin{center}
+\textbf{PLAINTIFF'S PRELIMINARY-INJUNCTION APPENDIX}\\
+\textbf{INDEX OF EXHIBITS}
+\end{center}
+\end{singlespace}
+
+\begin{singlespace}
+\noindent
+\begin{tabularx}{\textwidth}{@{}P{0.85in}X P{0.65in}@{}}
+\textbf{Exhibit} & \textbf{Description} & \textbf{Pages} \\
+\hline
+\PIExhibitLink{1}{Exhibit 1} & Declaration of Cory J. Bennett & \PIExhibitPages{1} \\
+\PIExhibitLink{2}{Exhibit 2} & Summer 2026 and Spring 2027 course-planning source sheets & \PIExhibitPages{2} \\
+\end{tabularx}
+\end{singlespace}
+
+\clearpage
+\Caption
+ 
+\phantomsection
+\hypertarget{pi-exhibit.1}{}%
+\label{pi-exhibit.1.start}%
+\pdfbookmark[2]{Exhibit 1: Declaration of Cory J. Bennett}{bookmark.pi-exhibit.1}%
+ 
+\begin{singlespace}
+\begin{center}
+\textbf{EXHIBIT 1}\\[0.35em]
+\textbf{DECLARATION OF CORY J. BENNETT}\\
+\textbf{IN SUPPORT OF MOTION FOR PRELIMINARY INJUNCTION}
+\end{center}
+\end{singlespace}
+ 
+I, Cory J. Bennett, declare as follows:
+ 
+\begin{enumerate}
+\item I am the Plaintiff in this action. I have personal knowledge of the facts stated here and can testify to them if the Court holds a hearing.
+
+\item Plaintiff intends to enroll in Fall 2026 and will register if UT Austin assigns Plaintiff's accommodations, course planning, and SDS prerequisite decisions to officials who did not impose the October 2 restrictions, review Hsiao's revised SDS 320E lab instructions, dismiss Plaintiff's HOP complaint, decide Plaintiff's DIA appeal, or control the January D\&A coordinator assignment. Plaintiff is prepared to satisfy the prerequisites and financial obligations in a current academic plan.
+
+\item Before the Fall 2025 events, Plaintiff planned Spring and Summer 2026 coursework supporting Summer 2026 degree conferral, subject to Plaintiff's residence-hour petition. Page 1 of Exhibit 2 is a true and correct export of that course-planning source sheet. It shows four Spring courses and undergraduate research plus one elective in Summer, identifies the residence-hour shortfall addressed by Plaintiff's November 3 petition, and lists the catalog and program sources used to prepare the schedule.
+
+\item During the weeks before the January 20, 2026 add deadline, UT's registration system continued to show available seats in M 372K and M 349R. The remaining elective could be completed in Spring or Summer, so available seats left time to register before January 20. Texas One Stop warned Plaintiff on January 7 that Plaintiff's financial aid would be canceled if Plaintiff remained unenrolled.
+
+\item SDS 324E remained uncertain because SDS 320E was its prerequisite. Plaintiff withdrew from SDS 320E in Fall 2025 after the events alleged in the complaint. SDS 324E was not required for Plaintiff's bachelor's degree, but SDS 320E was required for Plaintiff's Statistics and Data Science minor and for SDS 324E in the Applied Statistical Modeling certificate. Page 2 of Exhibit 2 is a true and correct export showing the alternative sequence if SDS 320E must be repeated before SDS 324E; that sequence extends completion through Spring 2027.
+
+\item D\&A told Plaintiff on January 8 that it was working to assign a new Access Coordinator, withdrew that notice on January 9, and identified Bradley on January 13. Plaintiff requested reassignment on January 14 because Bradley had reviewed Hsiao's revised SDS 320E lab instructions and placed Plaintiff on her caseload because of that participation. Plaintiff also told Bradley that pending Department of Education and Department of Justice complaints challenged that review and her role in administering Plaintiff's accommodations. Plaintiff explained that keeping Bradley assigned as Plaintiff's D\&A Access Coordinator required Bradley to continue administering accommodations she had helped review and to decide whether to reassign herself. Bradley refused on January 15, stating that Legal Affairs and the ADA office agreed. On January 20, Student Outreach and Support confirmed that reassignment was unavailable and Plaintiff was not enrolled.
+
+\item Plaintiff remained unenrolled through Spring and Summer 2026, Plaintiff's financial aid was canceled, and Plaintiff lost the Summer 2026 graduation timeline shown on page 1 of Exhibit 2.
+
+\item Fall 2026 enrollment requires D\&A to issue and administer accommodations and requires the College of Natural Sciences (``CNS'') and the Department of Statistics and Data Sciences (``SDS'') to identify remaining courses and decide the status of SDS 320E and the prerequisite for SDS 324E. Bradley is the last D\&A Access Coordinator UT identified to Plaintiff. Plaintiff has received no notice that UT rescinded the October 2 office-hours and communication restrictions, resolved the Student Conduct record, or assigned Fall 2026 decisions to officials who did not perform the roles listed in paragraph 2. Plaintiff can enroll if UT assigns the required decisions to an Access Coordinator, supervising D\&A official, CNS academic coordinator, and prerequisite decisionmaker who did not perform those roles.
+
+\item UT's published calendar places Fall tuition billing on July 28, general registration on August 20 through 27, the first class day on August 24, and the undergraduate add deadline on August 31. Another missed term would further delay degree completion and Plaintiff's planned SDS sequence. Exhibit 2 reproduces pages 1 and 2 of Plaintiff's three-page course-planning workbook export; page 3 contains notes and is not relied upon.
+\end{enumerate}
+ 
+I declare under penalty of perjury under the laws of the United States that the foregoing is true and correct.
+ 
+Executed on \PIMotionDate, in Austin, Texas.
+ 
+\singlespacing
+\vspace{0.8em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+Cory J. Bennett
+ 
+\label{pi-exhibit.1.end}%
+ 
+\IncludePICompletionPlans
+}
+
+\begin{document}
+\ifdefined\BUILDPIAPPENDIX
+\RenderPIAppendix
+\else
+\Caption
+ 
+\begin{singlespace}
+\begin{center}
+\textbf{PLAINTIFF'S MOTION FOR PRELIMINARY INJUNCTION}\\
+\textbf{AND REQUEST FOR EXPEDITED CONSIDERATION}
+\end{center}
+\end{singlespace}
+ 
+Plaintiff Cory J. Bennett, proceeding pro se, moves under Federal Rule of Civil Procedure 65(a), Title II of the Americans with Disabilities Act, and Section 504 of the Rehabilitation Act for a preliminary injunction requiring The University of Texas at Austin (``UT'') to assign the accommodation, enrollment, course-planning, and prerequisite decisions necessary for Fall 2026 to officials who did not participate in the October 2 restrictions, review Hsiao's revised SDS 320E lab instructions, dismiss Plaintiff's HOP complaint, decide Plaintiff's DIA appeal, or control the January D\&A coordinator assignment.
+ 
+Plaintiff intends to enroll in Fall 2026. Disability and Access (``D\&A'') must issue and administer his accommodations. The College of Natural Sciences (``CNS'') and the Department of Statistics and Data Sciences (``SDS'') must identify the remaining courses and decide the status of SDS 320E and the prerequisite for SDS 324E. Kelli Bradley is the last Access Coordinator UT identified to Plaintiff. Plaintiff has received no notice that UT rescinded the October 2 SDS restrictions, resolved the Student Conduct record created from the SDS reports and later accommodation correspondence, or assigned Fall 2026 decisions to officials who did not impose the October restrictions, review Hsiao's revised lab instructions, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment. Bennett Decl. \S\S 2, 8.
+ 
+D\&A kept Bradley assigned through the Spring add deadline. D\&A announced a new Access Coordinator on January 8, withdrew that announcement on January 9, and identified Bradley as Plaintiff's coordinator on January 13. Plaintiff requested reassignment because Bradley had helped review Hsiao's revised SDS 320E lab instructions and had placed Plaintiff on her caseload because of that participation. He also told Bradley that civil-rights complaints then pending with the U.S. Department of Education's Office for Civil Rights and the U.S. Department of Justice challenged her review of those instructions and her role in administering his accommodations. Plaintiff explained that this created a conflict of interest because Bradley would continue administering his accommodations and would decide whether to reassign herself. Bradley refused on January 15 and stated that Legal Affairs and the ADA office agreed. On January 20, the final add day, Student Outreach and Support confirmed that reassignment was unavailable and that Plaintiff was not enrolled. Plaintiff remained unenrolled through Summer 2026, and his financial aid was canceled. Bennett Decl. \S\S 6--7; \ComplExs{V--Z}.
+ 
+That missed enrollment displaced the Summer 2026 graduation timeline shown on page 1 of Exhibit 2. The schedule placed four courses in Spring 2026 and undergraduate research plus one elective in Summer 2026, subject to Plaintiff's separate residence-hour petition. UT's registration system continued to show available seats in M 372K and M 349R during the add period. Bennett Decl. \S\S 3--4, 7; \PIEx{2}.
+ 
+SDS 320E is a required core course for Plaintiff's Statistics and Data Science minor and the prerequisite for SDS 324E in the Applied Statistical Modeling certificate. Plaintiff intended to complete that work before degree conferral. Page 2 of Exhibit 2 shows that requiring SDS 320E before SDS 324E extends the alternative sequence through Spring 2027. Bennett Decl. \S 5; \PIEx{2}.
+ 
+Under the proposed order, D\&A designees would issue the Fall accommodation plan, a CNS academic coordinator would prepare the academic plan, and an academic official would decide the status of SDS 320E and the SDS 324E prerequisite. If those written decisions issue after an ordinary registration, payment, or add deadline, the order directs UT to use an administrative add, reserve a seat when practicable, or extend the deadline long enough for Plaintiff to complete registration. The order also suspends the October 2 restrictions and bars UT from using the unresolved Student Conduct record to deny or condition those Fall decisions.
+ 
+UT's published calendar places Fall tuition billing on July 28, general registration on August 20 through 27, the first class day on August 24, and the undergraduate add deadline on August 31. Bennett Decl. \S 9. After Defendants receive service or another form of notice the Court accepts under Rule 65(a)(1), Plaintiff requests a response deadline seven days after notice, a reply deadline three days after any response, and a prompt hearing or submission setting. Plaintiff alternatively requests any expedited schedule the Court finds sufficient to allow a ruling before the Fall 2026 registration and add deadlines.
+ 
+\section*{I. Relevant record}
+ 
+\subsection*{A. Hsiao and Scott removed the September 4 accommodation agreement before Student Conduct opened a case.}
+ 
+On September 4, 2025, Plaintiff and SDS 320E instructor Emily Hsiao documented a course-specific implementation of Plaintiff's approved attendance and deadline flexibility. The agreement allowed Plaintiff to complete missed labs during Monday teaching-assistant office hours without advance notice. \ComplExs{A--B}.
+ 
+On October 2, Hsiao barred Plaintiff from in-person office hours and imposed special communication requirements. Plaintiff immediately denied the allegations and explained that the restriction displaced his accommodation implementation. Later that morning, SDS Chair James Scott imposed a department-level office-hours ban and monitored electronic-communication requirement after consulting SDS undergraduate director Jay Bartroff and CNS Student Dean Michael Drew. Scott later instructed Hsiao to contact the University of Texas Police Department if Plaintiff returned to office hours. Student Conduct opened its case on October 3, after the restrictions took effect. Before then, Plaintiff had received no charge, evidence disclosure, witness interview, hearing, or decision. \ComplExs{C--D, L--N}.
+ 
+The office-hours ban eliminated the agreed option of completing a missed lab during Monday teaching-assistant office hours without first notifying Hsiao. Scott's directive also omitted the in-person alternative that Bartroff had identified internally before the directive issued: office hours with course coordinator Sally Ragsdale. \ComplExs{M--O}.
+ 
+\subsection*{B. D\&A confirmed Hsiao's revised lab instructions after Plaintiff explained that sudden incapacitation could prevent the required notice.}
+ 
+Plaintiff forwarded Scott's directive to CNS Assistant Dean Anneke Chy on October 6. Chy added D\&A, Student Conduct, and UT Legal Affairs to the exchange. Hsiao then proposed that Plaintiff notify her by the assigned lab day, coordinate electronic access in advance, and complete a missed lab in another section. \ComplExs{D, F}.
+ 
+Plaintiff explained that sudden disability-related absence or incapacitation could prevent him from notifying Hsiao by the assigned lab day or coordinating electronic access beforehand. UT's absence records documented medical absences in September and October, including an October 8 emergency absence. Scott wrote that Hsiao's revised lab instructions were final unless D\&A or Legal Affairs directed otherwise. \ComplExs{F--G}.
+ 
+On October 10, D\&A official Emily Harrington stated that she had consulted Deputy Vice President for Legal Affairs Jody Hughes and D\&A Executive Director Kelli Bradley before confirming that Hsiao's revised lab instructions met Plaintiff's accommodations. Bradley later confirmed her consultation and stated that she was placing Plaintiff on her caseload because she had participated in reviewing those instructions. Plaintiff sent his objections to the ADA Coordinator. \ComplExs{H--K}.
+ 
+Patrick Joseph of Student Outreach and Support (``SOS'') later recognized that the office-hours ban had eliminated the September 4 option for completing missed labs and that UT needed to determine whether Plaintiff had another way to complete missed labs and otherwise participate in the course. The related Student Conduct file incorporated the SDS reports, prior complaint activity, Scott's UTPD instruction, and later accommodation communications. \ComplExs{N--O}.
+ 
+\subsection*{C. DIA deferred to D\&A on whether Hsiao's revised lab instructions met Plaintiff's accommodations; Graves closed the appeal.}
+ 
+Plaintiff filed a disability-discrimination and retaliation complaint under UT's Handbook of Operating Procedures 3-3020 (``HOP 3-3020'') with the Department of Investigation and Adjudication (``DIA''). His written intake identified witnesses and records, explained that Hsiao's revised lab instructions required notice during episodes when disability-related incapacitation could prevent him from communicating, and requested corrective action. DIA distributed the intake notes to University decisionmakers, deferred to D\&A on whether those instructions met Plaintiff's accommodations, and dismissed the complaint without interviewing the identified student and teaching-assistant witnesses. \ComplExs{P--R}.
+ 
+Plaintiff notified Associate Vice President Esteban Soto, DIA official Dawn Spinozza, Legal Affairs, the ADA Coordinator, University Risk and Compliance Services (``URCS''), and compliance personnel that DIA had disclosed the intake notes, deferred to the D\&A officials whose review he challenged, omitted the requested witness inquiry, and left the October restrictions in place. He requested review by an official who had not participated in the SDS restrictions, the review of Hsiao's revised lab instructions, or DIA's dismissal. \ComplEx{S}.
+ 
+Chief Compliance Officer Jeff Graves decided the appeal after Plaintiff requested Graves's recusal based on his prior role in related D\&A and DIA proceedings. Graves refused recusal and closed the DIA appeal without deciding whether DIA could defer to D\&A despite the complaint's challenge to D\&A's review, whether DIA properly distributed Plaintiff's intake notes, or whether DIA should have interviewed the identified witnesses. \ComplEx{T}.
+ 
+\subsection*{D. D\&A kept Bradley assigned through the January 20 add deadline.}
+ 
+Texas One Stop warned Plaintiff on January 7 that his financial aid would be canceled if he remained unenrolled. D\&A stated on January 8 that it was working to assign a new Access Coordinator, withdrew that statement on January 9, and identified Bradley as Plaintiff's coordinator on January 13. \ComplExs{V--X}.
+ 
+Plaintiff requested reassignment on January 14 because Bradley had helped review Hsiao's revised lab instructions and had placed Plaintiff on her caseload because of that participation. He also told Bradley that civil-rights complaints then pending with the U.S. Department of Education's Office for Civil Rights and the U.S. Department of Justice challenged her review of those instructions and her role in administering his accommodations. Plaintiff explained that this created a conflict of interest because Bradley would continue administering his accommodations and would decide whether to reassign herself. He sent the request to Bradley, D\&A, Legal Affairs, and the ADA Coordinator. Bradley refused on January 15 and stated that Legal Affairs and the ADA office agreed. On January 20, SOS confirmed that reassignment was unavailable and that Plaintiff was not enrolled. \ComplExs{Y--Z}.
+ 
+The add deadline passed while Bradley retained control of the accommodation file. Plaintiff remained unenrolled through Spring and Summer 2026, his financial aid was canceled, and the Summer 2026 graduation timeline shown on page 1 of Exhibit 2 was lost. Bennett Decl. \S\S 6--7; \PIEx{2}.
+ 
+\subsection*{E. Fall enrollment still requires decisions from D\&A, CNS, and SDS.}
+ 
+Plaintiff will register for Fall 2026 if UT assigns the required decisions to officials who did not impose the October restrictions, review Hsiao's revised lab instructions, participate in the SOS response, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment. D\&A must issue and administer accommodations. CNS and SDS must prepare the current academic plan, identify available courses, and decide the SDS 320E and SDS 324E options. Bennett Decl. \S\S 2, 8.
+ 
+The complaint and exhibits identify Hsiao, Scott, Ragsdale, Bartroff, and Drew as participants in the October restrictions; Harrington, Hughes, and Bradley as participants in reviewing Hsiao's revised lab instructions; Joseph as a participant in the SOS response and resulting records; and Graves as the official who decided the DIA appeal. The proposed order requires UT to identify any additional employee who performed one of those roles and to certify that the Fall decisionmakers performed none of them.
+ 
+Plaintiff has received no notice that UT removed Bradley from his accommodation file, rescinded the October 2 restrictions, resolved the Student Conduct record, or assigned the Fall decisions to officials who performed none of the roles identified above. Bennett Decl. \S 8.
+ 
+\section*{II. Legal standard}
+ 
+A preliminary injunction requires a substantial likelihood of success on the merits, a substantial threat of irreparable injury, a balance of hardships favoring relief, and consistency with the public interest. \textit{Janvey v. Alguire}, 647 F.3d 585, 595 (5th Cir. 2011); \textit{Winter v. Natural Resources Defense Council, Inc.}, 555 U.S. 7, 20 (2008). A preliminary proceeding requires a clear prima facie showing. \textit{Janvey}, 647 F.3d at 595--96.
+ 
+Rule 65(a)(1) requires notice before an injunction issues. Rule 65(c) authorizes security in an amount the Court considers proper. Rule 65(d) requires specific operative terms. Local Rule CV-65 requires a motion separate from the complaint, and Local Rule CV-7 permits an appendix containing declarations and records supporting the motion.
+ 
+\section*{III. Plaintiff is likely to succeed on the statutory claims}
+ 
+\subsection*{A. UT eliminated the agreed Monday office-hours option and confirmed instructions requiring communication during sudden incapacitation.}
+ 
+Title II prohibits a public entity from excluding a qualified individual from its programs, denying program benefits, or subjecting the individual to discrimination by reason of disability. 42 U.S.C. \S 12132. Section 504 applies parallel protection to programs receiving federal financial assistance. 29 U.S.C. \S 794(a). Public entities must make reasonable modifications when necessary to avoid disability discrimination unless the modification would fundamentally alter the program. 28 C.F.R. \S 35.130(b)(7)(i).
+ 
+Plaintiff is a qualified student with disabilities. UT is a public entity and receives federal financial assistance for academic instruction, student aid, disability services, research, and related programs. Compl. \S\S 14--15, 193--212. UT's acceptance of federal assistance waives Eleventh Amendment immunity from Section 504 claims. 42 U.S.C. \S 2000d-7; \textit{Bennett-Nelson v. Louisiana Board of Regents}, 431 F.3d 448, 454--55 (5th Cir. 2005).
+ 
+\textit{A.J.T. v. Osseo Area Schools, Independent School District No. 279} applies ordinary ADA and Section 504 standards to educational-service claims. 605 U.S. 335, 343--48 (2025). The Fifth Circuit asks whether an accommodation provides meaningful access in practice. \textit{Cadena v. El Paso County}, 946 F.3d 717, 723--27 (5th Cir. 2020).
+ 
+The September 4 agreement allowed Plaintiff to complete a missed lab during Monday teaching-assistant office hours without notifying Hsiao beforehand. Hsiao and Scott eliminated that option on October 2. Hsiao then required notice by the assigned lab day and advance coordination for electronic access. Plaintiff told Scott, D\&A, Legal Affairs, Bradley, Harrington, and the ADA Coordinator that sudden disability-related incapacitation could prevent both forms of communication. UT's absence records documented the type of emergency Plaintiff described. Harrington, after consulting Hughes and Bradley, confirmed Hsiao's instructions as meeting Plaintiff's accommodations. No communication from D\&A or Legal Affairs identified a fundamental alteration or undue burden that would result from allowing notice after an incapacitating episode and then arranging completion of the missed lab. \ComplExs{A--B, F--K}.
+ 
+In January, D\&A withdrew the new-coordinator assignment and kept Bradley in control of Plaintiff's accommodation file after Plaintiff explained that pending DOE and DOJ civil-rights complaints challenged her review of Hsiao's instructions and her continued assignment. The add deadline passed while Bradley retained authority over the accommodation file and the reassignment request. Bradley remains the last coordinator UT identified, so Fall accommodations still depend on the official whose review and continued assignment Plaintiff challenged.
+ 
+\subsection*{B. UT restricted access and refused reassignment after Plaintiff requested accommodations and filed disability complaints.}
+ 
+The ADA prohibits retaliation for opposing disability discrimination and prohibits coercion, intimidation, threats, or interference with protected rights. 42 U.S.C. \S 12203(a)--(b); 28 C.F.R. \S 35.134. Section 504 incorporates parallel anti-retaliation protection. 34 C.F.R. \S\S 104.61, 100.7(e). Protected activity, a materially adverse response, and causation establish retaliation. \textit{Seaman v. CSPH, Inc.}, 179 F.3d 297, 301 (5th Cir. 1999).
+ 
+Plaintiff requested and used accommodations; objected when Hsiao required notice by the assigned lab day and advance coordination for electronic access; filed disability complaints; identified witnesses; requested records; and sought reassignment and recusal. Ragsdale linked the September 30 dispute to Plaintiff's prior complaints and wrote that returning the disputed grading point would lead to more complaints. Bartroff transmitted prior complaint activity as part of a recurring-behavior narrative. DIA distributed Plaintiff's intake notes and deferred to D\&A on whether Hsiao's instructions met Plaintiff's accommodations. Bradley refused reassignment after Plaintiff told her that pending DOE and DOJ complaints challenged her review of Hsiao's instructions and her role in administering Plaintiff's accommodations, and she stated that Legal Affairs and the ADA office supported her decision. Compl. \S\S 213--218; \ComplExs{M--T, Y--Z}.
+ 
+The proposed order assigns Plaintiff-specific Fall decisions to officials who did not impose the October restrictions, review Hsiao's revised lab instructions, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment. It also bars UT from using the October 2 restrictions or unresolved Student Conduct record to deny or condition enrollment, accommodations, course placement, or prerequisite decisions.
+ 
+\subsection*{C. The requested order assigns each Fall decision and includes registration-deadline safeguards.}
+ 
+Plaintiff intends to enroll and will register if UT assigns the accommodation, academic-plan, and prerequisite decisions to the officials described in the proposed order. D\&A must issue and administer accommodations. CNS and SDS must identify the remaining courses and decide the status of SDS 320E and the SDS 324E prerequisite. Bradley remains the last coordinator identified to Plaintiff, and the October restrictions and Student Conduct record remain unresolved. Bennett Decl. \S\S 2, 8.
+ 
+The proposed order directs D\&A to issue a Fall accommodation plan, CNS to prepare a current academic plan, and an authorized academic official to decide the status of SDS 320E and the SDS 324E prerequisite. None of those officials may have imposed the October restrictions, reviewed Hsiao's revised lab instructions, dismissed the HOP complaint, decided the DIA appeal, or controlled the January D\&A coordinator assignment. If a written decision issues after an ordinary registration, payment, or add deadline, the proposed order directs UT to use an administrative add, reserve a seat when practicable, or extend the deadline long enough for Plaintiff to complete registration.
+ 
+\section*{IV. Another lost term will cause irreparable injury}
+ 
+Irreparable injury includes losses that a later monetary award cannot adequately repair. \textit{Canal Authority of Florida v. Callaway}, 489 F.2d 567, 572--73 (5th Cir. 1974). Once the Fall add deadline passes, a later judgment cannot supply the instruction, course sequence, faculty access, and research affiliation available during the semester.
+ 
+Plaintiff already lost the Spring and Summer terms after D\&A kept Bradley assigned through the January add deadline. Page 1 of Exhibit 2 shows the Summer 2026 graduation timeline displaced by that non-enrollment, subject to the separate residence-hour petition. Page 2 shows that repeating SDS 320E before SDS 324E extends the alternative sequence through Spring 2027. Bennett Decl. \S\S 3, 5, 7, 9; \PIEx{2}.
+ 
+Another missed term would move the remaining coursework through another academic cycle and prolong the loss of student affiliation, academic participation, research opportunities, and progress toward degree conferral. A later payment cannot recreate Fall 2026 instruction, restore the lost course sequence, or reopen time-bound research and graduate-entry opportunities.
+ 
+\section*{V. The balance of hardships and public interest favor relief}
+ 
+Plaintiff faces another lost semester and a longer prerequisite sequence. UT would assign officials who did not impose the October restrictions, review Hsiao's revised lab instructions, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment. Those officials would prepare a current academic plan, administer UT's existing disability-services program, and decide the SDS 320E status and SDS 324E prerequisite options. These tasks fall within functions UT already performs.
+ 
+UT retains authority over course content, prerequisites, tuition, and grading. The designated officials would make the Plaintiff-specific Fall decisions and could address a later interaction or other event through an individualized written decision. UT would preserve every relevant record for this litigation.
+ 
+The public interest favors enforcement of Title II and Section 504, timely access to public education, effective accommodation administration, and protection from retaliation for civil-rights complaints. Written decisions by officials who did not impose the October restrictions, review Hsiao's revised lab instructions, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment, issued on an expedited schedule or paired with administrative enrollment when ordinary deadlines have passed, serve those interests.
+ 
+\section*{VI. Requested relief}
+ 
+Plaintiff asks the Court to enter the accompanying proposed order requiring:
+ 
+\begin{enumerate}
+\item an Access Coordinator, supervising D\&A official, CNS academic coordinator, and SDS prerequisite decisionmaker who did not impose the October restrictions, review Hsiao's revised lab instructions, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment;
+ 
+\item UT's identification of any additional employee who imposed or advised on the October restrictions, reviewed Hsiao's revised lab instructions, created or used the Student Conduct and SOS records concerning those events, participated in DIA's dismissal or Graves's decision on the DIA appeal, or controlled the January D\&A coordinator assignment;
+ 
+\item a current degree audit and written academic plan that separately identifies bachelor's, minor, planned certificate, residence-hour, and elective requirements;
+ 
+\item a written determination of the status of SDS 320E and the SDS 324E prerequisite options, followed by administrative enrollment, a reserved seat when practicable, or a deadline extension if the determination issues after an ordinary deadline;
+ 
+\item Fall 2026 enrollment and available SDS coursework through instructors and supervisors who did not participate in the October restrictions or the reports used to support them, or a written academic explanation identifying the earliest available course or equivalent section that satisfies the same requirement;
+ 
+\item an accommodation plan that permits notice after an absence when sudden incapacitation prevented earlier communication, identifies who receives that notice, and states how and when missed work may be completed;
+ 
+\item suspension of the October 2 restrictions and a bar on using the unresolved Student Conduct record to deny or condition Fall decisions;
+ 
+\item written review by officials designated under the proposed order of any later restriction affecting Plaintiff or disagreement over implementation of an accommodation;
+ 
+\item protection against changes to enrollment, accommodations, course assignment, prerequisite decisions, or instructional access because Plaintiff requested accommodations, filed disability complaints, sought reassignment or recusal, or prosecuted this action; and
+ 
+\item a compliance report filed on the schedule set by the Court, with an earlier deadline if needed to implement relief before the Fall 2026 registration or add deadline.
+\end{enumerate}
+ 
+The Fifth Circuit applies heightened caution to mandatory preliminary relief. \textit{Martinez v. Mathews}, 544 F.2d 1233, 1243 (5th Cir. 1976). The declaration, the two source sheets in Exhibit 2, the complaint exhibits, and the January correspondence provide the required clear showing.
+ 
+Rule 65(c) leaves security to the Court. The proposed order assigns existing academic, administrative, and disability-services work to UT officials who did not participate in the decisions challenged here. UT would continue using personnel, offices, and procedures it already maintains, and the requested order identifies no monetary loss from that reassignment. Plaintiff asks the Court to waive security. If the Court requires security, Plaintiff requests \$100 or another nominal amount the Court finds proper. See \textit{Kaepa, Inc. v. Achilles Corp.}, 76 F.3d 624, 628 (5th Cir. 1996).
+ 
+No Defendant has appeared, and there is presently no opposing counsel with whom Plaintiff can confer regarding this motion. Plaintiff does not characterize the motion as unopposed. The requested expedited schedule should run from service or another form of notice the Court accepts under Rule 65(a)(1), not from the filing date.
+ 
+\section*{Conclusion}
+ 
+Plaintiff intends to enroll in Fall 2026. Bradley remains the last Access Coordinator UT identified to Plaintiff, and Plaintiff has received no notice that UT rescinded the October 2 restrictions or resolved the Student Conduct record created from the SDS reports and later accommodation correspondence. Bradley's assignment, the October restrictions, and that record remained in place through the January add deadline and displaced the Summer 2026 graduation timeline.
+ 
+Officials who did not impose the October restrictions, review Hsiao's revised lab instructions, dismiss the HOP complaint, decide the DIA appeal, or control the January D\&A coordinator assignment can issue the accommodation, enrollment, course-planning, and prerequisite determinations needed for Fall. Plaintiff respectfully requests that the Court grant the motion, enter the proposed order, set the requested expedited briefing schedule after service or Court-approved notice, and hold a prompt hearing if needed.
+ 
+\singlespacing
+\vspace{0.25em}
+\noindent Respectfully submitted,
+ 
+\vspace{0.5em}
+\noindent Dated: \PIMotionDate
+ 
+\vspace{0.5em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName, Plaintiff Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+
+\RenderPIAppendix
+\fi
+ 
+\end{document}
