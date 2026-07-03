@@ -1,0 +1,256 @@
+% Motion for summons and pro se electronic-filing instructions.
+% Compile from Civil/Filing/ or repository root.
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\IfFileExists{extract-subexhibits.tex}{\input{extract-subexhibits.tex}}{\input{../../extract-subexhibits.tex}}
+\usepackage[hidelinks,bookmarksopen=true,bookmarksnumbered=false]{hyperref}
+
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{%
+  \IfFileExists{Filing/filing-info.tex}{\input{Filing/filing-info.tex}}{%
+    \IfFileExists{../Filing/filing-info.tex}{\input{../Filing/filing-info.tex}}{%
+      \IfFileExists{Civil/Filing/filing-info.tex}{\input{Civil/Filing/filing-info.tex}}{%
+        \IfFileExists{../filing-info.tex}{\input{../filing-info.tex}}{\IfFileExists{../../filing-info.tex}{\input{../../filing-info.tex}}{}}%
+      }%
+    }%
+  }%
+}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{%
+  \IfFileExists{Filing/signatures.tex}{\input{Filing/signatures.tex}}{%
+    \IfFileExists{../Filing/signatures.tex}{\input{../Filing/signatures.tex}}{%
+      \IfFileExists{Civil/Filing/signatures.tex}{\input{Civil/Filing/signatures.tex}}{%
+        \IfFileExists{../signatures.tex}{\input{../signatures.tex}}{\IfFileExists{../../signatures.tex}{\input{../../signatures.tex}}{}}%
+      }%
+    }%
+  }%
+}
+
+\providecommand{\FilingCourtName}{UNITED STATES DISTRICT COURT}
+\providecommand{\FilingDistrictName}{WESTERN DISTRICT OF TEXAS}
+\providecommand{\FilingDivisionName}{AUSTIN DIVISION}
+\providecommand{\FilingPlaintiffName}{Cory J. Bennett}
+\providecommand{\FilingPlaintiffNameUpper}{CORY J. BENNETT}
+\providecommand{\FilingDefendantsInlineUpper}{THE UNIVERSITY OF TEXAS AT AUSTIN; EMILY HSIAO; JAMES G. SCOTT; SALLY K. RAGSDALE; JAY BARTROFF; KELLI BRADLEY; and JEFF GRAVES}
+\providecommand{\FilingPlaintiffMailingLineOne}{6705 W Highway 290}
+\providecommand{\FilingPlaintiffMailingLineTwo}{Ste 607 PMB \#268}
+\providecommand{\FilingPlaintiffMailingCityStateZip}{Austin, TX 78735-8407}
+\providecommand{\FilingPlaintiffTelephone}{(512) 630-5607}
+\providecommand{\FilingPlaintiffFax}{None}
+\providecommand{\FilingPlaintiffEmail}{csquaredbennett@gmail.com}
+\providecommand{\SignatureFourOnLine}[1][]{\FilingPlaintiffName}
+\providecommand{\FilingCivilActionNumber}{}
+\renewcommand{\FilingCivilActionNumber}{1:26-cv-01601-RP-DH}
+\newcommand{\ServiceAccessMotionDate}{July 3, 2026}
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{4pt}
+\setlist[enumerate]{leftmargin=0.48in,itemsep=0.08\baselineskip,topsep=0.15\baselineskip,parsep=0pt,partopsep=0pt}
+\doublespacing
+\emergencystretch=3em
+\pagestyle{plain}
+
+\titleformat{\section}{\normalfont\bfseries\centering}{\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.0em}{0.5em}
+
+\IfFileExists{Civil/Filing/Attachments/ECF TXWD/gov.uscourts.txwd.1172916436.2.0.pdf}{%
+  \newcommand{\ServiceAccessExhibitAPdf}{Civil/Filing/Attachments/ECF TXWD/gov.uscourts.txwd.1172916436.2.0.pdf}%
+}{%
+  \newcommand{\ServiceAccessExhibitAPdf}{Attachments/ECF TXWD/gov.uscourts.txwd.1172916436.2.0.pdf}%
+}
+\IfFileExists{Civil/Filing/Attachments/ECF TXWD/Gmail - Activity in Case 1_26-cv-01601-RP-DH Bennett v. The University of Texas at Austin et al Order on Motion for Electronic Filing.pdf}{%
+  \newcommand{\ServiceAccessExhibitBPdf}{\detokenize{Civil/Filing/Attachments/ECF TXWD/Gmail - Activity in Case 1_26-cv-01601-RP-DH Bennett v. The University of Texas at Austin et al Order on Motion for Electronic Filing.pdf}}%
+}{%
+  \newcommand{\ServiceAccessExhibitBPdf}{\detokenize{Attachments/ECF TXWD/Gmail - Activity in Case 1_26-cv-01601-RP-DH Bennett v. The University of Texas at Austin et al Order on Motion for Electronic Filing.pdf}}%
+}
+\IfFileExists{Civil/Filing/Attachments/ECF TXWD/Gmail - Activity in Case 1_26-cv-01601-RP-DH Bennett v. The University of Texas at Austin et al Letter_Correspondence.pdf}{%
+  \newcommand{\ServiceAccessExhibitCPdf}{\detokenize{Civil/Filing/Attachments/ECF TXWD/Gmail - Activity in Case 1_26-cv-01601-RP-DH Bennett v. The University of Texas at Austin et al Letter_Correspondence.pdf}}%
+}{%
+  \newcommand{\ServiceAccessExhibitCPdf}{\detokenize{Attachments/ECF TXWD/Gmail - Activity in Case 1_26-cv-01601-RP-DH Bennett v. The University of Texas at Austin et al Letter_Correspondence.pdf}}%
+}
+\IfFileExists{Civil/Letters/e421926d-9687-4a22-9793-0b7cb52ff5d1.pdf}{%
+  \newcommand{\ServiceAccessExhibitDPdf}{Civil/Letters/e421926d-9687-4a22-9793-0b7cb52ff5d1.pdf}%
+}{%
+  \newcommand{\ServiceAccessExhibitDPdf}{../Letters/e421926d-9687-4a22-9793-0b7cb52ff5d1.pdf}%
+}
+\IfFileExists{Civil/Filing/Attachments/ECF TXWD/Gmail - NextGen CM_ECF Registration Status.pdf}{%
+  \newcommand{\ServiceAccessExhibitEPdf}{\detokenize{Civil/Filing/Attachments/ECF TXWD/Gmail - NextGen CM_ECF Registration Status.pdf}}%
+}{%
+  \newcommand{\ServiceAccessExhibitEPdf}{\detokenize{Attachments/ECF TXWD/Gmail - NextGen CM_ECF Registration Status.pdf}}%
+}
+
+\newcommand{\ServiceAccessExhibitLink}[2]{\hyperlink{service-access-exhibit.#1}{#2}}
+\newcommand{\ServiceAccessExhibitPages}[1]{\SubExhibitPageRange{service-access-exhibit.#1}}
+\newcommand{\ServiceAccessExhibitPage}[5]{%
+  \PreviewSubExhibitPdfPage
+    {Exhibit #1}
+    {service-access-exhibit.#1}
+    {2}
+    {#3}
+    {#4}
+    {#5}
+    {ifpattachment}
+    {\bfseries\color{black}Exhibit #1: #2 -- Page #3 of #4}%
+}
+\newcommand{\IncludeServiceAccessExhibit}[4]{%
+  \foreach \exhibitpage in {1,...,#3}{%
+    \ServiceAccessExhibitPage{#1}{#2}{\exhibitpage}{#3}{#4}%
+  }%
+}
+\newcommand{\RenderServiceAccessExhibits}{%
+  \clearpage
+  \newgeometry{margin=1in,footskip=0.35in}
+  \thispagestyle{ifpattachment}
+  \phantomsection
+  \pdfbookmark[1]{Exhibits to Motion for Summons and E-Filing Instructions}{service-access-exhibits}
+  \begin{singlespace}
+    \begin{center}
+      \textbf{EXHIBITS TO PLAINTIFF'S MOTION FOR SUMMONS ISSUANCE}\\
+      \textbf{AND PRO SE ELECTRONIC-FILING INSTRUCTIONS}
+    \end{center}
+  \end{singlespace}
+  \begin{doublespace}
+  \noindent The following exhibits are submitted in support of Plaintiff's motion.
+  \end{doublespace}
+
+  \vspace{0.35em}
+  \begin{singlespace}
+  \noindent
+  {
+  \setlength{\tabcolsep}{0pt}
+  \renewcommand{\arraystretch}{1.16}
+  \begin{tabularx}{\dimexpr\textwidth-0.30in\relax}{
+    @{}
+    >{\raggedright\arraybackslash}p{0.85in}
+    @{\hspace{0.15in}}
+    >{\raggedright\arraybackslash}X
+    @{\hspace{0.15in}}
+    >{\raggedright\arraybackslash}p{0.65in}
+    @{}
+  }
+  \textbf{Exhibit} & \textbf{Description} & \textbf{Pages} \\
+  \hline
+  \ServiceAccessExhibitLink{A}{Exhibit A}
+    & Document 2, application for permission to file electronically
+    & \ServiceAccessExhibitPages{A} \\
+  \ServiceAccessExhibitLink{B}{Exhibit B}
+    & June 24, 2026 text order granting permission to file electronically
+    & \ServiceAccessExhibitPages{B} \\
+  \ServiceAccessExhibitLink{C}{Exhibit C}
+    & June 24, 2026 notice listing ECF registration instructions letter
+    & \ServiceAccessExhibitPages{C} \\
+  \ServiceAccessExhibitLink{D}{Exhibit D}
+    & Document 6, ECF registration letter
+    & \ServiceAccessExhibitPages{D} \\
+  \ServiceAccessExhibitLink{E}{Exhibit E}
+    & NextGen CM/ECF registration-status and help-desk correspondence
+    & \ServiceAccessExhibitPages{E} \\
+  \end{tabularx}
+  }
+  \end{singlespace}
+
+  \clearpage
+  \ApplyIfpAttachmentGeometry
+  \setlength{\headwidth}{\textwidth}
+  \IncludeServiceAccessExhibit{A}{Document 2, Application for Permission to File Electronically}{1}{\ServiceAccessExhibitAPdf}
+  \IncludeServiceAccessExhibit{B}{Order Granting Permission to File Electronically}{1}{\ServiceAccessExhibitBPdf}
+  \IncludeServiceAccessExhibit{C}{Notice Listing ECF Registration Instructions Letter}{1}{\ServiceAccessExhibitCPdf}
+  \IncludeServiceAccessExhibit{D}{Document 6 ECF Registration Letter}{1}{\ServiceAccessExhibitDPdf}
+  \IncludeServiceAccessExhibit{E}{NextGen CM/ECF Registration Status Correspondence}{3}{\ServiceAccessExhibitEPdf}
+}
+
+\newcommand{\Caption}{%
+  \begin{singlespace}
+  \begin{center}
+  \textbf{\FilingCourtName}\\
+  \textbf{\FilingDistrictName}\\
+  \textbf{\FilingDivisionName}
+  \end{center}
+
+  \vspace{0.45em}
+
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.95in}@{}}
+  \textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \textbf{Civil Action No.} \FilingCivilActionNumber \\
+  \textbf{v.} & \\
+  \textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+  \end{tabularx}
+
+  \vspace{1.0em}
+  \end{singlespace}%
+}
+
+\begin{document}
+
+\Caption
+
+\begin{singlespace}
+\begin{center}
+\textbf{PLAINTIFF'S MOTION FOR ORDER DIRECTING ISSUANCE OF}\\
+\textbf{SUMMONSES AND PRO SE ELECTRONIC-FILING INSTRUCTIONS}
+\end{center}
+\end{singlespace}
+
+Plaintiff Cory J. Bennett respectfully moves for an order directing the Clerk to issue the summonses needed for service, or to identify any remaining step needed for issuance, and to provide any remaining instructions needed to complete pro se electronic-filing access in this case.
+
+Plaintiff files this motion now because the Court's July 2, 2026 text order denying Plaintiff's Motion for Preliminary Injunction and Request for Expedited Consideration, Dkt. 8, identified lack of notice as the immediate barrier to consideration of the preliminary-injunction request. Plaintiff cannot cure that barrier without issued summonses or other instructions for completing notice, and Plaintiff cannot use the Court's electronic-filing and electronic-notice process without the remaining steps needed to activate the access the Court has approved.
+
+\section*{Relevant Facts}
+
+Plaintiff filed this civil-rights action and related initiating papers on June 12, 2026. Those papers included proposed summonses and an application for permission to file electronically. Plaintiff's public complaint, proposed summonses, and electronic-filing application used Plaintiff's private-mailbox mailing address, where Plaintiff can receive court mail. The electronic-filing application is attached as Exhibit A.
+
+On June 24, 2026, the Court granted Plaintiff's Pro Se Motion for Permission to File Electronically, Dkt. 2. The text order stated that Plaintiff would receive further instructions from the Clerk's Office. The notice of that order is attached as Exhibit B.
+
+Plaintiff also received a June 24, 2026 notice listing ``ECF Registration Instructions Letter to Cory J. Bennett,'' Dkt. 6. The notice of electronic filing is attached as Exhibit C. The letter filed as Document 6 is attached as Exhibit D. That letter directs Plaintiff to submit a support-desk ticket, but it does not provide the party-request or account-linking steps later identified as necessary to connect Plaintiff's PACER account to this case.
+
+As of July 3, 2026, Plaintiff has not received, by mail or otherwise, the issued summonses or instructions needed to complete service. Plaintiff also has not received instructions sufficient to complete the party-request or account-linking process for pro se electronic filing in this case.
+
+On June 26, 2026, Plaintiff submitted a NextGen CM/ECF registration request for the Western District of Texas. The request was rejected the same day because the system treated the request as an attorney registration and stated that Plaintiff must submit a party request so that the account can be linked in this Court. Plaintiff contacted the Western District of Texas ECF Help Desk the same day. The Help Desk directed Plaintiff to the PACER Service Center. Plaintiff emailed the PACER Service Center on June 26, 2026. As of July 3, 2026, Plaintiff has not received a response from PACER. The registration-status notice and related correspondence are attached as Exhibit E.
+
+The delay now affects the preliminary-injunction schedule. Dkt. 8 asked the Court to set any preliminary-injunction response and hearing schedule only after Defendants received service or another form of notice accepted under Rule 65(a)(1). The July 2 text order denied Dkt. 8 because Plaintiff had not shown notice of the motion or this lawsuit. Plaintiff seeks the administrative materials and instructions needed to complete notice, file proof of notice, and allow Defendants an opportunity to respond.
+
+\section*{Basis for Relief}
+
+Federal Rule of Civil Procedure 4(b) provides that, after the complaint is filed, a plaintiff may present a summons to the Clerk for signature and seal and that, if the summons is properly completed, the Clerk must sign, seal, and issue it to the plaintiff for service. Rule 4(c)(1) makes Plaintiff responsible for service of the summons and complaint within the time allowed by Rule 4(m). Plaintiff cannot complete that responsibility without issued summonses or instructions for obtaining them.
+
+Federal Rule of Civil Procedure 5(d)(3)(B) provides that an unrepresented person may file electronically only if allowed by court order or local rule. The Court has granted Plaintiff permission to file electronically, but the June 24 text order contemplated further instructions from the Clerk's Office. Plaintiff therefore needs the Clerk's instructions for any remaining party-request or registration step needed to activate the approved access.
+
+The requested order would provide only the materials and instructions needed to complete notice and file proof, so that Dkt. 8 can be considered after Defendants have an opportunity to respond.
+
+\section*{Requested Relief}
+
+Plaintiff asks the Court to direct the Clerk to issue summonses for each Defendant based on the proposed summonses already submitted, or to identify any remaining step required for issuance. Plaintiff also asks the Court to direct the Clerk to provide the instructions needed to complete the electronic-filing access approved by the June 24 text order, including any party-request step the Clerk requires.
+
+No Defendant has appeared, and there is presently no opposing counsel with whom Plaintiff can confer regarding this motion.
+
+\singlespacing
+\vspace{0.25em}
+\noindent Respectfully submitted,
+
+\vspace{0.5em}
+\noindent Dated: \ServiceAccessMotionDate
+
+\vspace{0.5em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName, Plaintiff Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+
+\RenderServiceAccessExhibits
+
+\end{document}
