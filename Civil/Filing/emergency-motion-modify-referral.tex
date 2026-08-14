@@ -1,0 +1,229 @@
+% Emergency motion to modify the referral and obtain rulings needed for process to issue.
+% Compile from Civil/Injunction/ or repository root.
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\IfFileExists{extract-subexhibits.tex}{\input{extract-subexhibits.tex}}{\input{../../extract-subexhibits.tex}}
+\usepackage[hidelinks,bookmarksopen=true,bookmarksnumbered=false]{hyperref}
+
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{\input{../../signatures.tex}}
+
+\renewcommand{\FilingCivilActionNumber}{1:26-cv-01601-RP-DH}
+\renewcommand{\FilingDate}{August 14, 2026}
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setlength{\tabcolsep}{4pt}
+\setlist[enumerate]{leftmargin=0.50in,itemsep=0.10\baselineskip,topsep=0.18\baselineskip,parsep=0pt,partopsep=0pt}
+\doublespacing
+\emergencystretch=3em
+\pagestyle{plain}
+
+\titleformat{\section}{\normalfont\bfseries\centering}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.0em}{0.5em}
+
+\IfFileExists{Exhibits/Documents/Gmail - UT Admissions Decision Update - 2024-08-13.pdf}{%
+  \newcommand{\ReferralExhibitOneAPdf}{\detokenize{Exhibits/Documents/Gmail - UT Admissions Decision Update - 2024-08-13.pdf}}%
+  \newcommand{\ReferralExhibitOneBPdf}{\detokenize{Exhibits/Documents/Gmail - UT Official Admission Confirmation - 2024-08-14.pdf}}%
+  \newcommand{\ReferralExhibitOneCPdf}{\detokenize{Exhibits/Documents/Gmail - Virtual New Student Orientation Confirmation - 2024-08-15.pdf}}%
+  \newcommand{\ReferralExhibitOneDPdf}{\detokenize{Exhibits/Documents/Gmail - Orientation Advising Meeting Follow-up - 2024-08-20.pdf}}%
+  \newcommand{\ReferralExhibitOneEPdf}{\detokenize{Exhibits/Documents/Gmail - UT Registrar Fall 2024 Waitlist Update - 2024-08-21.pdf}}%
+}{%
+  \newcommand{\ReferralExhibitOneAPdf}{\detokenize{../../Exhibits/Documents/Gmail - UT Admissions Decision Update - 2024-08-13.pdf}}%
+  \newcommand{\ReferralExhibitOneBPdf}{\detokenize{../../Exhibits/Documents/Gmail - UT Official Admission Confirmation - 2024-08-14.pdf}}%
+  \newcommand{\ReferralExhibitOneCPdf}{\detokenize{../../Exhibits/Documents/Gmail - Virtual New Student Orientation Confirmation - 2024-08-15.pdf}}%
+  \newcommand{\ReferralExhibitOneDPdf}{\detokenize{../../Exhibits/Documents/Gmail - Orientation Advising Meeting Follow-up - 2024-08-20.pdf}}%
+  \newcommand{\ReferralExhibitOneEPdf}{\detokenize{../../Exhibits/Documents/Gmail - UT Registrar Fall 2024 Waitlist Update - 2024-08-21.pdf}}%
+}
+
+\newcommand{\ReferralExhibitPage}[5]{%
+  \PreviewSubExhibitPdfPage
+    {Exhibit 1-#1}
+    {referral-exhibit.1-#1}
+    {2}
+    {#3}
+    {#4}
+    {#5}
+    {exhibit}
+    {\bfseries\color{black}Exhibit 1-#1: #2 -- Page #3 of #4}%
+}
+\newcommand{\IncludeReferralExhibit}[4]{%
+  \foreach \exhibitpage in {1,...,#3}{%
+    \ReferralExhibitPage{#1}{#2}{\exhibitpage}{#3}{#4}%
+  }%
+}
+
+\newcommand{\Caption}{%
+  \begin{singlespace}
+  \begin{center}
+  \textbf{\FilingCourtName}\\
+  \textbf{\FilingDistrictName}\\
+  \textbf{\FilingDivisionName}
+  \end{center}
+
+  \vspace{0.45em}
+
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.95in}@{}}
+  \textbf{\FilingPlaintiffNameUpper,} Plaintiff, & \textbf{Civil Action No.} \FilingCivilActionNumber \\
+  \textbf{v.} & \\
+  \textbf{\FilingDefendantsInlineUpper,} Defendants. & \\
+  \end{tabularx}
+
+  \vspace{1.0em}
+  \end{singlespace}%
+}
+
+\begin{document}
+
+\Caption
+
+\begin{singlespace}
+\begin{center}
+\textbf{PLAINTIFF'S EMERGENCY MOTION TO MODIFY REFERRAL AND FOR}\\
+\textbf{PROMPT DISPOSITION OF DKT. 3 AND DKTS. 10--12}
+\end{center}
+\end{singlespace}
+
+Plaintiff \FilingPlaintiffName{} respectfully asks Judge Pitman to decide this Motion and modify the referrals of Dkt. 3 and Dkts. 10--12. Plaintiff asks the Court to decide his application to proceed in forma pauperis (``IFP'') and complete review under § 1915(e)(2). The Court can then decide whether process should issue and how service should proceed. Plaintiff requests prompt rulings or a date certain as notice and briefing must occur before the Court can consider a renewed preliminary-injunction motion concerning his Fall 2026 accommodations and enrollment.
+
+\section*{Background}
+
+Plaintiff's June 12, 2026 submission included his Complaint and IFP application together with proposed summonses. The Clerk entered the IFP application as Dkt. 3 on June 23. Dkt. 3 and the associated review under 28 U.S.C. § 1915(e)(2) remain pending. Issuance of process awaits those rulings.
+
+Plaintiff's preliminary-injunction motion was entered as Dkt. 8 on July 1. It sought to place Plaintiff's Fall 2026 accommodation and enrollment decisions with UT officials who had not participated in the October 2025 restrictions or the later decisions about Plaintiff's accommodations and enrollment. The motion requested briefing and a decision after service or other notice accepted under Rule 65(a)(1). The Court's July 2 text order denied Dkt. 8 for lack of a showing that Defendants had received notice of the motion or lawsuit. Plaintiff sought reconsideration in Dkt. 9. In its July 7 ruling on Dkt. 9, the Court stated that Plaintiff ``may refile his Motion for Preliminary Injunction at a later date once notice is given to opposing parties'' and may then request a briefing schedule.
+
+Plaintiff pursued the rulings needed for notice through three successive filings.
+
+First, Dkt. 10 requested issuance of the proposed summonses or identification of any remaining step required for issuance. The Clerk entered Dkt. 10 on July 6, and it was referred to Judge Howell on July 7.
+
+Second, Plaintiff executed Dkt. 11 on July 16 after Dkts. 3 and 10 remained unresolved. The Clerk entered Dkt. 11 on July 21. Judge Pitman's July 22 text order referred Dkt. 11 to Judge Howell ``for disposition'' under 28 U.S.C. § 636(b)(1)(A) and Rule 72. The order also cited Rule 1(c) of Appendix C to this Court's Local Rules.
+
+Third, Plaintiff filed Dkt. 12 on August 6 requesting rulings on IFP status and § 1915(e)(2) review. It also asked the Court to identify the claims and Defendants that may proceed and to enter the resulting orders for process and service. Dkt. 12 requested completion within five business days if practicable, with a prompt completion date for any remaining task. The notice of electronic filing states: ``Motions referred to Judge Dustin M. Howell.''
+
+The five business days requested in Dkt. 12 ended August 13. Dkt. 3 and its associated § 1915(e)(2) review remain pending, as do Dkts. 10--12. Issuance of process awaits those rulings.
+
+\section*{Basis for Relief}
+
+Judge Pitman's November 24, 2025 docket-management order directs referral of an IFP application for disposition. It also requires ``a prompt recommendation as to whether the case should be dismissed as frivolous pursuant to 28 U.S.C. § 1915(e).'' \textit{In re Court Docket Management for Austin Division}, Docket Management Order ¶ 2 (W.D. Tex. Nov. 24, 2025). Upon completion of those tasks, the Magistrate Judge must return the case to the District Court for further proceedings. \textit{Id.}
+
+Rule 72 likewise requires a magistrate judge to ``promptly conduct the required proceedings'' on referred nondispositive and dispositive matters. Fed. R. Civ. P. 72(a), (b)(1). Rule 72's objection procedures apply after an order or recommendation issues, and neither has issued here. Plaintiff therefore asks Judge Pitman to modify the referrals or direct their prompt completion. Appendix C provides that assignments to magistrate judges are made by court order or a judge's special designation and that a magistrate judge must conform to the requirements specified in an order of reference. W.D. Tex. App. C, R. 2(a), 3(a).
+
+These pretrial referrals arise under 28 U.S.C. § 636(b). Section 636(b)(1) permits a district judge to designate a magistrate judge to act on specified pretrial matters. The District Court remains responsible for final disposition of matters reserved for an Article III judge. The Fifth Circuit has explained that magistrate judges ``support, but cannot supplant, district judges.'' Final authority over substantial issues must remain with the district court. \textit{Lawson v. Stephens}, 900 F.3d 715, 716, 719--20 (5th Cir. 2018).
+
+Judge Pitman entered the docket-management and referral orders, so the requested modification falls within § 636(b).
+
+\section*{Expedited Consideration}
+
+Dkt. 12 identified the steps following § 1915(e)(2) review. After process issues and Defendants receive notice, a renewed preliminary-injunction motion would require briefing and a decision. UT Austin would then need time to implement any order before its Fall registration and add deadlines. Each step depends on disposition of Dkt. 3 and completion of the § 1915(e)(2) review.
+
+UT Austin's published Fall 2026 calendar sets August 20 registration for readmitted students, with classes beginning August 24. Undergraduate late registration continues through August 31 and permission-based registration through September 9. University of Texas at Austin, Office of the Registrar, \textit{2026--2027 Academic Calendar}; \textit{When to Register and Pay, Fall 2026} (last visited Aug. 13, 2026). The later registration periods leave time for administrative action after the ordinary readmission-application cutoff.
+
+Every additional business day before these rulings consumes time needed for summons issuance, service, renewed filing, briefing, decision, and implementation during the remaining Fall 2026 registration and add periods. Continued delay leaves less time to obtain practical relief before Plaintiff can present a renewed preliminary-injunction motion.
+
+Plaintiff's admission history provides a concrete example of mid-August administrative action. UT Admissions notified Plaintiff on August 13, 2024 that his admission decision had been updated. UT confirmed his Fall 2024 admission the next day. Plaintiff received confirmation of August orientation on August 15. After completing an advising meeting, his advisor stated that registration would occur on August 21. The Registrar then confirmed that Plaintiff had been added to a Fall 2024 course. Bennett Decl. ¶¶ 2--5, Exs. 1-A--1-E. That original transfer admission required new-student orientation and advising before registration. Plaintiff is now a returning senior and does not require incoming-transfer orientation. The 2024 chronology therefore demonstrates that UT completed a more administratively involved admission-and-registration process during the second half of August.
+
+The Fifth Circuit has explained that judicial delay must be evaluated in context as cases require action on different timetables; urgency and repeated date-specific requests inform that analysis. \textit{In re Fort Worth Chamber of Commerce}, 100 F.4th 528, 534--35 (5th Cir. 2024). That case involved a pending preliminary-injunction motion. Here, the unresolved IFP application and § 1915(e)(2) review control when process may issue. Defendants must then receive notice before Plaintiff may renew his preliminary-injunction motion.
+
+The July 7 ruling permits Plaintiff to renew his preliminary-injunction motion only after notice; because the unresolved threshold proceedings presently prevent that notice, Plaintiff cannot yet invoke the renewed preliminary-injunction procedure the Court prescribed. Further delay shortens the time available for briefing, decision, and implementation altogether.
+
+\section*{Requested Relief}
+
+Plaintiff respectfully requests the following relief:
+
+\begin{enumerate}[label=\Alph*.,leftmargin=0.52in,itemsep=0pt]
+\item Retain this Motion for disposition by Judge Pitman.
+\item Modify the referrals of Dkt. 3 and Dkts. 10--12 for disposition by Judge Pitman.
+\item Decide the IFP application, complete review under § 1915(e)(2), and enter any resulting process and service orders.
+\item Alternatively, leave the referrals in place and direct disposition of Dkts. 3 and 10--12 by August 18, 2026, if practicable. If disposition cannot be completed by then, identify at once any remaining task or submission required from Plaintiff and set the earliest practicable completion date that preserves time for service, an expedited response, a reply, and a ruling during the remaining Fall 2026 registration and add periods.
+\item Grant any further case-management relief needed to permit consideration of a renewed preliminary-injunction motion while UT Austin's remaining Fall 2026 registration and add procedures remain available.
+\end{enumerate}
+
+No Defendant has appeared or has counsel of record, so Plaintiff could not confer before filing.
+
+\singlespacing
+\vspace{-0.3em}
+\noindent Respectfully submitted,
+
+\vspace{0em}
+\noindent Dated: \FilingDate
+
+\vspace{0em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.55em]
+\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName, Plaintiff Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+
+\clearpage
+\singlespacing
+\Caption
+
+\phantomsection
+\hypertarget{referral-exhibit.1}{}%
+\label{referral-exhibit.1.start}%
+\pdfbookmark[2]{Exhibit 1: Declaration of Cory J. Bennett}{bookmark.referral-exhibit.1}%
+
+\begin{singlespace}
+\begin{center}
+\textbf{EXHIBIT 1}\\[0.35em]
+\textbf{DECLARATION OF CORY J. BENNETT}\\
+\textbf{IN SUPPORT OF EMERGENCY MOTION TO MODIFY REFERRAL}
+\end{center}
+\end{singlespace}
+
+I, Cory J. Bennett, declare as follows:
+
+\begin{enumerate}[itemsep=0.35\baselineskip]
+\item I am the Plaintiff in this action. I have personal knowledge of the facts stated in this declaration and can testify to them if the Court holds a hearing.
+
+\item On August 13 and 14, 2024, UT Austin notified me that my admission decision had been updated and then confirmed my Fall 2024 admission. True and correct copies are attached as Exhibits 1-A and 1-B.
+
+\item On August 15, 2024, UT Austin confirmed my registration for virtual orientation scheduled for August 19 through 21. A true and correct copy is attached as Exhibit 1-C.
+
+\item By August 20, I had completed an orientation advising meeting. My advisor's follow-up email stated that registration would occur on August 21. A true and correct copy is attached as Exhibit 1-D.
+
+\item On August 21, 2024, the UT Registrar confirmed that I had been added to a Fall 2024 course from a waitlist. A true and correct copy is attached as Exhibit 1-E.
+
+\item My Fall 2024 admission was an original transfer admission. The process included new-student orientation and advising before registration. I am now a returning senior and do not require new-student orientation or transfer-student advising before registering. The present readmission process therefore does not require the onboarding steps that preceded my Fall 2024 registration.
+\end{enumerate}
+
+\vspace{0.5em}
+I declare under penalty of perjury under the laws of the United States that the foregoing is true and correct.
+
+\vspace{0.5em}
+Executed on \FilingDate, in Austin, Texas.
+
+\singlespacing
+\vspace{-1.3em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.5em]
+\rule{3.2in}{0.4pt}\\
+\FilingPlaintiffName
+\label{referral-exhibit.1.end}%
+
+\clearpage
+\ApplyExhibitPreviewGeometry
+\setlength{\headwidth}{\textwidth}
+
+\IncludeReferralExhibit{A}{Admissions Decision Update (Aug. 13--16, 2024)}{1}{\ReferralExhibitOneAPdf}
+\IncludeReferralExhibit{B}{Official Admission Confirmation (Aug. 14, 2024)}{2}{\ReferralExhibitOneBPdf}
+\IncludeReferralExhibit{C}{Virtual Orientation Confirmation (Aug. 15, 2024)}{1}{\ReferralExhibitOneCPdf}
+\IncludeReferralExhibit{D}{Orientation Advising Follow-up (Aug. 20, 2024)}{2}{\ReferralExhibitOneDPdf}
+\IncludeReferralExhibit{E}{Registrar Course-Registration Confirmation (Aug. 21--22, 2024)}{1}{\ReferralExhibitOneEPdf}
+
+\end{document}
