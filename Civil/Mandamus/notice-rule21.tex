@@ -1,0 +1,114 @@
+% Notice to provide the trial-court judge a copy of the Fifth Circuit
+% mandamus petition pursuant to Fed. R. App. P. 21(a)(1).
+% Compile from the repository root or from Civil/Mandamus/.
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{pdfpages}
+\usepackage[hidelinks]{hyperref}
+
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{\input{../../signatures.tex}}
+
+\IfFileExists{Civil/Mandamus/petition-writ-mandamus.pdf}{%
+  \newcommand{\MandamusPetitionPdf}{Civil/Mandamus/petition-writ-mandamus.pdf}%
+}{% 
+  \newcommand{\MandamusPetitionPdf}{petition-writ-mandamus.pdf}%
+}
+
+\newcommand{\NoticeCaption}{%
+  \begin{singlespace}
+  \begin{center}
+  \textbf{UNITED STATES DISTRICT COURT}\\
+  \textbf{WESTERN DISTRICT OF TEXAS}\\
+  \textbf{AUSTIN DIVISION}
+  \end{center}
+
+  \vspace{0.45em}
+
+  \noindent
+  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X>{\raggedright\arraybackslash}p{2.95in}@{}}
+  \textbf{CORY J. BENNETT,} Plaintiff, & \textbf{Civil Action No.} 1:26-cv-01601-RP-DH \\
+  \textbf{v.} & \\
+  \textbf{THE UNIVERSITY OF TEXAS AT AUSTIN; EMILY HSIAO; JAMES G. SCOTT; SALLY K. RAGSDALE; JAY BARTROFF; KELLI BRADLEY; and JEFF GRAVES,} Defendants. & \\
+  \end{tabularx}
+
+  \vspace{1.0em}
+  \end{singlespace}%
+}
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\doublespacing
+\emergencystretch=3em
+\pagestyle{plain}
+
+\begin{document}
+
+\NoticeCaption
+
+\begin{singlespace}
+\begin{center}
+\textbf{NOTICE OF FILING OF PETITION FOR WRIT OF MANDAMUS
+AND PROVISION OF COPY PURSUANT TO FED. R. APP. P. 21(a)(1)}
+\end{center}
+\end{singlespace}
+
+Plaintiff Cory J. Bennett, proceeding pro se, gives notice that on August 19, 2026, he filed a Petition for Writ of Mandamus in the United States Court of Appeals for the Fifth Circuit concerning this action.
+
+A copy of the petition filed in the Fifth Circuit is attached to this Notice as \textbf{Exhibit A}. Plaintiff files this Notice and the attached petition to provide a copy to the Honorable Robert L. Pitman pursuant to Federal Rule of Appellate Procedure 21(a)(1).
+
+% \vspace{0.6em}
+% \noindent
+% No Defendant has been served with process or appeared, and no opposing counsel is of record.
+
+% \begin{center}
+% \textbf{This Notice requests no relief from the District Court.}
+% \end{center}
+
+\singlespacing
+\vspace{0.6em}
+\noindent Respectfully submitted,
+
+\vspace{0.25em}
+\noindent Dated: August 19, 2026
+
+\vspace{0.35em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+Cory J. Bennett, Plaintiff Pro Se\\
+6705 W Highway 290\\
+Ste 607 PMB \#268\\
+Austin, TX 78735-8407\\
+Telephone: (512) 630-5607\\
+Fax: None\\
+Email: \href{mailto:csquaredbennett@gmail.com}{csquaredbennett@gmail.com}
+
+\clearpage
+\begin{center}
+\textbf{CERTIFICATE OF SERVICE}
+\end{center}
+
+I certify that on August 19, 2026, I electronically filed this Notice and its attached Exhibit A through the Court's CM/ECF system. No Defendant has been served with process or appeared, and no opposing counsel is of record.
+
+\vspace{0.8em}
+\noindent\makebox[3.2in][l]{\SignatureFourOnLine[width=1.5in]}\\[-0.35em]
+\rule{3.2in}{0.4pt}\\
+Cory J. Bennett, Plaintiff Pro Se
+
+\clearpage
+\thispagestyle{empty}
+\begin{center}
+\vspace*{2.2in}
+{\LARGE\bfseries Exhibit A}\par
+\vspace{0.7em}
+{\large Petition for Writ of Mandamus filed in the Fifth Circuit}
+\end{center}
+
+\includepdf[pages=-]{\MandamusPetitionPdf}
+
+\end{document}

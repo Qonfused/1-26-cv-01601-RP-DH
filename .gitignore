@@ -9,9 +9,9 @@
 !.vscode/**
 !Civil/**
 
-# Private work-folder contents and index markdown files
+# Private work-folder contents and index files
 **/_*/**
-**/_*.md
+**/_*.*
 
 # OS/editor scratch files
 .DS_Store

@@ -1,0 +1,582 @@
+% Emergency petition for a writ of mandamus (Fifth Circuit original proceeding).
+% Compile from Civil/Mandamus/ or repository root:
+%   python3 _latex-workshop-build.py Civil/Mandamus/petition-writ-mandamus.tex
+%
+% Before filing:
+%   1. Confirm on the district docket that Dkts. 3 and 10--13 remain unresolved.
+%   2. Date the petition the day of filing (default: August 19, 2026).
+%   3. Call the Fifth Circuit clerk, (504) 310-7700, at 8:00 a.m. Central.
+%      Ask (a) how Rule 27.4 should be stated where no respondent has been
+%      served or appeared and no counsel is of record; (b) whether first-class
+%      mail is sufficient for FRAP 21 service in an emergency original
+%      proceeding, or they want a faster conventional method; and (c) how to
+%      submit the restricted financial affidavit. Do not initiate Rule 65
+%      notice or a pre-filing contact campaign. Adjust the emergency-motion
+%      certificate only if the clerk asks for different wording.
+%   4. File this petition (district-court papers are bound at the end) and the
+%      emergency motion. File the IFP motion only if the $600 fee is not paid.
+%   5. Do not manufacture service on defendants who have not been served or
+%      appeared and have no counsel of record. State that pre-service posture
+%      under Rule 21 and provide copies to the trial-court judges as directed
+%      or accepted by the Clerk. That is separate from Rule 4 service and
+%      Rule 65 notice.
+\documentclass[14pt]{extarticle}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{mathptmx}
+\usepackage{graphicx}
+\usepackage{microtype}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{pdfpages}
+\usepackage[hidelinks,bookmarksopen=true,bookmarksnumbered=false]{hyperref}
+
+\IfFileExists{filing-info.tex}{\input{filing-info.tex}}{\input{../../filing-info.tex}}
+\IfFileExists{signatures.tex}{\input{signatures.tex}}{\input{../../signatures.tex}}
+
+\renewcommand{\FilingCivilActionNumber}{1:26-cv-01601-RP-DH}
+\renewcommand{\FilingDate}{August 19, 2026}
+\newcommand{\PetitionWordCount}{2,427}
+
+\IfFileExists{Civil/Filing/motion-summons-efiling-instructions.pdf}{%
+  \newcommand{\MandamusDktTenPdf}{Civil/Filing/motion-summons-efiling-instructions.pdf}%
+  \newcommand{\MandamusDktElevenPdf}{Civil/Filing/motion-expedite-ifp-summons.pdf}%
+  \newcommand{\MandamusDktTwelvePdf}{Civil/Injunction/motion-ifp-screening-service.pdf}%
+  \newcommand{\MandamusDktThirteenPdf}{Civil/Filing/emergency-motion-modify-referral.pdf}%
+  \newcommand{\MandamusDktThirteenOrderPdf}{Civil/Filing/proposed-order-modify-referral.pdf}%
+  \newcommand{\MandamusDocketManagementOrderPdf}{Civil/Mandamus/Attachments/11.24.25-Docket-Management-Order-revised-to-remove-DII.pdf}%
+  \newcommand{\MandamusDktThreeRssPng}{Civil/Filing/Attachments/ECF TXWD/rss_outside_pl_redacted.png}%
+}{% 
+  \newcommand{\MandamusDktTenPdf}{../Filing/motion-summons-efiling-instructions.pdf}%
+  \newcommand{\MandamusDktElevenPdf}{../Filing/motion-expedite-ifp-summons.pdf}%
+  \newcommand{\MandamusDktTwelvePdf}{../Injunction/motion-ifp-screening-service.pdf}%
+  \newcommand{\MandamusDktThirteenPdf}{../Filing/emergency-motion-modify-referral.pdf}%
+  \newcommand{\MandamusDktThirteenOrderPdf}{../Filing/proposed-order-modify-referral.pdf}%
+  \newcommand{\MandamusDocketManagementOrderPdf}{Attachments/11.24.25-Docket-Management-Order-revised-to-remove-DII.pdf}%
+  \newcommand{\MandamusDktThreeRssPng}{../Filing/Attachments/ECF TXWD/rss_outside_pl_redacted.png}%
+}
+
+\setlength{\parindent}{0.5in}
+\setlength{\parskip}{0pt}
+\setlist[enumerate]{leftmargin=0.48in,itemsep=0.10\baselineskip,topsep=0.18\baselineskip,parsep=0pt,partopsep=0pt}
+\setlist[itemize]{leftmargin=0.48in,itemsep=0.08\baselineskip,topsep=0.12\baselineskip,parsep=0pt,partopsep=0pt}
+\doublespacing
+\emergencystretch=3em
+\pagestyle{plain}
+
+\titleformat{\section}{\normalfont\bfseries\centering}{}{0pt}{}
+\titlespacing*{\section}{0pt}{1.15em}{0.55em}
+\titleformat{\subsection}{\normalfont\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{0.85em}{0.35em}
+
+\newcommand{\PetitionCaption}{%
+  \begin{singlespace}
+  \begin{center}
+  \textbf{No.\ 26-\rule{0.85in}{0.4pt}}\\[0.85em]
+  \textbf{IN THE UNITED STATES COURT OF APPEALS}\\
+  \textbf{FOR THE FIFTH CIRCUIT}\\[1.05em]
+  \textbf{IN RE CORY J.\ BENNETT,}\\
+  Petitioner.\\[0.85em]
+  \rule{2.4in}{0.4pt}\\[0.7em]
+  On Emergency Petition for a Writ of Mandamus to the\\
+  United States District Court for the Western District of Texas,\\
+  Austin Division, No.\ 1:26-cv-01601-RP-DH\\
+  The Honorable Robert L.\ Pitman, United States District Judge\\
+  The Honorable Dustin M.\ Howell, United States Magistrate Judge\\[0.7em]
+  \rule{2.4in}{0.4pt}
+  \end{center}
+  \end{singlespace}%
+}
+
+\begin{document}
+
+\pagenumbering{roman}
+\thispagestyle{empty}
+\PetitionCaption
+\vspace{1.15em}
+\begin{singlespace}
+\begin{center}
+\textbf{EMERGENCY PETITION FOR WRIT OF MANDAMUS}
+\end{center}
+\end{singlespace}
+
+\vspace{0.85em}
+\begin{center}
+\begin{minipage}{3.35in}
+\raggedright
+Cory J.\ Bennett\\
+Petitioner Pro Se\\
+\FilingPlaintiffMailingLineOne\\
+\FilingPlaintiffMailingLineTwo\\
+\FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Email: \FilingPlaintiffEmail
+\end{minipage}
+\end{center}
+
+\vspace{1.4em}
+\begin{singlespace}
+\begin{center}
+\textit{Petitioner requests expedited consideration under Fifth Circuit Rule 27.3.}
+\end{center}
+\end{singlespace}
+
+\clearpage
+\section*{Certificate of Interested Persons}
+
+The undersigned petitioner certifies that the following listed persons and entities as described in the fourth sentence of Fifth Circuit Rule 28.2.1 have an interest in the outcome of this case. These representations are made to enable the judges of this Court to evaluate potential recusal or disqualification.
+
+\begin{singlespace}
+\noindent\textbf{Petitioner}\\
+Cory J.\ Bennett, Plaintiff pro se in \textit{Bennett v.\ The University of Texas at Austin et al.}, No.\ 1:26-cv-01601-RP-DH (W.D.\ Tex.)
+
+\vspace{0.55em}
+\noindent\textbf{Respondents / named defendants in the district-court action}\\
+The University of Texas at Austin\\
+Emily Hsiao\\
+James G.\ Scott\\
+Sally K.\ Ragsdale\\
+Jay Bartroff\\
+Kelli Bradley\\
+Jeff Graves
+
+\vspace{0.55em}
+\noindent\textbf{Trial-court judges}\\
+Hon.\ Robert L.\ Pitman, United States District Judge\\
+Hon.\ Dustin M.\ Howell, United States Magistrate Judge
+
+\vspace{0.55em}
+\noindent\textbf{Counsel}\\
+No defendant has appeared. No opposing counsel is of record. Petitioner is unrepresented.
+\end{singlespace}
+
+\vspace{0.9em}
+\noindent No publicly traded corporation is a party, and no publicly traded corporation has a financial interest in the outcome.
+
+\vspace{1.0em}
+\noindent s/ Cory J.\ Bennett\\
+Cory J.\ Bennett, Petitioner Pro Se
+
+\clearpage
+\section*{Table of Contents}
+
+\begin{singlespace}
+\noindent Certificate of Interested Persons \dotfill ii\\
+Table of Contents \dotfill iii\\
+Table of Authorities \dotfill iv\\
+Introduction \dotfill 1\\
+Relief Sought \dotfill 3\\
+Issue Presented \dotfill 4\\
+Jurisdiction and Authority \dotfill 4\\
+Statement of Facts \dotfill 5\\
+\hspace{1em}I.\ The Civil Action and Unresolved IFP Application \dotfill 5\\
+\hspace{1em}II.\ Preliminary-Injunction Proceedings and July~7 Notice Condition \dotfill 6\\
+\hspace{1em}III.\ Successive Requests for Process Rulings \dotfill 7\\
+\hspace{1em}IV.\ The August~14 Request to the District Judge \dotfill 7\\
+\hspace{1em}V.\ The Remaining Fall 2026 Window \dotfill 8\\
+Reasons the Writ Should Issue \dotfill 8\\
+\hspace{1em}I.\ Petitioner Has No Other Adequate Means to Obtain Relief \dotfill 8\\
+\hspace{1em}II.\ Clear and Indisputable Right to Exercise of Jurisdiction \dotfill 9\\
+\hspace{1em}III.\ Inaction Is Extinguishing the Underlying Remedy \dotfill 10\\
+Conclusion \dotfill 10\\
+Certificate Regarding Rule 21 Service \dotfill 12\\
+Certificate of Compliance \dotfill 13\\
+Declaration of Cory J.\ Bennett \dotfill 14\\
+Required Record Materials \dotfill 15\\
+\hspace{1em}Attachment 1 --- Official docket entries for Dkt.\ 3 and July~7 text order \dotfill 16\\
+\hspace{2em}Docket Chronology \dotfill 17\\
+\hspace{2em}Dkt.\ 3 --- application to proceed in forma pauperis \dotfill 18\\
+\hspace{2em}July~7 text order and August~14 docket text \dotfill 19\\
+\hspace{1em}Attachment 2 --- Dkt.\ 10 \dotfill 20\\
+\hspace{1em}Attachment 3 --- Dkt.\ 11 \dotfill 33\\
+\hspace{1em}Attachment 4 --- Dkt.\ 12 \dotfill 37\\
+\hspace{1em}Attachment 5 --- Dkt.\ 13 and proposed order \dotfill 43\\
+\hspace{1em}Attachment 6 --- November~24, 2025 Court Docket Management Order \dotfill 58
+\end{singlespace}
+
+\clearpage
+\section*{Table of Authorities}
+
+\begin{singlespace}
+\noindent\textbf{Cases}
+
+\vspace{0.35em}
+\noindent\textit{Allied Chemical Corp.\ v.\ Daiflon, Inc.},\\
+\hspace{1.2em}449 U.S.\ 33 (1980) \dotfill 8
+
+\noindent\textit{Cheney v.\ United States District Court},\\
+\hspace{1.2em}542 U.S.\ 367 (2004) \dotfill 5, 8
+
+\noindent\textit{Gibbs v.\ Jackson},\\
+\hspace{1.2em}92 F.4th 566 (5th Cir.\ 2024) \dotfill 9
+
+\noindent\textit{In re Fort Worth Chamber of Commerce},\\
+\hspace{1.2em}100 F.4th 528 (5th Cir.\ 2024) \dotfill 3, 10
+
+\noindent\textit{In re United States ex rel.\ Drummond},\\
+\hspace{1.2em}886 F.3d 448 (5th Cir.\ 2018) \dotfill 5, 9
+
+\noindent\textit{In re Volkswagen of America, Inc.},\\
+\hspace{1.2em}545 F.3d 304 (5th Cir.\ 2008) (en banc) \dotfill 5, 8
+
+\noindent\textit{Lawson v.\ Stephens},\\
+\hspace{1.2em}900 F.3d 715 (5th Cir.\ 2018) \dotfill 9
+
+\noindent\textit{Roche v.\ Evaporated Milk Ass'n},\\
+\hspace{1.2em}319 U.S.\ 21 (1943) \dotfill 4
+
+\noindent\textit{Whirlpool Corp.\ v.\ Shenzhen Sanlida Electrical Technology Co.},\\
+\hspace{1.2em}80 F.4th 536 (5th Cir.\ 2023) \dotfill 3, 6
+
+\noindent\textit{Will v.\ Calvert Fire Insurance Co.},\\
+\hspace{1.2em}437 U.S.\ 655 (1978) \dotfill 4, 9
+
+\vspace{0.55em}
+\noindent\textbf{Statutes}
+
+\vspace{0.35em}
+\noindent 28 U.S.C.\ \S\ 636(b) \dotfill 7, 10
+
+\noindent 28 U.S.C.\ \S\ 1651(a) \dotfill 4
+
+\noindent 28 U.S.C.\ \S\ 1915 \dotfill 1, 5, 9
+
+\vspace{0.55em}
+\noindent\textbf{Rules}
+
+\vspace{0.35em}
+\noindent Fed.\ R.\ App.\ P.\ 21 \dotfill 4, 5, 12
+
+\noindent Fed.\ R.\ Civ.\ P.\ 4 \dotfill 6, 9
+
+\noindent Fed.\ R.\ Civ.\ P.\ 65(a)(1) \dotfill 1, 3, 6
+
+\noindent Fed.\ R.\ Civ.\ P.\ 72 \dotfill 7, 8
+
+\noindent 5th Cir.\ R.\ 21 \dotfill 5
+
+\noindent 5th Cir.\ R.\ 27.3 \dotfill 4, 10
+
+\noindent W.D.\ Tex.\ App.\ C, R.\ 2(a), 3(a) \dotfill 7
+
+\vspace{0.55em}
+\noindent\textbf{Other Authorities}
+
+\vspace{0.35em}
+\noindent \textit{In re Court Docket Management for Austin Division},\\
+\hspace{1.2em}Docket Management Order (W.D.\ Tex.\ Nov.\ 24, 2025) \dotfill 7
+\end{singlespace}
+
+\clearpage
+\pagenumbering{arabic}
+\PetitionCaption
+\vspace{0.7em}
+\begin{singlespace}
+\begin{center}
+\textbf{EMERGENCY PETITION FOR WRIT OF MANDAMUS}
+\end{center}
+\end{singlespace}
+
+\section*{Introduction}
+
+Petitioner Cory J.\ Bennett respectfully petitions for a writ of mandamus directing the United States District Court for the Western District of Texas to decide his pending application to proceed in forma pauperis, complete screening review under 28 U.S.C.\ \S\ 1915(e)(2), and determine whether process may issue. Threshold \S\ 1915 review remains unresolved, no summons has issued, and no defendant has been served. As a consequence, Petitioner cannot access the court-directed service mechanism authorized by \S\ 1915(d) and Federal Rule of Civil Procedure 4(c)(3). Meanwhile, continued judicial inaction consumes the narrow window remaining to provide notice and obtain a ruling before Fall 2026 academic deadlines expire. The requested writ leaves all substantive determinations---including IFP eligibility, complaint screening, and any prospective injunctive relief---entirely to the district court.
+
+Petitioner initiated the underlying civil-rights action on June 12, 2026, filing the Complaint, an IFP application, and proposed summonses. The clerk docketed the IFP application as Dkt.\ 3 on June 23, 2026. The district court has not ruled on that application, completed \S\ 1915(e)(2) screening, or authorized process. No Defendant has appeared or received formal process.
+
+On June 29, 2026, Petitioner moved for a preliminary injunction regarding Fall 2026 accommodation procedures and course enrollment. The district court denied that motion on July 2, citing a lack of notice to Defendants. On July 7, the court denied reconsideration, stating that Petitioner may refile the preliminary-injunction motion once notice is given to opposing parties and may then propose a briefing schedule.
+
+Following that instruction, Petitioner pursued the threshold rulings required to secure court-issued process and formal service. Those motions were referred to the magistrate judge under general docket-management procedures. The magistrate judge has entered no order, report, or recommendation on Dkts.\ 3, 10, 11, or 12. On August 14, 2026, Petitioner filed Dkt.\ 13 asking the district judge to modify the referrals and expedite disposition. The electronic filing system automatically routed that motion back to the same magistrate judge. The clerk's Help Desk confirmed that all motions auto-refer to the magistrate judge, leaving the referral modification unaddressed by the district judge.
+
+Under UT Austin's published calendar, registration for readmitted students begins August 20, classes start August 24, late registration ends August 31, and permission-based adds close September 9. Without an IFP determination or \S\ 1915 screening, court-directed service under \S\ 1915(d) remains unavailable, consuming the remaining period required for Rule 65 notice, renewed briefing, and administrative implementation.
+
+Although delay-based mandamus often involves prolonged inaction spanning multiple years, the Fifth Circuit evaluates the significance of judicial delay in context, measuring the passage of time against the operational window of the requested remedy (\textit{In re Fort Worth Chamber of Commerce}, 100 F.4th 528, 534--35 (5th Cir.\ 2024)). Under Federal Rule of Civil Procedure 65(a)(1), notice to the adverse party is legally sufficient without perfected service of process (\textit{Whirlpool Corp.\ v.\ Shenzhen Sanlida Elec.\ Tech.\ Co.}, 80 F.4th 536, 542--43 (5th Cir.\ 2023)). Nevertheless, withholding threshold IFP screening stalls the statutory service mechanism guaranteed to indigent litigants, foreclosing practical access to the preliminary-injunction procedure the district court prescribed.
+
+\section*{Relief Sought}
+
+Petitioner requests a writ directing the district court to:
+
+\begin{enumerate}
+\item Adjudicate Petitioner's application to proceed in forma pauperis (Dkt.\ 3);
+\item Complete screening review under 28 U.S.C.\ \S\ 1915(e)(2);
+\item Resolve Dkts.\ 10 through 13 to determine issuance of process and service; and
+\item Enter any resulting case-management orders necessary for the action to proceed.
+\end{enumerate}
+
+Petitioner seeks solely to compel the district court to make these threshold determinations, leaving the substantive outcome of each matter to the trial court's discretion.
+
+Since UT Austin's Fall 2026 registration and add periods are underway or imminent, Petitioner also requests expedited consideration under Fifth Circuit Rule 27.3. A companion emergency motion accompanies this petition.
+
+\section*{Issue Presented}
+
+Whether mandamus is warranted when threshold IFP and \S\ 1915(e)(2) screening remain unresolved; the district court conditioned renewal of a preliminary-injunction motion on notice to adverse parties; Petitioner repeatedly requested disposition of threshold service motions without receiving a ruling; the motion asking the district judge to modify the referral was automatically rerouted to the magistrate judge; and continued inaction threatens to extinguish the operational window for Fall 2026 academic relief.
+
+\section*{Jurisdiction and Authority}
+
+This Court possesses jurisdiction under the All Writs Act, 28 U.S.C.\ \S\ 1651(a), and Federal Rule of Appellate Procedure 21. Mandamus lies to confine an inferior court to the lawful exercise of its jurisdiction or to compel the performance of a clear judicial duty (\textit{Roche v.\ Evaporated Milk Ass'n}, 319 U.S.\ 21, 26 (1943); \textit{Will v.\ Calvert Fire Ins.\ Co.}, 437 U.S.\ 655, 661--62 (1978); \textit{In re United States ex rel.\ Drummond}, 886 F.3d 448, 450 (5th Cir.\ 2018)).
+
+Mandamus relief requires establishing that (1)~no other adequate means exist to obtain relief; (2)~the right to the writ is clear and indisputable; and (3)~issuance of the writ is appropriate under the circumstances (\textit{Cheney v.\ U.S.\ Dist.\ Court}, 542 U.S.\ 367, 380--81 (2004); \textit{In re Volkswagen of Am., Inc.}, 545 F.3d 304, 311 (5th Cir.\ 2008) (en banc)).
+
+Fifth Circuit Rule 21 requires a certificate of interested persons and copies of the supporting district-court papers attached to the petition. No opposing memoranda exist, no Defendant has appeared, and the district court has issued no written opinion or order explaining the delay.
+
+\section*{Statement of Facts}
+
+\subsection*{I.\ The Civil Action and Unresolved IFP Application}
+
+Petitioner initiated this action on June 12, 2026, asserting claims under Title II of the Americans with Disabilities Act, Section 504 of the Rehabilitation Act, and 42 U.S.C.\ \S\ 1983 against The University of Texas at Austin and six university officials. The initiating filing included an application to proceed in forma pauperis and proposed summonses. The clerk docketed the IFP application as Dkt.\ 3 on June 23, 2026. On June 26, the court entered an order restricting remote public access to the unredacted financial affidavit but did not rule on the application or complete \S\ 1915(e)(2) screening. Dkt.\ 3 remains pending, no summons has issued, and no defendant has been served or appeared.
+
+\subsection*{II.\ Preliminary-Injunction Proceedings and the July 7 Notice Condition}
+
+Petitioner executed a motion for preliminary injunction on June 29, 2026 (docketed as Dkt.\ 8 on July 1), seeking to assign Fall 2026 accommodation and enrollment decisions to uninvolved university officials. Dkt.\ 8 requested a briefing schedule following service or another recognized form of notice under Rule 65(a)(1). On July 2, the district court denied the motion for lack of notice. On July 7, the court denied reconsideration, entering a text order stating:
+
+\begin{quote}
+``Plaintiff acknowledges that notice is required before the Court can grant a preliminary injunction under Rule 65(a)(1), but asks the Court to (1) withhold ruling on his Motion for Preliminary Injunction, (Dkt.\ 8), until he effectuates notice on Defendants and (2) set a briefing schedule tied to the date Plaintiff gives that notice. The Court declines to grant Plaintiff's request and cannot set deadlines in the manner Plaintiff requests. Plaintiff may refile his Motion for Preliminary Injunction at a later date once notice is given to opposing parties. In that Motion, Plaintiff may request a briefing schedule for the Court's consideration.''
+\end{quote}
+
+Under Federal Rule of Civil Procedure 65(a)(1), notice to the adverse party is legally sufficient without perfected Rule 4 service (\textit{Whirlpool}, 80 F.4th at 542--43). However, the district court's July 7 order tied preliminary-injunction proceedings directly to adverse notice while withholding the IFP screening required to unlock court-directed process under 28 U.S.C.\ \S\ 1915(d). This deadlock leaves threshold service stalled while the operational window for effective Fall 2026 relief closes.
+
+\subsection*{III.\ Successive Requests for Process Rulings}
+
+Petitioner methodically pursued the rulings required to effect service:
+
+\begin{itemize}
+\item \textbf{Dkt.\ 10 (filed July 6):} Requested summons issuance or identification of remaining prerequisites. Referred to Magistrate Judge Howell on July 7 pursuant to the division's general docket-management order.
+\item \textbf{Dkt.\ 11 (filed July 21):} Requested emergency expedition of Dkts.\ 3 and 10. Referred by District Judge Pitman to Magistrate Judge Howell for disposition on July 22.
+\item \textbf{Dkt.\ 12 (filed August 6):} Requested prompt IFP disposition, \S\ 1915(e)(2) screening, and service orders within five business days (by August 13) or a date certain. Automatically referred to Magistrate Judge Howell.
+\end{itemize}
+
+The five-business-day request in Dkt.\ 12 expired on August 13 without action. The magistrate judge has entered no order, report, or recommendation on any referred motion.
+
+\subsection*{IV.\ The August 14 Request to the District Judge}
+
+On August 14, 2026, Petitioner filed Dkt.\ 13, formally asking District Judge Pitman to modify the referrals, withdraw the pending motions, and dispose of Dkts.\ 3 and 10--12 by August 18. Dkt.\ 13 explained that Rule 72 objections remain unavailable because no report or order has been entered, invoking the district judge's authority under 28 U.S.C.\ \S\ 636(b).
+
+Upon filing, CM/ECF automatically routed Dkt.\ 13 back to Magistrate Judge Howell. The ECF Help Desk confirmed that all filings auto-refer to the magistrate judge, who must manually forward motions to the district judge. Dkt.\ 13 has generated no ruling, timetable, or referral modification.
+
+\subsection*{V.\ The Remaining Fall 2026 Window}
+
+UT Austin's published academic schedule establishes four critical dates: readmission registration on August 20, the start of classes on August 24, the close of late registration on August 31, and the final deadline for permission-based adds on September 9. Every additional day of inaction compresses the time available for summons issuance, notice, response briefing, judicial decision, and university administrative execution.
+
+\section*{Reasons the Writ Should Issue}
+
+Mandamus is a drastic remedy reserved for extraordinary circumstances (\textit{Allied Chem.\ Corp.\ v.\ Daiflon, Inc.}, 449 U.S.\ 33, 34--35 (1980)). The writ issues when the petitioner has no other adequate means to attain relief, the right to the writ is clear and indisputable, and the court determines that issuance is appropriate under the circumstances (\textit{Cheney}, 542 U.S.\ at 380--81; \textit{In re Volkswagen of Am., Inc.}, 545 F.3d 304, 311 (5th Cir.\ 2008) (en banc)).
+
+\subsection*{I.\ Petitioner Has No Other Adequate Means to Obtain Relief}
+
+No appealable order or magistrate recommendation exists from which Petitioner can seek review under 28 U.S.C.\ \S\ 1291 or Federal Rule of Civil Procedure 72. Petitioner exhausted all district-court mechanisms by filing Dkt.\ 10 (summons motion), Dkt.\ 11 (expedition motion), Dkt.\ 12 (screening timetable request), and Dkt.\ 13 (motion to modify referral). Because an automated CM/ECF referral prevents Dkt.\ 13 from reaching the district judge, ordinary trial-court channels are deadlocked. An appeal following final judgment cannot remediate an academic semester that has already passed.
+
+\subsection*{II.\ Petitioner Has a Clear and Indisputable Right to the Exercise of Jurisdiction}
+
+Mandamus is appropriate when a trial court fails to adjudicate matters properly presented to it (\textit{Will v.\ Calvert Fire Ins.\ Co.}, 437 U.S.\ 655, 661--62 (1978); \textit{In re United States ex rel.\ Drummond}, 886 F.3d 448, 449--50 (5th Cir.\ 2018)). Petitioner seeks solely to compel the performance of mandatory statutory duties:
+
+First, 28 U.S.C.\ \S\ 1915(a) requires evaluating financial eligibility based on economic criteria (\textit{Gibbs v.\ Jackson}, 92 F.4th 566, 569 (5th Cir.\ 2024)), while \S\ 1915(e)(2) mandates threshold screening. The district court has executed neither obligation.
+
+Second, once IFP status is granted and a claim survives screening, 28 U.S.C.\ \S\ 1915(d) and Federal Rule of Civil Procedure 4(c)(3) direct court officers to issue process and effect service. Withholding screening deprives an indigent litigant of this statutory mechanism.
+
+Third, magistrate judges support but cannot supplant Article III judges (\textit{Lawson v.\ Stephens}, 900 F.3d 715, 716 (5th Cir.\ 2018)). The district judge retains ultimate authority over referred matters and possesses the continuous duty to manage referrals under 28 U.S.C.\ \S\ 636(b). Continued multi-week silence in the face of imminent external deadlines constitutes a failure to exercise prescribed jurisdiction.
+
+\subsection*{III.\ Inaction Is Extinguishing the Underlying Remedy}
+
+The Fifth Circuit has established that judicial delay must be evaluated against the operational timeline of the requested relief (\textit{In re Fort Worth Chamber of Commerce}, 100 F.4th 528, 534--35 (5th Cir.\ 2024)). When repeated, date-specific requests identify an impending external cutoff, procedural delay that consumes the remaining window is functionally equivalent to an operative denial.
+
+Petitioner alerted the court to UT Austin's Fall 2026 deadlines in Dkts.\ 8, 11, 12, and 13, requesting specific disposition dates to preserve adequate time for briefing and service. Inaction has reduced the operational window from 56 days when Dkt.\ 8 was executed to just one day before readmission registration begins on August 20 and five days before classes commence on August 24. Mandamus is necessary to compel the prompt completion of threshold IFP review so that the preliminary-injunction procedure authorized on July 7 remains practically viable.
+
+\section*{Conclusion}
+
+\enlargethispage{\baselineskip}
+Petitioner respectfully requests that this Court issue a writ of mandamus directing the district court to promptly rule on Petitioner's IFP application (Dkt.\ 3), complete screening under 28 U.S.C.\ \S\ 1915(e)(2), resolve Dkts.\ 10 through 13 as necessary to determine issuance of process, and enter any resulting orders. Given the impending academic deadlines, Petitioner requests expedited consideration under Fifth Circuit Rule 27.3.
+
+\singlespacing
+\vspace{0.6em}
+\noindent Respectfully submitted,
+
+\vspace{0.15em}
+\noindent Dated: \FilingDate
+
+\vspace{0.15em}
+\noindent s/ Cory J.\ Bennett\\
+Cory J.\ Bennett, Petitioner Pro Se\\
+Mailing Address: \FilingPlaintiffMailingLineOne\\
+\phantom{Mailing Address: }\FilingPlaintiffMailingLineTwo\\
+City/State/ZIP: \FilingPlaintiffMailingCityStateZip\\
+Telephone: \FilingPlaintiffTelephone\\
+Fax: \FilingPlaintiffFax\\
+Email: \FilingPlaintiffEmail
+
+\clearpage
+\section*{Certificate Regarding Rule 21 Service}
+
+I certify that on \FilingDate, I filed this Emergency Petition for Writ of Mandamus, including the attached district-court papers required by Federal Rule of Appellate Procedure 21 and Fifth Circuit Rule 21, together with the accompanying Emergency Motion for Expedited Consideration, with the Clerk of the United States Court of Appeals for the Fifth Circuit.
+
+Because no Defendant has been served with process or entered an appearance in the district-court action, and no opposing counsel is of record, service cannot be effected on adverse parties below. Pursuant to Federal Rule of Appellate Procedure 21(a)(1), copies of this petition and all accompanying filings have been served directly on the trial-court judges.
+
+\vspace{0.9em}
+\noindent s/ Cory J.\ Bennett\\
+Cory J.\ Bennett, Petitioner Pro Se
+
+\clearpage
+\section*{Certificate of Compliance}
+
+This petition complies with the type-volume limitation of Federal Rule of Appellate Procedure 21(d) because, excluding the parts of the document exempted by Rule 32(f) and Fifth Circuit Rule 21, it contains \PetitionWordCount{} words. A computer-produced petition may not exceed 7,800 words.
+
+This petition complies with the typeface requirements of Federal Rule of Appellate Procedure 32(a)(5) and the type-style requirements of Rule 32(a)(6), as made applicable by Rule 32(c)(2), because it has been prepared in a proportionally spaced typeface using \LaTeX\ in 14-point Times.
+
+\vspace{0.9em}
+\noindent s/ Cory J.\ Bennett\\
+Cory J.\ Bennett, Petitioner Pro Se
+
+\clearpage
+\section*{Declaration of Cory J.\ Bennett}
+
+I, Cory J.\ Bennett, declare as follows:
+
+\begin{enumerate}
+\item I am the Petitioner. I am the Plaintiff in \textit{Bennett v.\ The University of Texas at Austin et al.}, No.\ 1:26-cv-01601-RP-DH (W.D.\ Tex.). I have personal knowledge of the facts stated in this declaration.
+
+\item I filed the Complaint, an application to proceed in forma pauperis, and proposed summonses on June 12, 2026. As of the date of this declaration, the district court has not decided the IFP application, has not completed review under 28 U.S.C.\ \S\ 1915(e)(2), and has not issued process. No Defendant has been served. No Defendant has appeared.
+
+\item I filed Dkt.\ 13 on August 14, 2026, at 10:04 a.m. The notice of electronic filing states that the motion seeks consideration by District Judge Robert L.\ Pitman and modification of the referrals of Dkt.\ 3 and Dkts.\ 10--12, and that the motion was referred to Judge Dustin M.\ Howell. As of the date of this declaration, the district court has entered no order on Dkt.\ 13 and has identified no remaining task required of me.
+
+\item I have reviewed UT Austin's published Fall 2026 registration and academic calendar. Registration for readmitted students is August 20, 2026. Classes begin August 24, 2026. Undergraduate late registration continues through August 31, 2026. Additional permission-based registration continues through September 9, 2026.
+\end{enumerate}
+
+\vspace{0.45em}
+I declare under penalty of perjury under the laws of the United States that the foregoing is true and correct.
+
+\vspace{0.45em}
+Executed on \FilingDate, in Austin, Texas.
+
+\vspace{0.7em}
+\noindent s/ Cory J.\ Bennett
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Required Record Materials}\\[0.7em]
+{\large Fed.\ R.\ App.\ P.\ 21(a)(2)(C); 5th Cir.\ R.\ 21}
+\end{center}
+
+\vspace{1.1em}
+\noindent These papers are attached to the petition.
+
+\vspace{0.5em}
+\begin{singlespace}
+\begin{enumerate}
+\item Official notices of electronic filing for Dkt.\ 3 and the July 7 text order, with a short chronology
+\item Dkt.\ 10 --- Motion for issuance of summonses
+\item Dkt.\ 11 --- Emergency motion to expedite disposition of Dkts.\ 3 and 10
+\item Dkt.\ 12 --- Supplemental motion for prompt IFP and \S\ 1915 review
+\item Dkt.\ 13 --- Emergency motion to modify referral, with proposed order
+\item November 24, 2025 Court Docket Management Order for the Austin Division
+\end{enumerate}
+\end{singlespace}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Attachment 1}\\[0.5em]
+{\large Official docket entries for Dkt.\ 3 and the July 7 text order}
+\end{center}
+
+\clearpage
+\section*{Docket Chronology}
+
+\begin{singlespace}
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{1.45in}X@{}}
+\hline
+\textbf{Date} & \textbf{Event} \\
+\hline
+June 12, 2026 & Petitioner submits the Complaint, IFP application, and proposed summonses. \\
+June 23, 2026 & Clerk enters the IFP application as Dkt.\ 3. \\
+July 1, 2026 & Clerk enters the preliminary-injunction motion as Dkt.\ 8. \\
+July 2, 2026 & Text order denies Dkt.\ 8 for lack of notice to Defendants. \\
+July 6, 2026 & Clerk enters Dkt.\ 9 (reconsideration) and Dkt.\ 10 (summonses). \\
+July 7, 2026 & Text order denies Dkt.\ 9 and states that Petitioner may refile the preliminary-injunction motion once notice is given. Dkt.\ 10 is referred to Judge Howell. \\
+July 21, 2026 & Clerk enters Dkt.\ 11. \\
+July 22, 2026 & Judge Pitman refers Dkt.\ 11 to Judge Howell for disposition. \\
+August 6, 2026 & Petitioner files Dkt.\ 12. Notice of electronic filing: ``Motions referred to Judge Dustin M.\ Howell.'' \\
+August 13, 2026 & Five-business-day period requested in Dkt.\ 12 expires. No ruling issues. \\
+August 14, 2026 & Petitioner files Dkt.\ 13 at 10:04 a.m. The docket text seeks consideration by Judge Pitman and states: ``Motions referred to Judge Dustin M.\ Howell.'' \\
+\hline
+\end{tabularx}
+\end{singlespace}
+
+\vspace{0.8em}
+\section*{Dkt.\ 3 --- application to proceed in forma pauperis}
+
+The clerk entered Petitioner's application to proceed in forma pauperis as Dkt.\ 3 on June 23, 2026. The public RSS capture attached below, made the same day, lists the ``Proceed In Forma Pauperis'' entry for Document 3. The district court later restricted remote access to the unredacted financial affidavit. It has not granted or denied Dkt.\ 3. No summons has issued.
+
+\vspace{0.6em}
+\noindent\makebox[\textwidth][c]{\includegraphics[width=1.13\textwidth,trim=0.3in 0.4in 0.3in 0.9in,clip]{\MandamusDktThreeRssPng}}
+
+\vspace{0.8em}
+\section*{July 7, 2026 text order --- official notice of electronic filing}
+
+The following transaction was entered on July 7, 2026, at 3:58 p.m.\ CDT, in No.\ 1:26-cv-01601-RP-DH. No document is attached. The official docket text states:
+
+\begin{quote}
+Text Order DENYING [9] Motion for Reconsideration entered by Judge Robert Pitman. Plaintiff acknowledges that notice is required before the Court can grant a preliminary injunction under Rule 65(a)(1), but asks the Court to (1) withhold ruling on his Motion for Preliminary Injunction, (Dkt.\ 8), until he effectuates notice on Defendants and (2) set a briefing schedule tied to the date Plaintiff gives that notice. The Court declines to grant Plaintiff's request and cannot set deadlines in the manner Plaintiff requests. Plaintiff may refile his Motion for Preliminary Injunction at a later date once notice is given to opposing parties. In that Motion, Plaintiff may request a briefing schedule for the Court's consideration. (This is a text-only entry generated by the court. There is no document associated with this entry.) (cslc)
+\end{quote}
+
+\section*{August 14, 2026 docket text for Dkt.\ 13}
+
+The notice of electronic filing for Dkt.\ 13 states, in substance:
+
+\begin{quote}
+MOTION to Expedite \textit{Consideration by District Judge Robert L.\ Pitman}, MOTION \textit{for District Judge Robert L.\ Pitman to Modify Referral and for Prompt Disposition of Dkt.\ 3 and Dkts.\ 10-12} \ldots\ Motions referred to Judge Dustin M.\ Howell. (Bennett, Cory)
+\end{quote}
+
+The transaction was entered on August 14, 2026, at 10:04 a.m.\ CDT.
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Attachment 2}\\[0.5em]
+{\large Dkt.\ 10}
+\end{center}
+\includepdf[pages=-]{\MandamusDktTenPdf}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Attachment 3}\\[0.5em]
+{\large Dkt.\ 11}
+\end{center}
+\includepdf[pages=-]{\MandamusDktElevenPdf}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Attachment 4}\\[0.5em]
+{\large Dkt.\ 12}
+\end{center}
+\includepdf[pages=-]{\MandamusDktTwelvePdf}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Attachment 5}\\[0.5em]
+{\large Dkt.\ 13}
+\end{center}
+\includepdf[pages=-]{\MandamusDktThirteenPdf}
+\includepdf[pages=-]{\MandamusDktThirteenOrderPdf}
+
+\clearpage
+\thispagestyle{empty}
+\vspace*{2.2in}
+\begin{center}
+{\LARGE\bfseries Attachment 6}\\[0.5em]
+{\large November 24, 2025 Court Docket Management Order}
+\end{center}
+\includepdf[pages=-]{\MandamusDocketManagementOrderPdf}
+
+\end{document}

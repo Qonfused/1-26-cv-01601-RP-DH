@@ -32,6 +32,7 @@ This repository contains public filing materials for the case as it develops. Of
 - `motion-restrict-ifp-affidavit.{tex,pdf}`
 - `permission-file-electronically.{tex,pdf}`
 - `proposed-summons.{tex,pdf}`
+- (and later filings)
 
 `Civil/Filing/Reference/` contains court forms, manuals, and complaint-review materials used while preparing the filing package.
 
@@ -45,6 +46,7 @@ The root directory contains shared build files:
 - `_redactions.py`: applies literal text redactions to generated exhibit PDFs.
 - `_extract-signatures.py`: extracts cropped signature PDFs from a source signature page.
 - `_clean-latex-artifacts.py`: removes LaTeX auxiliary files after builds.
+- `_count-appellate-words.py`: recounts the Fifth Circuit mandamus papers with `texcount` and writes the FRAP 32(g) certificate macros.
 - `.vscode/settings.json` and `latexmkrc`: editor/build configuration.
 
 `LICENSE` contains the BSD 3-Clause text for reusable tooling files marked with `SPDX-License-Identifier: BSD-3-Clause`.
